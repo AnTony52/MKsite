@@ -1,0 +1,65 @@
+footer {
+    background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
+    padding-top: 104px;
+    color: $white-cl;
+    .container{
+        max-width: $container-width;
+        margin: 0 auto;
+        .footer-menu{
+            ul{
+                list-style: none;
+                li{
+                    display: inline-block;
+                    min-width: 104px;
+                    font-family: 'GothicPro-Regular';
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight: 400;
+                    &.active{
+                        a{
+                            color: $text-gray-cl;
+                        }
+                    }
+                    a{
+                        color: $white-cl;
+                        &:hover{
+                            color: $text-gray-cl;
+                        }
+
+                    }                    
+                }
+            }
+            &:last-child{
+                padding-top: 32px;
+                padding-bottom: 104px;
+                ul{
+                    li{
+                        min-width: 160px;
+                        a{
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .info-company{
+            font-family: 'GothicPro-Regular';
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 400;
+            padding-top: 200px;
+        }
+    }
+    @include desktop {
+
+    }
+    @include tablet {
+
+    }
+    @include mobile {
+
+    }
+    @include mobile-xxs {
+
+    }
+}
