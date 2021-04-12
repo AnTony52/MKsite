@@ -3,14 +3,45 @@ a {
     text-decoration: none;
     display: block;
 }
+
 img {
     display: block;
     margin: auto;
     max-width: 100%;
 }
+
 strong {
     font-family: bb;
 }
 
+.circle-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    pointer-events: none;
+    border-radius: 50%;
+}
 
+.circle-cursor--inner {
+    $cursor-radius: 5px;
+    width: $cursor-radius;
+    height: $cursor-radius;
+    left: -$cursor-radius/2;
+    top: -$cursor-radius/2;
+    z-index: 11000;
+    background-color: darkred;
+    display: none;
 
+}
+
+.circle-cursor--outer {
+    // display: none;
+    // mix-blend-mode: difference;
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid darkred;
+    border: 1px solid #000;
+    z-index: 12000;
+}
