@@ -16,7 +16,6 @@ body {
     margin: 0 auto;
     @include text($fz-text, 'happy-time-Regular', $lh-text, $text-cl, none);
     background: $main-bg-cl;    
-    /*    overflow: hidden;*/
     position: relative;
     @include custom-scrollbar();
     .mainwrapper {
