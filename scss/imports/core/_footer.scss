@@ -1,11 +1,12 @@
 footer {
     // background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
-    height: $footer-height;
+    // height: $footer-height;
+    // height: 100vh;
     background-color: #0F1C2D;
     padding-top: 48px;
     padding-top: 80px;
     color: $white-cl;
-    position: fixed;
+    position: relative;
     z-index: 0;
     bottom: 0;
     left: 0;
