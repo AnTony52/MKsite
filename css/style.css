@@ -220,6 +220,13 @@ table {
   -moz-appearance: none;
   -webkit-appearance: none; }
 
+html, #banner, #main {
+  background-repeat: repeat-x;
+  background-position: left top;
+  background-attachment: scroll;
+  background-size: auto;
+  background-color: #fff; }
+
 html,
 body {
   width: 100%;
@@ -232,7 +239,6 @@ body {
   color: #222;
   text-transform: none;
   background: #B3DCEB;
-  /*    overflow: hidden;*/
   position: relative; }
   html .mainwrapper,
   body .mainwrapper {
@@ -263,20 +269,29 @@ img {
 strong {
   font-family: bb; }
 
-.-lv1 {
-  font-size: 100px;
-  font-family: b;
-  line-height: 100px;
-  color: #fff;
-  text-transform: none;
-  font-weight: normal;
-  margin: 0; }
-  .-lv1 a {
-    font-size: 100px;
-    font-family: g;
-    line-height: 100px;
-    color: #fff;
-    text-transform: none; }
+.circle-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  pointer-events: none;
+  border-radius: 50%; }
+
+.circle-cursor--inner {
+  width: 5px;
+  height: 5px;
+  left: -2.5px;
+  top: -2.5px;
+  z-index: 11000;
+  background-color: darkred;
+  display: none; }
+
+.circle-cursor--outer {
+  width: 30px;
+  height: 30px;
+  border: 1px solid darkred;
+  border: 1px solid #000;
+  z-index: 12000; }
 
 body {
   margin: 0px 0px 0px 0px; }
@@ -2907,26 +2922,28 @@ body.compensate-for-scrollbar {
   padding: 0; }
 
 .fancybox-button {
-  background: rgba(30, 30, 30, 0.6);
+  background: #fff;
   border: 0;
   border-radius: 0;
   box-shadow: none;
   cursor: pointer;
   display: inline-block;
-  height: 44px;
+  height: 104px;
   margin: 0;
   padding: 10px;
   position: relative;
   transition: color .2s;
   vertical-align: top;
   visibility: inherit;
-  width: 44px; }
+  width: 104px;
+  margin-top: 60px;
+  transform: translateX(-300px); }
 
 .fancybox-button, .fancybox-button:link, .fancybox-button:visited {
   color: #ccc; }
 
 .fancybox-button:hover {
-  color: #fff; }
+  color: #333; }
 
 .fancybox-button:focus {
   outline: none; }
@@ -3352,22 +3369,118 @@ body.compensate-for-scrollbar {
 /* Navigation, header, footer*/
 header {
   position: fixed;
-  top: 24px;
+  top: 0;
   left: 0;
+  z-index: 99;
   width: 100%; }
-  header .col-md-2:last-child {
-    padding-top: 40px; }
-  header .col-md-8 {
-    padding-top: 40px; }
-  header .hamburger .hamburger-box .hamburger-inner {
-    background-color: #fff; }
-    header .hamburger .hamburger-box .hamburger-inner:before, header .hamburger .hamburger-box .hamburger-inner:after {
-      background-color: #fff; }
+  header .container {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    width: 100%;
+    padding-top: 30px; }
+    header .container [title="MEKONG"] {
+      margin-right: auto;
+      margin-left: 100px; }
+    header .container .right-side {
+      display: -webkit-box;
+      /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;
+      /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;
+      /* TWEENER - IE 10 */
+      display: -webkit-flex;
+      /* NEW - Chrome */
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      margin-right: 100px; }
+      header .container .right-side #lang {
+        padding-top: 8px;
+        align-items: center;
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;
+        /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Chrome */
+        display: flex;
+        /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        width: 120px;
+        margin-right: 16px; }
+        header .container .right-side #lang a {
+          letter-spacing: 0.1px;
+          font-weight: bold;
+          font-family: 'GothicPro-Regular';
+          font-size: 12px;
+          color: #fff; }
+  header .hamburger {
+    padding: 0; }
+    header .hamburger .hamburger-box .hamburger-inner:after {
+      opacity: 0; }
+    header .hamburger .hamburger-box .hamburger-inner,
+    header .hamburger .hamburger-box .hamburger-inner:after,
+    header .hamburger .hamburger-box .hamburger-inner:before {
+      background-color: #fff;
+      height: 2px; }
+    header .hamburger:hover .hamburger-inner {
+      transform: scaleX(0.8);
+      -webkit-transform: scaleX(0.8);
+      -o-transform: scaleX(0.8);
+      transition: 0.3s ease;
+      -webkit-transition: 0.3s ease;
+      -o-transition: 0.3s ease; }
+
+#banner {
+  position: relative;
+  z-index: 11; }
+
+.get-in-touch {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  z-index: 99;
+  overflow: hidden;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%); }
+  .get-in-touch img {
+    width: 200px; }
+  .get-in-touch .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%); }
 
 footer {
   background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
   padding-top: 104px;
-  color: #fff; }
+  color: #fff;
+  position: fixed;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
   footer .container {
     max-width: 1224px;
     margin: 0 auto; }
@@ -3397,10 +3510,35 @@ footer {
       line-height: 16px;
       font-weight: 400;
       padding-top: 200px; }
+      footer .container .info-company .col-md-2 img {
+        float: right; }
+    footer .container .social {
+      text-align: right; }
+      footer .container .social a {
+        display: inline-block;
+        padding-right: 16px; }
+        footer .container .social a:last-child {
+          padding-right: 0; }
 
 /* Pages*/
+#banner {
+  position: relative; }
+  #banner h1 {
+    position: absolute;
+    bottom: 296px;
+    left: 104px;
+    color: #FFF;
+    line-height: 72px;
+    font-size: 88px;
+    font-family: 'happy-time-Regular';
+    font-weight: 400;
+    text-align: left; }
+
 #main {
-  padding-top: 224px; }
+  padding-top: 224px;
+  position: relative;
+  z-index: 11;
+  margin-bottom: 664px; }
   #main .home-stories .swiper-container .swiper-slide {
     width: 619px !important;
     padding-right: 80px; }
@@ -3431,7 +3569,18 @@ footer {
     content: ''; }
   #main .home-stories .swiper-container .swiper-slide {
     position: relative;
-    color: #fff; }
+    color: #fff;
+    /*                a{
+    
+                        .triangle {
+                            margin-left: 40px;
+                            width: 0;
+                            height: 0;
+                            border-top: 5px solid transparent;
+                            border-bottom: 5px solid transparent;
+                            border-left: 17px solid #fff;
+                        }
+                    }*/ }
     #main .home-stories .swiper-container .swiper-slide .home-stories-thumbnail {
       width: 100%; }
     #main .home-stories .swiper-container .swiper-slide .home-stories-icon {
@@ -3503,11 +3652,13 @@ footer {
               border: none; }
   #main .our-fund h3 {
     font-family: 'happy-time-Italic';
-    font-size: 80px;
-    line-height: 128px;
+    font-size: 64px;
+    line-height: 72px;
     font-weight: 400;
-    white-space: nowrap;
-    color: #B70004; }
+    /*            white-space: nowrap;*/
+    color: #B70004;
+    max-width: 900px;
+    margin-bottom: 204px; }
   #main .our-fund .our-fund-content {
     margin-top: 224px; }
     #main .our-fund .our-fund-content .container {
@@ -3535,7 +3686,8 @@ footer {
       #main .our-fund .our-fund-content .container .our-fund-tabs .tab-content {
         margin-top: 112px; }
         #main .our-fund .our-fund-content .container .our-fund-tabs .tab-content .tab-panel {
-          display: none; }
+          display: none;
+          position: relative; }
           #main .our-fund .our-fund-content .container .our-fund-tabs .tab-content .tab-panel.active {
             display: block; }
           #main .our-fund .our-fund-content .container .our-fund-tabs .tab-content .tab-panel ul li {
@@ -3557,6 +3709,10 @@ footer {
                 font-size: 18px;
                 line-height: 24px;
                 content: "01."; }
+        #main .our-fund .our-fund-content .container .our-fund-tabs .tab-content .our-fund-image {
+          position: absolute;
+          top: -200px;
+          right: 0; }
   #main .home-news {
     margin-top: 240px;
     position: relative; }
@@ -3654,4 +3810,5 @@ footer {
       #main .home-team .home-team-content .home-team-image {
         position: absolute;
         top: 0;
-        right: 0; }
+        right: 0;
+        display: none; }

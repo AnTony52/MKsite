@@ -7,42 +7,75 @@
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+    outline: none;
 }
+
+html,
+#banner,
+#main {
+    overflow-x: hidden;
+    // background-repeat: repeat-x;
+    // background-position: left top;
+    // background-attachment: scroll;
+    // background-size: auto;
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #DCEFF6, #B3DCEB, #B3DCEB, #DEF0F6, #FFFFFF);
+}
+
 html,
 body {
     width: 100%;
-    max-width: $max-width;
+    // max-width: $max-width;
     -webkit-font-smoothing: antialiased;
     margin: 0 auto;
     @include text($fz-text, 'happy-time-Regular', $lh-text, $text-cl, none);
-    background: $main-bg-cl;    
+    background-color: $main-bg-cl;
     position: relative;
     @include custom-scrollbar();
+
     .mainwrapper {
-        width: $max-width;
-        margin: auto;
-        overflow: hidden;
+
+        // width: $max-width;
+        // margin: auto;
+        // overflow: hidden;
     }
 
-    .container{
+    .container {
         width: 100%;
         max-width: $container-max-width;
     }
 
-    h3{
+    h3 {
         font-family: 'GothicPro-Regular';
         font-weight: 700;
         font-size: 18px;
         line-height: 32px;
     }
 
-    @include desktop {
+    @include desktop {}
 
-    }
-    @include tablet {
+    @include tablet {}
 
-    }
-    @include mobile {
+    @include mobile {}
+}
 
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    >*{
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        width: 40vw;
+        height: auto;
+        object-fit: cover;
     }
+    .cloud-1 {}
+
+    .cloud-2 {}
+
+    .cloud-3 {}
 }

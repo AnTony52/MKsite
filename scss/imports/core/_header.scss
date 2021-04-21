@@ -5,14 +5,13 @@ header {
     z-index: 99;
     width: 100%;
 
-    // .col-md-2{
-    //     &:last-child{
-    //         padding-top: 40px;
-    //     }
-    // }
-    // .col-md-8{
-    //     padding-top: 40px;
-    // }
+    .logo {
+        width: 120px;
+        height: auto;
+        margin-left: -15px;
+    }
+
+    // mix-blend-mode: difference;
     .container {
         @include d-flex;
         @include justify-content(space-between);
@@ -73,27 +72,36 @@ header {
     }
 }
 
+#banner {
+    position: relative;
+    z-index: 11;
+}
+
 .get-in-touch {
     position: fixed;
-    bottom: 10px;
-    left: 0;
+    bottom: 40px;
+    right: 40px;
     z-index: 99;
-    overflow: hidden;
-    @include transform(translateX(-50%));
+    background-color: #b70004;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    // @include transform(translateX(-50%));
 
+    // mix-blend-mode: difference;
     img {
-        width: 200px;
-
+        width: 50px;
+        @include mid;
     }
 
-    .dot {
-        width: 15px;
-        height: 15px;
-        border-radius: 100%;
-        background-color: #fff;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-    }
+    // .dot {
+    //     width: 15px;
+    //     height: 15px;
+    //     border-radius: 100%;
+    //     background-color: #fff;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     @include transform(translate(-50%, -50%));
+    // }
 }

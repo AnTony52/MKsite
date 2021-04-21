@@ -5,13 +5,23 @@ a {
 }
 
 img {
-    display: block;
-    margin: auto;
-    max-width: 100%;
+    // display: block;
+    // margin: auto;
+    // max-width: 100%;
+    object-fit: cover;
 }
 
 strong {
     font-family: bb;
+}
+
+.splitting {
+
+    // overflow: hidden !important;
+    &.lines .word {
+
+        display: inline-block;
+    }
 }
 
 .circle-cursor {
@@ -31,17 +41,43 @@ strong {
     top: -$cursor-radius/2;
     z-index: 11000;
     background-color: darkred;
-    display: none;
+    // display: none;
 
 }
 
 .circle-cursor--outer {
-    // display: none;
-    // mix-blend-mode: difference;
     width: 30px;
     height: 30px;
-
-    border: 1px solid darkred;
-    border: 1px solid #000;
+    border: 2px solid #b70004;
     z-index: 12000;
+
+    img {
+        @include transform(translate(-50%, -50%));
+    }
+}
+
+.cvb {
+    cursor: pointer
+}
+
+// .mover {
+//     width: 50px;
+//     height: 50px;
+//     border: 1px solid red;
+//     background: url("https://source.unsplash.com/random");
+//     position: absolute;
+//     left: var(--mouse-x);
+//     top: var(--mouse-y);
+//     border-radius: 100%;
+//     transform: translate(-50%, -50%);
+// }
+
+.scrolled-down {
+    @include transform(translateY(-100%) !important);
+    @include transition(all 0.3s ease-in-out);
+}
+
+.scrolled-up {
+    @include transform(translateY(0) !important);
+    @include transition(all 0.3s ease-in-out);
 }
