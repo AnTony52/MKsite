@@ -31,7 +31,7 @@
         color: #FFF;
         line-height: 72px;
         font-size: 80px;
-        font-family: 'happy-time-Regular';
+        font-family: 'happy-time-Bold';
         font-weight: 400;
         text-align: left;
 
@@ -72,11 +72,7 @@
                 .arrow {
                     position: relative;
 
-                    &:hover {
-                        &::before {
-                            width: 20px;
-                        }
-                    }
+
 
                     &::before {
                         content: "";
@@ -108,8 +104,14 @@
                 width: 50%;
                 height: 10px;
 
+                &:hover {
+                    .arrow::before {
+                        width: 20px;
+                    }
+                }
+
                 // img {
-                    // @include transition(0.3s ease);
+                // @include transition(0.3s ease);
                 // }
             }
 
@@ -117,9 +119,9 @@
                 right: 200px;
 
                 // &:hover {
-                    // img {
-                        // @include transform(translateX(-10px));
-                    // }
+                // img {
+                // @include transform(translateX(-10px));
+                // }
                 // }
             }
 
@@ -139,7 +141,6 @@
                 position: relative;
                 top: 0;
                 left: 0;
-                // height: 90vh;
                 min-height: 500px;
                 min-height: unset;
                 width: 70vw;
@@ -154,6 +155,10 @@
                         }
 
                         .home-news-content {
+                            opacity: 1;
+                        }
+
+                        .home-stories-content {
                             opacity: 1;
                         }
                     }
@@ -184,17 +189,18 @@
                         top: 50%;
                         left: 50%;
                         @include transform(translate(-50%, -50%));
-                        width: 150px;
-                        height: 150px;
+                        width: 100px;
+                        height: 100px;
 
                         &:hover {
                             img {
-                                @include transform(translate(-50%, -50%) scale(0.9));
+                                @include transform(translate(-50%, -50%) scale(0.7));
                             }
                         }
 
                         img {
-                            @include transition(0.3s ease);
+                            @include transition(0.3s ease 1.5s);
+                            transition: opacity 0.3s ease 1.5s, transform 0.3s ease;
                             opacity: 0;
                             width: 50px;
                             height: auto;
@@ -209,6 +215,8 @@
                         bottom: 96px;
                         left: 104px;
                         max-width: 400px;
+                        opacity: 0;
+                        @include transition(1.3s ease);
 
                         h3 {
                             font-family: 'GothicPro-Bold';
@@ -255,6 +263,73 @@
     .home-report {
         margin-top: 160px;
         color: $text-black-cl;
+
+        &--waste {
+            .home-report--waste-slider {
+                margin-top: 160px;
+                width: 90%;
+                height: 100vh;
+                min-height: 800px;
+                overflow-x: hidden;
+
+                .slider-item {
+                    width: 100%;
+                    height: 50%;
+                    min-height: 400px;
+
+                    &:hover {
+                        .report-thumbnail {
+                            filter: grayscale(0);
+                        }
+
+                        .report-content h3 a {
+                            color: $text-red-cl;
+                        }
+                    }
+
+                    .report-thumbnail {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        filter: grayscale(1);
+                        @include transition(0.3s ease);
+                    }
+
+                    .report-content {
+                        padding-top: 32px;
+
+                        p {
+                            text-transform: uppercase;
+                            color: $text-gray-cl;
+                            font-family: 'GothicPro-Regular';
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 24px;
+                            letter-spacing: 5%;
+                        }
+
+                        h3 {
+                            color: $text-black-cl;
+                            font-family: 'happy-time-Regular';
+                            font-weight: 400;
+                            line-height: 1.4;
+                            font-size: 24px;
+
+                            a {
+                                &:hover {
+                                    color: $text-red-cl;
+                                }
+
+                                &:active {
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
 
         .home-report-title {
             // max-width: 1124px;
@@ -388,14 +463,88 @@
         overflow: hidden;
 
         h3 {
-            font-family: 'happy-time-Regular';
+            // font-family: 'happy-time-Regular';
+            text-transform: uppercase;
             font-size: 80px;
             line-height: 72px;
             font-weight: 400;
             white-space: nowrap;
             color: $text-red-cl;
             max-width: 900px;
-            margin-bottom: 204px;
+            margin-bottom: 160px;
+        }
+
+        h4 {
+            font-family: 'GothicPro-Bold';
+            text-transform: uppercase;
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+
+        .of-list {
+            ul {
+                li {
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        background-color: rgba(20, 23, 28, 0.3);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &:hover {
+                        a {
+                            .of-name {
+                                color: $text-red-cl;
+                            }
+
+                            .of-img {
+                                img {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+
+                    a {
+                        @include d-flex;
+                        @include justify-content(space-between);
+                        @include align-items(center);
+
+                        .of-name {
+                            font-size: 40px;
+                            @include transition(0.3s ease);
+                        }
+
+                        .of-img {
+                            @include transform(translateY(-40px));
+
+                            img {
+                                @include transition(0.3s ease);
+                                width: 240px;
+                                height: auto;
+                                opacity: 0;
+                                animation: DaMagicAnimation 8s linear 0s infinite alternate;
+                            }
+                        }
+
+                        .of-stat {
+                            font-size: 14px;
+                            text-transform: uppercase;
+                            font-family: 'GothicPro-Regular';
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 24px;
+                            letter-spacing: 0em;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
         }
 
         .our-fund-content {
@@ -404,111 +553,109 @@
             .container {
                 max-width: 1224px;
 
-                .our-fund-tabs {
-                    ul {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
+                // .our-fund-tabs {
+                //     ul {
+                //         list-style: none;
+                //         margin: 0;
+                //         padding: 0;
 
-                        li {
-                            display: inline-block;
-                            padding-right: 32px;
+                //         li {
+                //             display: inline-block;
+                //             padding-right: 32px;
 
-                            &:last-child {
-                                padding-right: 0;
-                            }
+                //             &:last-child {
+                //                 padding-right: 0;
+                //             }
 
-                            &.active {
-                                a {
-                                    color: $text-red-cl;
-                                }
-                            }
+                //             &.active {
+                //                 a {
+                //                     color: $text-red-cl;
+                //                 }
+                //             }
 
-                            a {
-                                color: $text-black-cl;
-                                text-transform: uppercase;
-                                font-family: 'GothicPro-Bold';
-                                font-weight: 700;
-                                font-size: 18px;
-                                line-height: 18px;
+                //             a {
+                //                 color: $text-black-cl;
+                //                 text-transform: uppercase;
+                //                 font-family: 'GothicPro-Bold';
+                //                 font-weight: 700;
+                //                 font-size: 18px;
+                //                 line-height: 18px;
 
-                                &:hover {
-                                    color: $text-red-cl;
-                                }
-                            }
-                        }
-                    }
+                //                 &:hover {
+                //                     color: $text-red-cl;
+                //                 }
+                //             }
+                //         }
+                //     }
 
-                    .tab-content {
-                        margin-top: 56px;
-                        position: relative;
-                        width: 100%;
-                        height: 500px;
+                //     .tab-content {
+                //         margin-top: 56px;
+                //         position: relative;
+                //         width: 100%;
+                //         height: 500px;
 
-                        .tab-panel {
-                            width: 100%;
-                            display: none;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
+                //         .tab-panel {
+                //             width: 100%;
+                //             display: none;
+                //             position: absolute;
+                //             top: 0;
+                //             left: 0;
 
-                            &.active {
-                                display: block;
-                            }
+                //             &.active {
+                //                 display: block;
+                //             }
 
-                            ul {
+                //             ul {
 
-                                li {
-                                    display: block;
-                                    padding-top: 24px;
-                                    padding-bottom: 24px;
-                                    border-top: 1px solid rgba(0, 0, 0, 10%);
-                                    counter-increment: line-number;
-                                    position: relative;
+                //                 li {
+                //                     display: block;
+                //                     padding-top: 24px;
+                //                     padding-bottom: 24px;
+                //                     border-top: 1px solid rgba(0, 0, 0, 10%);
+                //                     counter-increment: line-number;
+                //                     position: relative;
 
-                                    .our-fund-image {
-                                        width: 200px;
-                                        position: absolute;
-                                        top: 0px;
-                                        right: 0;
-                                        opacity: 0;
-                                        @include transform(translateY(-50%));
-                                        @include transition(0.5s ease);
-                                    }
+                //                     .our-fund-image {
+                //                         width: 200px;
+                //                         position: absolute;
+                //                         top: 0px;
+                //                         right: 0;
+                //                         opacity: 0;
+                //                         @include transform(translateY(-50%));
+                //                         @include transition(0.5s ease);
+                //                     }
 
-                                    &:hover {
-                                        .our-fund-image {
-                                            opacity: 1;
-                                        }
-                                    }
+                //                     &:hover {
+                //                         .our-fund-image {
+                //                             opacity: 1;
+                //                         }
+                //                     }
 
-                                    &:last-child {
-                                        border-bottom: 1px solid rgba(0, 0, 0, 10%);
-                                    }
+                //                     &:last-child {
+                //                         border-bottom: 1px solid rgba(0, 0, 0, 10%);
+                //                     }
 
-                                    a {
-                                        font-family: 'happy-time-Regular';
-                                        font-weight: 400;
-                                        line-height: 56px;
-                                        font-size: 40px;
-                                        text-transform: capitalize;
+                //                     a {
+                //                         font-family: 'happy-time-Regular';
+                //                         font-weight: 400;
+                //                         line-height: 56px;
+                //                         font-size: 40px;
+                //                         text-transform: capitalize;
 
-                                        &:before {
-                                            font-family: 'GothicPro-Regular';
-                                            font-weight: 700;
-                                            font-size: 18px;
-                                            line-height: 24px;
-                                            content: "0"counter(line-number)". ";
+                //                         &:before {
+                //                             font-family: 'GothicPro-Regular';
+                //                             font-weight: 700;
+                //                             font-size: 18px;
+                //                             line-height: 24px;
+                //                             content: "0"counter(line-number)". ";
 
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-
-                    }
-                }
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
     }
@@ -797,12 +944,12 @@
 
         [class^="building-"] {
             position: absolute;
-            bottom: -10px;
+            // bottom: -10px;
             left: 0;
 
             img {
-                width: auto;
-                height: 110vh;
+                width: 100%;
+                // height: 110vh;
                 // transform: scale(1.1);
             }
         }

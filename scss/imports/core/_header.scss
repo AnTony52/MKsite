@@ -4,19 +4,38 @@ header {
     left: 0;
     z-index: 99;
     width: 100%;
+    height: 80px;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: #b70004;
+        @include transition(0.3s ease-in-out);
+        @include transform(translateY(-100%));
 
+    }
     .logo {
         width: 120px;
         height: auto;
         margin-left: -15px;
     }
-
+    &.bloody-hat--On {
+        &:before {
+            @include transform(translateY(0));
+        }
+    }
     // mix-blend-mode: difference;
     .container {
         @include d-flex;
         @include justify-content(space-between);
+        @include align-items(center);
+        height: 100%;
         width: 100%;
-        padding-top: 30px;
 
         [title="MEKONG"] {
             margin-right: auto;
@@ -87,11 +106,54 @@ header {
     width: 60px;
     height: 60px;
     // @include transform(translateX(-50%));
-
     // mix-blend-mode: difference;
-    img {
-        width: 50px;
+    &::before {
+        content: "";
+        color: white;
+        vertical-align: middle;
+        line-height: 60px;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        border-radius: 50px;
+        height: 100%;
+        width: 60px;
+        background-color: #b70004;
+        @include transition(.3s ease);
+    }
+
+    &:hover {
+        &::before {
+            width: 200px;
+        }
+
+        img {
+            opacity: 0;
+        }
+
+        .text {
+            @include transition(opacity 0.3s ease 0.3s);
+            opacity: 1;
+            width: 200px;
+        }
+    }
+
+    .text {
+        color: #fff;
         @include mid;
+        text-transform: uppercase;
+        width: 200px;
+        width: 0;
+        left: 0;
+        opacity: 0;
+        font-size: 14px;
+        
+    }
+
+    img {
+        width: 35px;
+        @include mid;
+        @include transition(opacity 0.3s ease);
     }
 
     // .dot {

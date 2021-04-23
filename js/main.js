@@ -155,7 +155,6 @@ pxSlideNews = () => {
             imagesLoaded: true,
             percentPosition: true,
             wrapAround: true,
-            // cellSelector: ".swiper-slide",
         }
         // if (jQuery(".slideCount").length) {
         //     options.draggable = true,
@@ -220,7 +219,6 @@ pxSlide2ndNews = () => {
             percentPosition: true,
             wrapAround: true,
             initialIndex: 1,
-            // cellSelector: ".swiper-slide",
         }
         if (matchMedia('screen and (max-width: 992px)').matches) {
             options.prevNextButtons = false
@@ -234,6 +232,7 @@ pxSlide2ndNews = () => {
 
         // ================================
         //  get list of images
+        // ================================
         var imgs = document.querySelectorAll('.home-news .second-carousel-wrapper img');
         // get transform propedrty
         let docStyle = document.documentElement.style;
@@ -285,20 +284,70 @@ var reportSlide = () => {
         initialIndex: 0,
     });
 }
+var idontwannadothisagain = (selector, child, initialIndex = 0) => {
+    options = {
+        accessibility: 1,
+        prevNextButtons: 0,
+        pageDots: 0,
+        setGallerySize: 0,
+        draggable: 1,
+        friction: 0.5,
+        imagesLoaded: 1,
+        percentPosition: 1,
+        wrapAround: 1,
+        initialIndex: initialIndex,
+    }
+    var carousel = document.querySelector(selector);
+    var flkty = new Flickity(carousel, options);
+    window.onresize = function (event) {
+        flkty.resize();
+        document.querySelector('.flickity-viewport').style.height = null;
+    };
+    // ================================
+    //  get list of images
+    // ================================
+    var imgs = document.querySelectorAll(child);
+    // get transform propedrty
+    let docStyle = document.documentElement.style;
+    let transformProp = typeof docStyle.transform == 'string' ?
+        'transform' : 'WebkitTransform';
+    flkty.on('scroll', function () {
+        if (jQuery(child).length > 2) {
+            flkty.slides.forEach(function (slide, i) {
+                let img = imgs[i],
+                    x = 0;
+                if (0 === i) {
+                    x = Math.abs(flkty.x) > flkty.slidesWidth ?
+                        (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
+                        (slide.target + flkty.x);
+                } else if (i === flkty.slides.length - 1) {
+                    x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
+                        (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
+                        (slide.target + flkty.x);
+                } else {
+                    x = slide.target + flkty.x;
+                }
+                img.style[transformProp] = 'translateX(' + x * (-1 / 2) + 'px)';
+            });
+        }
+    });
+    jQuery('.stories-button').on('click', '.stories-prev', function () {
+        flkty.previous();
+    });
+    jQuery('.stories-button').on('click', '.stories-next', function () {
+        flkty.next();
+    });
+}
 // ====================================================
-// 
-// 
-// 
-// 
-// 
 // 
 // 
 // ====================================================
 jQuery(document).ready(function ($) {
+
     // ----------------------
     // Smart scroll
     // ----------------------
-    if (jQuery('#header').length > 0 && matchMedia('screen and (min-width: 992px)').matches) { // check if element exists
+    if (jQuery('#header').length > 0) { // check if element exists
         var last_scroll_top = 0;
         jQuery(window).on('scroll', function () {
             scroll_top = jQuery(this).scrollTop();
@@ -306,15 +355,7 @@ jQuery(document).ready(function ($) {
                 (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up'): jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
                 last_scroll_top = scroll_top;
             }
-        });
-    } else {
-        var last_scroll_top = 0;
-        jQuery(window).on('scroll', function () {
-            scroll_top = jQuery(this).scrollTop();
-            if (scroll_top > 10) {
-                (scroll_top < last_scroll_top) ? jQuery('.mm-header').removeClass('scrolled-down').addClass('scrolled-up'): jQuery('.mm-header').removeClass('scrolled-up').addClass('scrolled-down');
-                last_scroll_top = scroll_top;
-            }
+            scroll_top > 500 ? jQuery('#header').addClass("bloody-hat--On") : jQuery('#header').removeClass("bloody-hat--On");
         });
     }
     // Splitting();
@@ -329,44 +370,52 @@ jQuery(document).ready(function ($) {
         by: 'lines',
     });
     // console.info(charTarget[0]);
-    charTarget[0].lines.forEach((line) => {
-        console.info(line[0]);
-        // line[0].style.color = "#259b97";
-        // line.forEach((element) => {
-        //     element.style.color = "#259b97";
-        // });
-    });
+    // charTarget[0].lines.forEach((line) => {
+    //     console.info(line[0]);
+    // });
 
     // .mainwrapper
-    var onLoad = gsap.timeline()
-        .to('#loading', 1, {
-            autoAlpha: 0,
-            delay: 1,
-        })
-        .from("h1 .word", 0.75, {
-            yPercent: 100,
-            stagger: 0.05,
-            ease: Power1.easeInOut,
+    var onLoad = gsap.timeline({
+        paused: 1,
+    })
+        .to('#loading', 1.5, {
+            yPercent: -100,
             delay: 0.5,
+            ease: Power4.easeInOut,
+        })
+        // .from("#banner [src='images/banner/Sky.jpg']", 3,{
+        //     ease: Power4.easeOut,
+        //     scale: 1.2,
+        // })
+        .from("h1 .word", 1, {
+            yPercent: 100,
+            // transformOrigin: "left",
+            opacity: 0.5,
+            stagger: 0.1,
+            skewX: 30,
+            ease: Power1.easeInOut,
+            delay: 0.1,
         })
         .from("#banner .subject", 3, {
             opacity: 0,
         }, 3);
+    jQuery("img").imagesLoaded(() => {
+        onLoad.play();
+    });
     // Stories
-    pxSlide();
-    pxSlide2nd();
+    idontwannadothisagain(".home-stories .carousel-wrapper", ".home-stories .carousel-wrapper .home-stories-thumbnail");
+    idontwannadothisagain(".home-stories .second-carousel-wrapper", ".home-stories .second-carousel-wrapper .home-stories-thumbnail", 1);
     // Reports
     reportSlide();
     // PE Track
-    pxSlideNews();
-    pxSlide2ndNews();
-
+    idontwannadothisagain(".home-news .carousel-wrapper", ".home-news .carousel-wrapper .home-stories-thumbnail");
+    idontwannadothisagain(".home-news .second-carousel-wrapper", ".home-news .second-carousel-wrapper .home-stories-thumbnail", 1);
+    // 
     if ($('.our-fund-content .our-fund-tabs').length > 0) {
         $('.our-fund-content .our-fund-tabs ul li a').on('click', function (e) {
             e.preventDefault();
             $(this).parents('ul').find('li.active').removeClass('active');
             $(this).parent().addClass('active');
-
             var index = $(this).parent().index();
             $('.our-fund-content .tab-content .tab-panel').fadeOut('medium', function () {
                 $('.our-fund-content .tab-content .tab-panel:eq(' + index + ')').show();
@@ -436,6 +485,7 @@ jQuery(document).ready(function ($) {
                 .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
                     opacity: 1,
                     stagger: 0.25,
+                    ease: Power4.easeInOut,
                 });
         })
         // .addIndicators({
@@ -447,11 +497,13 @@ jQuery(document).ready(function ($) {
     // ========================================
     gsap.set('.slider-item', {
         opacity: 0,
+        ease: Power4.easeInOut,
     });
     gsap.set('.home-report-title h3 .word', {
         // yPercent: 100,
         y: 30,
         opacity: 0,
+        ease: Power4.easeInOut,
     })
     var heightReport = document.querySelector(".home-report").offsetHeight;
     var homeReport = new ScrollMagic.Scene({
@@ -466,10 +518,12 @@ jQuery(document).ready(function ($) {
                     y: 0,
                     opacity: 1,
                     stagger: 0.1,
+                    ease: Power4.easeInOut,
                 })
                 .to('.slider-item', 1, {
                     opacity: 1,
                     stagger: 0.2,
+                    ease: Power4.easeInOut,
                 }, 0.5);
         })
         // .addIndicators({
@@ -524,11 +578,11 @@ jQuery(document).ready(function ($) {
             // yoyo: true,
         })
         .fromTo(".our-fund h3", 1, {
-            xPercent: 10,
+            xPercent: 30,
             // ease: Power3.easeOut,
         }, {
-            xPercent: -10,
-            ease: Power3.easeOut,
+            xPercent: -30,
+            ease: Power4.easeOut,
         });
     new ScrollMagic.Scene({
             triggerElement: ".our-fund",
@@ -772,6 +826,7 @@ class Cursor {
                 width: box.width,
                 height: box.height,
                 opacity: 1,
+                // scale: 0.9,
                 borderColor: "#b70004"
             });
         };
