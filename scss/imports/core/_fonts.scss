@@ -79,3 +79,46 @@
        url('../fonts/iCielCenturyGothicPro-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../fonts/iCielCenturyGothicPro-Italic.svg') format('svg'); /* Legacy iOS */
 }
+// ===============================
+@font-face {
+  font-family: 'Sackers Gothic Std Light';
+  src: url('../fonts/SackersGothicStd-Light.eot');
+  src: url('../fonts/SackersGothicStd-Light.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SackersGothicStd-Light.woff2') format('woff2'),
+      url('../fonts/SackersGothicStd-Light.woff') format('woff'),
+      url('../fonts/SackersGothicStd-Light.ttf') format('truetype'),
+      url('../fonts/SackersGothicStd-Light.svg#../fonts/SackersGothicStd-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sackers Gothic Std Heavy';
+  src: url('../fonts/SackersGothicStd-Heavy.eot');
+  src: url('../fonts/SackersGothicStd-Heavy.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SackersGothicStd-Heavy.woff2') format('woff2'),
+      url('../fonts/SackersGothicStd-Heavy.woff') format('woff'),
+      url('../fonts/SackersGothicStd-Heavy.ttf') format('truetype'),
+      url('../fonts/SackersGothicStd-Heavy.svg#../fonts/SackersGothicStd-Heavy') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sackers Gothic Std Medium';
+  src: url('../fonts/SackersGothicStd-Medium.eot');
+  src: url('../fonts/SackersGothicStd-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SackersGothicStd-Medium.woff2') format('woff2'),
+      url('../fonts/SackersGothicStd-Medium.woff') format('woff'),
+      url('../fonts/SackersGothicStd-Medium.ttf') format('truetype'),
+      url('../fonts/SackersGothicStd-Medium.svg#../fonts/SackersGothicStd-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+

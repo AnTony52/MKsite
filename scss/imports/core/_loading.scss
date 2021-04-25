@@ -6,4 +6,21 @@
     top: 0;
     left: 0;
     z-index: 9999;
+    
+    &.dark-mode {
+        background-color: #000;
+        font-family: 'Sackers Gothic Std Medium';
+    }
+    #count {
+        color: #fff;
+        text-align: center; 
+        margin: 10px 0;
+        font-size: 30px;
+    }
+    .subject-count {
+        @include mid;
+    }
+    [class^="triangle-"] {
+        margin: 0 auto;
+    }
 }

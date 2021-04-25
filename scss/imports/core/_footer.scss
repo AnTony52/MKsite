@@ -1,7 +1,5 @@
 footer {
     // background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
-    // height: $footer-height;
-    // height: 100vh;
     background-color: #0F1C2D;
     padding-top: 48px;
     padding-top: 80px;
@@ -12,15 +10,11 @@ footer {
     left: 0;
     right: 0;
 
-    // -webkit-backface-visibility: hidden;
-    // backface-visibility: hidden;    
     .container {
         max-width: $container-width;
         margin: 0 auto;
 
         .footer-logo {
-            // @include transform-origin(center);
-            // @include transform(translateY(-50%));
         }
 
 

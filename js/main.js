@@ -1,132 +1,9 @@
 // ==================================
 // PxSlide
 // ==================================
-pxSlide = () => {
-    if (jQuery(".carousel-wrapper").length) {
-        options = {
-            accessibility: true,
-            prevNextButtons: false,
-            pageDots: false,
-            setGallerySize: false,
-            draggable: false,
-            friction: 0.35,
-            imagesLoaded: true,
-            percentPosition: true,
-            wrapAround: true,
-            // cellSelector: ".swiper-slide",
-        }
-        // if (jQuery(".slideCount").length) {
-        //     options.draggable = true,
-        //         options.prevNextButtons = true
-        // }
-        if (matchMedia('screen and (max-width: 992px)').matches) {
-            options.prevNextButtons = false
-        }
-        var carousel = document.querySelector(".carousel-wrapper");
-        var flkty = new Flickity(carousel, options);
-        window.onresize = function (event) {
-            flkty.resize();
-            document.querySelector('.flickity-viewport').style.height = null;
-        };
 
-        // ====================
-        //  get list of images
-        // ====================
-        var imgs = document.querySelectorAll('.carousel-wrapper .home-stories-thumbnail');
-        // get transform propedrty
-        let docStyle = document.documentElement.style;
-        let transformProp = typeof docStyle.transform == 'string' ?
-            'transform' : 'WebkitTransform';
-        flkty.on('scroll', function () {
-            if (jQuery('.carousel-slide').length > 2) {
-                flkty.slides.forEach(function (slide, i) {
-                    let img = imgs[i],
-                        x = 0;
-                    if (0 === i) {
-                        x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                            (slide.target + flkty.x);
-                    } else if (i === flkty.slides.length - 1) {
-                        x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                            (slide.target + flkty.x);
-                    } else {
-                        x = slide.target + flkty.x;
-                    }
-                    img.style[transformProp] = 'translateX(' + x * (-1 / 2) + 'px)';
-                });
-            }
-        });
-        jQuery('.stories-button').on('click', '.stories-prev', function () {
-            flkty.previous();
-        });
-        jQuery('.stories-button').on('click', '.stories-next', function () {
-            flkty.next();
-        });
-    }
-}
-pxSlide2nd = () => {
-    if (jQuery(".second-carousel-wrapper").length) {
-        options = {
-            accessibility: true,
-            prevNextButtons: false,
-            pageDots: false,
-            setGallerySize: false,
-            draggable: false,
-            friction: 0.5,
-            imagesLoaded: true,
-            percentPosition: true,
-            wrapAround: true,
-            initialIndex: 1,
-            // cellSelector: ".swiper-slide",
-        }
-        if (matchMedia('screen and (max-width: 992px)').matches) {
-            options.prevNextButtons = false
-        }
-        var carousel = document.querySelector(".second-carousel-wrapper");
-        var flkty = new Flickity(carousel, options);
-        window.onresize = function (event) {
-            flkty.resize();
-            document.querySelector('.flickity-viewport').style.height = null;
-        };
-
-        // ================================
-        //  get list of images
-        var imgs = document.querySelectorAll('.second-carousel-wrapper img');
-        // get transform propedrty
-        let docStyle = document.documentElement.style;
-        let transformProp = typeof docStyle.transform == 'string' ?
-            'transform' : 'WebkitTransform';
-        flkty.on('scroll', function () {
-            if (jQuery('.carousel-slide').length > 2) {
-                flkty.slides.forEach(function (slide, i) {
-                    let img = imgs[i],
-                        x = 0;
-                    if (0 === i) {
-                        x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                            (slide.target + flkty.x);
-                    } else if (i === flkty.slides.length - 1) {
-                        x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                            (slide.target + flkty.x);
-                    } else {
-                        x = slide.target + flkty.x;
-                    }
-                    img.style[transformProp] = 'translateX(' + x * (-1 / 2) + 'px)';
-                });
-            }
-        });
-    }
-    jQuery('.stories-button').on('click', '.stories-prev', function () {
-        flkty.previous();
-    });
-    jQuery('.stories-button').on('click', '.stories-next', function () {
-        flkty.next();
-    });
-}
-var reportSlide = () => {
-    var elem = document.querySelector('.home-report-slider');
+var reportSlide = (selector) => {
+    var elem = document.querySelector(selector);
     var flkty = new Flickity(elem, {
         // options
         cellAlign: 'left',
@@ -143,148 +20,7 @@ var reportSlide = () => {
         initialIndex: 0,
     });
 }
-pxSlideNews = () => {
-    if (jQuery(".home-news .carousel-wrapper").length) {
-        options = {
-            accessibility: true,
-            prevNextButtons: false,
-            pageDots: false,
-            setGallerySize: false,
-            draggable: false,
-            friction: 0.35,
-            imagesLoaded: true,
-            percentPosition: true,
-            wrapAround: true,
-        }
-        // if (jQuery(".slideCount").length) {
-        //     options.draggable = true,
-        //         options.prevNextButtons = true
-        // }
-        if (matchMedia('screen and (max-width: 992px)').matches) {
-            options.prevNextButtons = false
-        }
-        var carousel = document.querySelector(".home-news .carousel-wrapper");
-        var flkty = new Flickity(carousel, options);
-        window.onresize = function (event) {
-            flkty.resize();
-            document.querySelector('.flickity-viewport').style.height = null;
-        };
-
-        // ====================
-        //  get list of images
-        // ====================
-        var imgs = document.querySelectorAll('.home-news .carousel-wrapper .home-stories-thumbnail');
-        // get transform propedrty
-        let docStyle = document.documentElement.style;
-        let transformProp = typeof docStyle.transform == 'string' ?
-            'transform' : 'WebkitTransform';
-        flkty.on('scroll', function () {
-            if (jQuery('.home-news .carousel-slide').length > 2) {
-                flkty.slides.forEach(function (slide, i) {
-                    let img = imgs[i],
-                        x = 0;
-                    if (0 === i) {
-                        x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                            (slide.target + flkty.x);
-                    } else if (i === flkty.slides.length - 1) {
-                        x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                            (slide.target + flkty.x);
-                    } else {
-                        x = slide.target + flkty.x;
-                    }
-                    img.style[transformProp] = 'translateX(' + x * (-1 / 2) + 'px)';
-                });
-            }
-        });
-        jQuery('.stories-button').on('click', '.stories-prev', function () {
-            flkty.previous();
-        });
-        jQuery('.stories-button').on('click', '.stories-next', function () {
-            flkty.next();
-        });
-    }
-}
-pxSlide2ndNews = () => {
-    if (jQuery(".home-news .second-carousel-wrapper").length) {
-        options = {
-            accessibility: true,
-            prevNextButtons: false,
-            pageDots: false,
-            setGallerySize: false,
-            draggable: false,
-            friction: 0.5,
-            imagesLoaded: true,
-            percentPosition: true,
-            wrapAround: true,
-            initialIndex: 1,
-        }
-        if (matchMedia('screen and (max-width: 992px)').matches) {
-            options.prevNextButtons = false
-        }
-        var carousel = document.querySelector(".home-news .second-carousel-wrapper");
-        var flkty = new Flickity(carousel, options);
-        window.onresize = function (event) {
-            flkty.resize();
-            document.querySelector('.flickity-viewport').style.height = null;
-        };
-
-        // ================================
-        //  get list of images
-        // ================================
-        var imgs = document.querySelectorAll('.home-news .second-carousel-wrapper img');
-        // get transform propedrty
-        let docStyle = document.documentElement.style;
-        let transformProp = typeof docStyle.transform == 'string' ?
-            'transform' : 'WebkitTransform';
-        flkty.on('scroll', function () {
-            if (jQuery('.home-news .carousel-slide').length > 2) {
-                flkty.slides.forEach(function (slide, i) {
-                    let img = imgs[i],
-                        x = 0;
-                    if (0 === i) {
-                        x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                            (slide.target + flkty.x);
-                    } else if (i === flkty.slides.length - 1) {
-                        x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                            (slide.target + flkty.x);
-                    } else {
-                        x = slide.target + flkty.x;
-                    }
-                    img.style[transformProp] = 'translateX(' + x * (-1 / 2) + 'px)';
-                });
-            }
-        });
-    }
-    jQuery('.stories-button').on('click', '.stories-prev', function () {
-        flkty.previous();
-    });
-    jQuery('.stories-button').on('click', '.stories-next', function () {
-        flkty.next();
-    });
-}
-var reportSlide = () => {
-    var elem = document.querySelector('.home-report-slider');
-    var flkty = new Flickity(elem, {
-        // options
-        cellAlign: 'left',
-        contain: true,
-        accessibility: true,
-        prevNextButtons: false,
-        pageDots: false,
-        setGallerySize: false,
-        draggable: true,
-        friction: 0.35,
-        imagesLoaded: true,
-        percentPosition: true,
-        wrapAround: true,
-        initialIndex: 0,
-    });
-}
-var idontwannadothisagain = (selector, child, initialIndex = 0) => {
+var parallaxSlider = (selector, child, initialIndex = 0) => {
     options = {
         accessibility: 1,
         prevNextButtons: 0,
@@ -338,12 +74,12 @@ var idontwannadothisagain = (selector, child, initialIndex = 0) => {
         flkty.next();
     });
 }
+
 // ====================================================
 // 
 // 
 // ====================================================
 jQuery(document).ready(function ($) {
-
     // ----------------------
     // Smart scroll
     // ----------------------
@@ -358,58 +94,113 @@ jQuery(document).ready(function ($) {
             scroll_top > 500 ? jQuery('#header').addClass("bloody-hat--On") : jQuery('#header').removeClass("bloody-hat--On");
         });
     }
-    // Splitting();
+    // ----------------------
+    // on Load
+    // ----------------------
     const target = document.querySelectorAll('.target, .report-content h3 a, .our-fund-tabs .tab-content ul li a');
-    const bannerText = Splitting({
-        target: target,
-        by: 'lines',
-    });
-    const whyVietNamSplit = document.querySelectorAll('.home-why-content');
-    const charTarget = Splitting({
-        target: whyVietNamSplit,
-        by: 'lines',
-    });
-    // console.info(charTarget[0]);
-    // charTarget[0].lines.forEach((line) => {
-    //     console.info(line[0]);
-    // });
-
-    // .mainwrapper
-    var onLoad = gsap.timeline({
-        paused: 1,
-    })
-        .to('#loading', 1.5, {
-            yPercent: -100,
-            delay: 0.5,
-            ease: Power4.easeInOut,
-        })
-        // .from("#banner [src='images/banner/Sky.jpg']", 3,{
-        //     ease: Power4.easeOut,
-        //     scale: 1.2,
-        // })
-        .from("h1 .word", 1, {
-            yPercent: 100,
-            // transformOrigin: "left",
-            opacity: 0.5,
-            stagger: 0.1,
-            skewX: 30,
-            ease: Power1.easeInOut,
-            delay: 0.1,
-        })
-        .from("#banner .subject", 3, {
-            opacity: 0,
-        }, 3);
-    jQuery("img").imagesLoaded(() => {
-        onLoad.play();
-    });
+    if (target) {
+        const bannerText = Splitting({
+            target: target,
+            by: 'lines',
+        });
+    }
+    if (document.querySelector("#banner h1")) {
+        // .mainwrapper
+        var onLoad = gsap.timeline({
+                paused: 1,
+            })
+            .to('#loading', 1.5, {
+                xPercent: -100,
+                delay: 0.5,
+                ease: Power4.easeInOut,
+            })
+            .from("h1 .word", 1, {
+                yPercent: 100,
+                // transformOrigin: "left",
+                opacity: 0.5,
+                stagger: 0.1,
+                skewX: 30,
+                ease: Power1.easeInOut,
+                delay: 0.1,
+            })
+            .from("#banner .subject", 3, {
+                opacity: 0,
+            }, 3);
+        jQuery("img").imagesLoaded(() => {
+            onLoad.play();
+        });
+    }
+    // --------------------------------------------
+    // on Load Home Page
+    // --------------------------------------------
+    if (document.querySelector("#loading.home-page")) {
+        jQuery('img').imagesLoaded(function () {
+            // images have loaded
+            var count = 0;
+            var counter = setInterval(function () {
+                if (count < 21) {
+                    jQuery('#count').text(count);
+                    count++;
+                } else if (count >= 21 && count < 25) {
+                    console.info("else if");
+                    setTimeout(() => {
+                        // jQuery('#count').text("25");
+                        jQuery('#count').text(count);
+                    }, 1000);
+                    count++;
+                } else {
+                    clearInterval(counter);
+                    gsap.timeline()
+                        .to(".subject-count", 1, {
+                            autoAlpha: 0,
+                            delay: 2,
+                        })
+                        .to("#loading", 1, {
+                            autoAlpha: 0,
+                        })
+                        .from(".m-c-center", 1, {
+                            autoAlpha: 0,
+                        })
+                        .to(".m-c-center", 1, {
+                            autoAlpha: 0,
+                            delay: 1,
+                        })
+                        .to(".main-copy", 1, {
+                            autoAlpha: 0,
+                        })
+                        .to(".main-bg", 2, {
+                            scale: 1.3,
+                        }, '-=1')
+                        .from('.main-subjects h3', 1, {
+                            autoAlpha: 0,
+                            stagger: 0.1,
+                        })
+                }
+            }, 100);
+        });
+    }
+    // ----------------------
     // Stories
-    idontwannadothisagain(".home-stories .carousel-wrapper", ".home-stories .carousel-wrapper .home-stories-thumbnail");
-    idontwannadothisagain(".home-stories .second-carousel-wrapper", ".home-stories .second-carousel-wrapper .home-stories-thumbnail", 1);
+    // ----------------------
+    if (document.querySelector(".home-stories")) {
+        parallaxSlider(".home-stories .carousel-wrapper", ".home-stories .carousel-wrapper .home-stories-thumbnail");
+        parallaxSlider(".home-stories .second-carousel-wrapper", ".home-stories .second-carousel-wrapper .home-stories-thumbnail", 1);
+    }
+
+    // ----------------------
     // Reports
-    reportSlide();
+    // ----------------------
+    if (document.querySelector('.home-report-slider')) {
+        reportSlide('.home-report-slider');
+    }
+    // ----------------------
     // PE Track
-    idontwannadothisagain(".home-news .carousel-wrapper", ".home-news .carousel-wrapper .home-stories-thumbnail");
-    idontwannadothisagain(".home-news .second-carousel-wrapper", ".home-news .second-carousel-wrapper .home-stories-thumbnail", 1);
+    // ----------------------
+    if (document.querySelector(".home-news")) {
+        parallaxSlider(".home-news .carousel-wrapper", ".home-news .carousel-wrapper .home-stories-thumbnail");
+        parallaxSlider(".home-news .second-carousel-wrapper", ".home-news .second-carousel-wrapper .home-stories-thumbnail", 1);
+    }
+
     // 
     if ($('.our-fund-content .our-fund-tabs').length > 0) {
         $('.our-fund-content .our-fund-tabs ul li a').on('click', function (e) {
@@ -463,7 +254,11 @@ jQuery(document).ready(function ($) {
     // =================
     // Get In Touch Spin
     // =================
-    var heightMain = document.querySelector(".mainwrapper").offsetHeight;
+    if (document.querySelector(".mainwrapper")) {
+        var heightMain = document.querySelector(".mainwrapper").offsetHeight;
+    }
+
+
     // =================
     // Home-stories
     // =================
@@ -505,7 +300,9 @@ jQuery(document).ready(function ($) {
         opacity: 0,
         ease: Power4.easeInOut,
     })
-    var heightReport = document.querySelector(".home-report").offsetHeight;
+    if (document.querySelector(".home-report")) {
+        var heightReport = document.querySelector(".home-report").offsetHeight;
+    }
     var homeReport = new ScrollMagic.Scene({
             triggerElement: ".home-report",
             duration: "200%",
@@ -597,7 +394,9 @@ jQuery(document).ready(function ($) {
     // ======================
     // Why Vietnam Flying Up
     // ======================
-    var heightWhy = document.querySelector(".home-why").offsetHeight;
+    if (document.querySelector(".home-why")) {
+        var heightWhy = document.querySelector(".home-why").offsetHeight;
+    }
     var flyingUpTl = gsap.timeline({
             // paused: true,
         })
@@ -623,24 +422,33 @@ jQuery(document).ready(function ($) {
     // ======================
     // Why Viet Nam Text
     // ======================
-    gsap.set(charTarget[0].lines, {
-        autoAlpha: 0,
-        yPercent: 50,
-    });
-    var whyVietNamTextTl = gsap.timeline().to(charTarget[0].lines, 1, {
-        autoAlpha: 1,
-        yPercent: 0,
-        stagger: 0.05,
-    });
-    new ScrollMagic.Scene({
-            triggerElement: ".home-why",
-            duration: "100%",
-            offset: -200,
-        })
-        .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    const whyVietNamSplit = document.querySelector('.home-why-content');
+    if (whyVietNamSplit) {
+        var charTarget = Splitting({
+            target: whyVietNamSplit,
+            by: 'lines',
+        });
+        gsap.set(charTarget[0].lines, {
+            autoAlpha: 0,
+            yPercent: 50,
+        });
+        var whyVietNamTextTl = gsap.timeline().to(charTarget[0].lines, 1, {
+            autoAlpha: 1,
+            yPercent: 0,
+            stagger: 0.05,
+        });
+
+        new ScrollMagic.Scene({
+                triggerElement: ".home-why",
+                duration: "100%",
+                offset: -200,
+            })
+            .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
+    }
+
 
     // =======================
     // World Class Team
@@ -688,21 +496,21 @@ jQuery(document).ready(function ($) {
     // =======================
     // Building Parallaxing
     // =======================
-    var buildingPlxTl = gsap.timeline().fromTo(".building-1 img", 1, {
-        y: 150,
-    }, {
-        y: 0,
-    });
-    new ScrollMagic.Scene({
-            triggerElement: ".city-view",
-            duration: "100%",
-            offset: -100,
-        })
-        .setTween(buildingPlxTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "building Parallax",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    // var buildingPlxTl = gsap.timeline().fromTo(".building-1 img", 1, {
+    //     y: 150,
+    // }, {
+    //     y: 0,
+    // });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".city-view",
+    //         duration: "100%",
+    //         offset: -100,
+    //     })
+    //     .setTween(buildingPlxTl) // trigger a TweenMax.to tween
+    //     // .addIndicators({
+    //     //     name: "building Parallax",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
 
     $('.modal-fund-tabs > ul li a').on('click', function (e) {
         e.preventDefault();
@@ -746,8 +554,6 @@ jQuery(document).ready(function ($) {
     //             y: e.clientY,
     //         });
     //     });
-    // });
-    // document.querySelector(".home-team-content").addEventListener("mouseleave", e => {
     // });
 })
 

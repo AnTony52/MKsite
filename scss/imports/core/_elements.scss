@@ -113,3 +113,40 @@ strong {
 }
 
 
+/* ------------ Triangles ----------- */ 
+$triangle-size: 8px;
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: $triangle-size solid transparent;
+    border-right: $triangle-size solid transparent;
+
+    border-bottom: $triangle-size solid $primary;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: $triangle-size solid transparent;
+    border-right: $triangle-size solid transparent;
+
+    border-top: $triangle-size solid $primary;
+}
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid transparent;
+
+    border-left: $triangle-size solid $primary;
+}
+
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-top: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid transparent;
+
+    border-right: $triangle-size solid $primary;
+}

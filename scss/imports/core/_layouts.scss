@@ -8,16 +8,13 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     outline: none;
+    font-family: 'happy-time-Regular';
 }
 
 html,
 #banner,
 #main {
     overflow-x: hidden;
-    // background-repeat: repeat-x;
-    // background-position: left top;
-    // background-attachment: scroll;
-    // background-size: auto;
     background-color: #fff;
     background-image: linear-gradient(to bottom, #DCEFF6, #B3DCEB, #B3DCEB, #DEF0F6, #FFFFFF);
 }
@@ -25,21 +22,12 @@ html,
 html,
 body {
     width: 100%;
-    // max-width: $max-width;
     -webkit-font-smoothing: antialiased;
     margin: 0 auto;
     @include text($fz-text, 'happy-time-Regular', $lh-text, $text-cl, none);
     background-color: $main-bg-cl;
     position: relative;
     @include custom-scrollbar();
-
-    .mainwrapper {
-
-        // width: $max-width;
-        // margin: auto;
-        // overflow: hidden;
-    }
-
     .container {
         width: 100%;
         max-width: $container-max-width;
@@ -65,7 +53,8 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    >*{
+
+    >* {
         // position: absolute;
         // top: 0;
         // right: 0;
@@ -73,9 +62,187 @@ body {
         height: auto;
         object-fit: cover;
     }
-    .cloud-1 {}
 
-    .cloud-2 {}
+}
 
-    .cloud-3 {}
+
+.our-fund-content {
+    margin-top: 224px;
+
+    .container {
+        max-width: 1224px;
+
+        // .our-fund-tabs {
+        //     ul {
+        //         list-style: none;
+        //         margin: 0;
+        //         padding: 0;
+
+        //         li {
+        //             display: inline-block;
+        //             padding-right: 32px;
+
+        //             &:last-child {
+        //                 padding-right: 0;
+        //             }
+
+        //             &.active {
+        //                 a {
+        //                     color: $text-red-cl;
+        //                 }
+        //             }
+
+        //             a {
+        //                 color: $text-black-cl;
+        //                 text-transform: uppercase;
+        //                 font-family: 'GothicPro-Bold';
+        //                 font-weight: 700;
+        //                 font-size: 18px;
+        //                 line-height: 18px;
+
+        //                 &:hover {
+        //                     color: $text-red-cl;
+        //                 }
+        //             }
+        //         }
+        //     }
+
+        //     .tab-content {
+        //         margin-top: 56px;
+        //         position: relative;
+        //         width: 100%;
+        //         height: 500px;
+
+        //         .tab-panel {
+        //             width: 100%;
+        //             display: none;
+        //             position: absolute;
+        //             top: 0;
+        //             left: 0;
+
+        //             &.active {
+        //                 display: block;
+        //             }
+
+        //             ul {
+
+        //                 li {
+        //                     display: block;
+        //                     padding-top: 24px;
+        //                     padding-bottom: 24px;
+        //                     border-top: 1px solid rgba(0, 0, 0, 10%);
+        //                     counter-increment: line-number;
+        //                     position: relative;
+
+        //                     .our-fund-image {
+        //                         width: 200px;
+        //                         position: absolute;
+        //                         top: 0px;
+        //                         right: 0;
+        //                         opacity: 0;
+        //                         @include transform(translateY(-50%));
+        //                         @include transition(0.5s ease);
+        //                     }
+
+        //                     &:hover {
+        //                         .our-fund-image {
+        //                             opacity: 1;
+        //                         }
+        //                     }
+
+        //                     &:last-child {
+        //                         border-bottom: 1px solid rgba(0, 0, 0, 10%);
+        //                     }
+
+        //                     a {
+        //                         font-family: 'happy-time-Regular';
+        //                         font-weight: 400;
+        //                         line-height: 56px;
+        //                         font-size: 40px;
+        //                         text-transform: capitalize;
+
+        //                         &:before {
+        //                             font-family: 'GothicPro-Regular';
+        //                             font-weight: 700;
+        //                             font-size: 18px;
+        //                             line-height: 24px;
+        //                             content: "0"counter(line-number)". ";
+
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}
+
+.home-team {
+    .home-team-content {
+
+        ul {
+            .focused {
+                z-index: 99;
+                // z-index: 13000;
+                // a {
+                //     -webkit-clip-path: inset(0 0 0 0) !important;
+                //     clip-path: inset(0 0 0 0) !important;
+                // }
+            }
+
+            .focused-out {
+                // >a {
+                //     -webkit-clip-path: inset(0 100% 0 0);
+                //     clip-path: inset(0 100% 0 0);
+                // }
+
+                // .word-grey {
+                //     -webkit-clip-path: inset(0 0 0 0) !important;
+                //     clip-path: inset(0 0 0 0) !important;
+                // }
+            }
+
+            li {
+
+                .word-grey {
+                    display: none;
+                    // -webkit-clip-path: inset(0 0 0 100%);
+                    // clip-path: inset(0 0 0 100%);
+
+                    // color: $text-red-cl;
+                    // color: $darkblue;
+                    // opacity: 30%;
+                    // position: absolute;
+                    // z-index: -1;
+                    // width: 100%;
+                    // top: 0;
+                    // left: 50%;
+                    // padding-left: 20px;
+                    // @include transform(translateX(-50%));
+                    // @include transition(1s ease);
+                }
+
+                a {
+                    // -webkit-clip-path: inset(0 0 0 0);
+                    // clip-path: inset(0 0 0 0);
+                    color: $text-red-cl;
+                }
+
+                &:hover {
+                    // .word-grey {
+                    //     // color: $text-red-cl;
+                    //     // opacity: 1;
+                    //     -webkit-clip-path: inset(0 0 0 0) !important;
+                    //     clip-path: inset(0 0 0 0) !important;
+                    // }
+
+                    a {
+                        color: $text-red-cl;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
 }
