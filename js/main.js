@@ -131,10 +131,13 @@ jQuery(document).ready(function ($) {
         });
     }
     // --------------------------------------------
-    // on Load Home Page
+    // Home Page
     // --------------------------------------------
+
     if (document.querySelector("#loading.home-page")) {
+        // onLoad
         jQuery('img').imagesLoaded(function () {
+
             // images have loaded
             var count = 0;
             var counter = setInterval(function () {
@@ -161,9 +164,9 @@ jQuery(document).ready(function ($) {
                         .from(".m-c-center", 1, {
                             autoAlpha: 0,
                         })
-                        .to(".m-c-center", 1, {
+                        .to(".m-c-center , #line-scroll", 1, {
                             autoAlpha: 0,
-                            delay: 1,
+                            delay: 1.5,
                         })
                         .to(".main-copy", 1, {
                             autoAlpha: 0,
@@ -174,9 +177,41 @@ jQuery(document).ready(function ($) {
                         .from('.main-subjects h3', 1, {
                             autoAlpha: 0,
                             stagger: 0.1,
-                        })
+                        });
                 }
-            }, 100);
+            }, 50);
+
+        });
+
+        //-----------------------------------------------------
+        // Hover targets on Home   
+        //-----------------------------------------------------
+        jQuery(".main-subjects a").mouseenter(function () {
+            jQuery(this).addClass("focused");
+            jQuery(this).parent().siblings().children("a").addClass("focused-out");
+        });
+        jQuery(".main-subjects a").mouseleave(function () {
+            jQuery(this).removeClass("focused");
+            jQuery(this).parent().siblings().children("a").removeClass("focused-out");
+        });
+
+        document.querySelectorAll(".main-subjects a").forEach((target) => {
+            target.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.querySelector("#loading").classList.remove("dark-mode");
+                gsap.set("#loading", {
+                    xPercent: 100,
+                    autoAlpha: 1,
+                });
+                gsap.timeline()
+                    .to("#loading", 1, {
+                        xPercent: 0,
+                        ease: Power4.easeInOut,
+                        // onComplete: () => {
+                        //     window.location = target.getAttribute("href")
+                        // },
+                    });
+            });
         });
     }
     // ----------------------

@@ -69,32 +69,42 @@
                 @include d-flex;
                 @include justify-content(space-between);
 
-                .arrow {
-                    position: relative;
+                // .arrow {
+                //     position: relative;
+                //     &::before {
+                //         content: "";
+                //         width: 20px;
+                //         width: 0;
+                //         height: 2px;
+                //         background-color: #000;
+                //         position: absolute;
+                //         @include transition(0.5s ease);
+                //         @include transform(translate(-50%, -50%) rotate(45deg));
+                //     }
 
+                //     &.left {
+                //         &::before {
+                //             border-radius: 50px;
+                //         }
+                //     }
 
-
-                    &::before {
-                        content: "";
-                        width: 20px;
-                        width: 0;
-                        height: 2px;
-                        background-color: #000;
-                        position: absolute;
-                        @include transition(0.5s ease);
-                        @include transform(translate(-50%, -50%) rotate(45deg));
+                //     &.right {
+                //         &::before {
+                //             border-radius: 50px;
+                //         }
+                //     }
+                // }
+                [class^="stories-"]:hover {
+                    .arrow {
+                        border-color: #B70004;
                     }
 
-                    &.left {
-                        &::before {
-                            border-radius: 50px;
-                        }
+                    .right {
+                        @include transform(rotate(-45deg) scale(0.7));
                     }
 
-                    &.right {
-                        &::before {
-                            border-radius: 50px;
-                        }
+                    .left {
+                        @include transform(rotate(135deg) scale(0.7));
                     }
                 }
             }
@@ -102,38 +112,31 @@
             .stories-prev,
             .stories-next {
                 width: 50%;
-                height: 10px;
+                height: 20px;
 
-                &:hover {
-                    .arrow::before {
-                        width: 20px;
-                    }
+                @include transition(0.3s ease-in-out);
+
+                .arrow {
+                    @include transition(0.3s ease-in-out);
                 }
 
-                // img {
-                // @include transition(0.3s ease);
-                // }
+                &:hover {
+                    .arrow {
+                        &::before {
+                            width: 20px;
+                        }
+                    }
+                }
             }
 
             .stories-prev {
                 right: 200px;
-
-                // &:hover {
-                // img {
-                // @include transform(translateX(-10px));
-                // }
-                // }
             }
 
             .stories-next {
                 right: 100px;
                 text-align: right;
 
-                // &:hover {
-                //     img {
-                //         @include transform(translateX(10px));
-                //     }
-                // }
             }
 
             .carousel-wrapper,
@@ -717,6 +720,7 @@
         margin-top: 160px;
         position: relative;
         z-index: 10;
+
         .showall {
             font-family: 'happy-time-Italic';
             font-size: 16px;

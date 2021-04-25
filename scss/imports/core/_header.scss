@@ -19,33 +19,44 @@ header {
         @include transform(translateY(-100%));
 
     }
-    .logo {
-        width: 120px;
-        height: auto;
-        margin-left: -15px;
-    }
+    
     &.bloody-hat--On {
         &:before {
             @include transform(translateY(0));
         }
     }
-    // mix-blend-mode: difference;
-    .container {
+    .content--fixed {
         @include d-flex;
         @include justify-content(space-between);
         @include align-items(center);
         height: 100%;
         width: 100%;
 
-        [title="MEKONG"] {
+        a[title="MEKONG"] {
             margin-right: auto;
             margin-left: 100px;
+            margin-left: 80px;
+            width: 120px;
+            @include mobile {
+                margin-left: 0;
+            }
+            
         }
-
+        .logo {
+            width: 100%;
+            height: auto;
+            // margin-left: -15px;
+            @include mobile {
+                margin-left: 0;
+            }
+        }
         .right-side {
             @include d-flex;
             margin-right: 100px;
-
+            margin-right: 80px;
+            @include mobile {
+                margin-right: 0;
+            }
             #lang {
                 padding-top: 8px;
                 align-items: center;
@@ -68,7 +79,6 @@ header {
 
     .hamburger {
         padding: 0;
-
         .hamburger-box {
             .hamburger-inner:after {
                 opacity: 0;
@@ -105,8 +115,6 @@ header {
     border-radius: 100%;
     width: 60px;
     height: 60px;
-    // @include transform(translateX(-50%));
-    // mix-blend-mode: difference;
     &::before {
         content: "";
         color: white;
@@ -156,14 +164,4 @@ header {
         @include transition(opacity 0.3s ease);
     }
 
-    // .dot {
-    //     width: 15px;
-    //     height: 15px;
-    //     border-radius: 100%;
-    //     background-color: #fff;
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     @include transform(translate(-50%, -50%));
-    // }
 }

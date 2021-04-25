@@ -113,8 +113,9 @@ strong {
 }
 
 
-/* ------------ Triangles ----------- */ 
+/* ------------ Triangles ----------- */
 $triangle-size: 8px;
+
 .triangle-up {
     width: 0;
     height: 0;
@@ -150,3 +151,93 @@ $triangle-size: 8px;
 
     border-right: $triangle-size solid $primary;
 }
+
+/* line scroll */
+#line-scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    $transition-delay: 2.5s;
+    transition-delay: $transition-delay;
+    -moz-transition-delay: $transition-delay;
+    -webkit-transition-delay: $transition-delay;
+    -o-transition-delay: $transition-delay;
+    opacity: 0
+}
+
+$height-of-line: 60px;
+
+.line-scroll {
+    position: relative;
+    width: 2px;
+    height: $height-of-line;
+    left: 50%;
+    bottom: 0;
+    margin-left: -1px;
+    overflow: hidden
+}
+
+#line-scroll.animate {
+    opacity: 1
+}
+
+.line-scroll .line {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    z-index: 11;
+
+    display: block;
+
+    width: 1px;
+    height: $height-of-line + 2px;
+    margin-left: -1px;
+    background: rgba(255, 255, 255, 1);
+    background: -webkit-linear-gradient(top, $primary 50%, #000 50%);
+    background: linear-gradient(to bottom, $primary 50%, #000 50%);
+    background-size: 100% 200%;
+    background-position: 0 -$height-of-line;
+
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px)
+}
+
+.line-scroll .line.active {
+    $animation-time: 3s;
+    -webkit-animation: line-scroll $animation-time ease-in-out forwards infinite;
+    animation: line-scroll $animation-time ease-in-out forwards infinite;
+}
+
+$start-of-line: $height-of-line * -1;
+$end-of-line: $height-of-line;
+
+// @-webkit-keyframes line-scroll {
+//     0% {
+//         background-position: 0 $start-of-line
+//     }
+
+//     80% {
+//         background-position: 0 0
+//     }
+
+//     100% {
+//         background-position: 0 $end-of-line
+//     }
+// }
+
+@include keyframes(line-scroll) {
+    0% {
+        background-position: 0 $start-of-line
+    }
+
+    80% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 0 $end-of-line
+    }
+}
+
+/* end line scroll */
