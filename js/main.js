@@ -174,25 +174,28 @@ jQuery(document).ready(function ($) {
                         .to(".main-bg", 2, {
                             scale: 1.3,
                         }, '-=1')
-                        .from('.main-subjects h3', 1, {
+                        .from('.main-subjects h3, #panel', 1, {
                             autoAlpha: 0,
                             stagger: 0.1,
                         });
                 }
             }, 50);
-
         });
 
         //-----------------------------------------------------
-        // Hover targets on Home   
+        // Hover targets on Home
         //-----------------------------------------------------
         jQuery(".main-subjects a").mouseenter(function () {
             jQuery(this).addClass("focused");
             jQuery(this).parent().siblings().children("a").addClass("focused-out");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).addClass("focused");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().addClass("focused-out");
         });
         jQuery(".main-subjects a").mouseleave(function () {
             jQuery(this).removeClass("focused");
             jQuery(this).parent().siblings().children("a").removeClass("focused-out");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).removeClass("focused");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().removeClass("focused-out");
         });
 
         document.querySelectorAll(".main-subjects a").forEach((target) => {

@@ -81,7 +81,13 @@
             height: 10px;
             border-radius: 100%;
             background-color: #fff;
-
+            @include transition(0.3s ease-in-out);
+        }
+        .focused {
+            opacity: 1;
+        }
+        .focused-out {
+            opacity: 0.3;
         }
     }
 }
