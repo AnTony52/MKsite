@@ -1,3 +1,65 @@
+.modal-popup[modal-type="popup-gallery"]{
+    background: #000;
+    .modal-popup-content{
+        margin: 145px 200px;
+        height: calc(100% - 290px);
+        .modal-body{
+            height: 100%;
+            .popup-gallery{
+                height: 100%;
+                .popup-gallery-thumbnail{
+                    height: 100%;
+                    text-align: center;
+                    img{
+                        height: 100%;
+                    }
+                }
+                .popup-gallery-info{
+                    color: $white-cl;
+                    margin-top: 32px;
+                    .popup-cation{
+                        font-family: 'GothicPro-Regular';                        
+                        font-size: 14px;
+                        line-height: 24px;
+                        float:left;
+                    }
+                    .popup-action{
+                        float:right;
+                        .action-arrow-prev, .action-arrow-next{
+                            width: 15px;
+                            height: 26px;     
+                            display: inline-block;
+                            opacity: 0.5;
+                            position: relative;
+                            z-index: 999;
+                            &:hover{
+                                opacity: 1;                                
+                            }
+                            &.disabled{
+                                display: none;
+                            }
+                        }
+                        .action-number{
+                            font-family: 'Sackers Gothic Std Medium';
+                            font-size: 14px;
+                            line-height: 14px;
+                            position: relative;
+                            top: -7px;
+                            padding: 0 20px;
+                        }
+                        .action-arrow-prev{
+                            background: url('../images/modal/arrow-prev.png') no-repeat;
+                        }
+                        .action-arrow-next{
+                            background: url('../images/modal/arrow-next.png') no-repeat;
+                        }                        
+                    }
+                }
+            }            
+        }
+    }
+}
+
 .modal-popup{
     position: fixed;
     top: 0;
@@ -8,18 +70,103 @@
     height: 100%;
     overflow: hidden;
     outline: 0;
-    background: #2a2c2e;
+    background: #fff;
     color: #fff;
     .modal-popup-content{
-        max-width: $container-width;
         height: 100%;
         .modal-close{
             position: absolute;
             top:32px;
             right: 32px;
         }
-        .modal-body{
-            
+        .modal-body{            
+            .modal-body-left, .modal-body-right{
+                width: 50%;
+                height: 100vh;
+            }
+            h3{
+                font-family: 'happy-time-Regular';
+                font-weight: 400;
+                font-size: 40px;
+                line-height: 48px;
+                margin-bottom: 48px;
+                max-width: 160px;
+            }
+            p{
+                font-family: 'GothicPro-Regular';
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 400;
+                margin-bottom: 32px;
+            }
+            .modal-body-left{
+                background: #0F1C2D;
+                overflow: hidden;
+                padding-left: 176px;
+                padding-top: 160px;
+                padding-right: 56px;
+                float: left;                
+            }
+            .modal-body-right{
+                overflow-y: auto;       
+                float: right;
+                padding-left: 63px;
+                padding-top: 160px;
+                padding-right: 63px;
+                .modal-fund-tabs{
+                    ul{
+                        li{
+                            display: inline-block;
+                            padding-right: 32px;
+                            &:last-child{
+                                padding-right: 0;
+                            }
+                            &.active{
+                                a{
+                                    color: $text-red-cl;                                    
+                                }
+                            }
+                            a{
+                                font-family: 'GothicPro-Regular';
+                                font-weight: 700;
+                                font-size: 18px;
+                                line-height: 32px;
+                                display: inline-block;
+                                text-transform: uppercase;                                
+                            }
+                        }
+                    }
+                    .tab-content{
+                        .tab-panel{
+                            padding-top: 40px;
+                            display: none;
+                            color: $text-black-cl;
+                            &.active{
+                                display: block;
+                            }
+                            .client-list{
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                justify-content: center;
+                                .client-item{
+                                    flex: 1 1 calc(100% / 3);
+                                    filter: grayscale(1);
+                                    padding: 40px;
+                                    border: 1px solid #00000080;
+                                    height: 125px;
+                                    &:hover{
+                                        filter: grayscale(0);
+                                    }                                   
+                                    img{
+                                        width: 80%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
         }
     }
 }

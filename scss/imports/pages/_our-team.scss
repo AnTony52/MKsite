@@ -1,0 +1,51 @@
+html.page{
+    .page-our-team{
+        #main{
+            padding-bottom: 100px;
+            .page-block{
+                .page-content{
+                    .tab-page{
+                        margin-bottom: 80px;
+                    }
+                    .list-team{
+                        .item-team{
+                            position: relative;
+                            &:hover{
+                                .thumbnail{
+                                    filter: grayscale(0);
+                                }                                
+                            }
+                            .thumbnail{
+                                filter: grayscale(1);
+                                transition: 0.3s ease;
+                                -webkit-transition: 0.3s ease;                                                                    
+                            }                            
+                            .content-text{
+                                display: none;
+                                text-align: center;
+                                width: 100%;
+                                padding: 0 15px;                                
+                                position: absolute;
+                                left: 0;
+                                bottom:15px;
+                                color: $white-cl;
+                                text-transform: uppercase;
+                                a{
+                                    color: $white-cl;
+                                    font-family: 'Sackers Gothic Std Heavy';
+                                    font-size: 18px;
+                                    line-height: 48px;
+                                }
+                                p{
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    font-family: 'Sackers Gothic Std Medium';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -46,20 +46,20 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
     // get transform propedrty
     let docStyle = document.documentElement.style;
     let transformProp = typeof docStyle.transform == 'string' ?
-        'transform' : 'WebkitTransform';
+            'transform' : 'WebkitTransform';
     flkty.on('scroll', function () {
         if (jQuery(child).length > 2) {
             flkty.slides.forEach(function (slide, i) {
                 let img = imgs[i],
-                    x = 0;
+                        x = 0;
                 if (0 === i) {
                     x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                        (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                        (slide.target + flkty.x);
+                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
+                            (slide.target + flkty.x);
                 } else if (i === flkty.slides.length - 1) {
                     x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                        (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                        (slide.target + flkty.x);
+                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
+                            (slide.target + flkty.x);
                 } else {
                     x = slide.target + flkty.x;
                 }
@@ -88,7 +88,7 @@ jQuery(document).ready(function ($) {
         jQuery(window).on('scroll', function () {
             scroll_top = jQuery(this).scrollTop();
             if (scroll_top > 10) {
-                (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up'): jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
+                (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up') : jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
                 last_scroll_top = scroll_top;
             }
             scroll_top > 500 ? jQuery('#header').addClass("bloody-hat--On") : jQuery('#header').removeClass("bloody-hat--On");
@@ -107,37 +107,34 @@ jQuery(document).ready(function ($) {
     if (document.querySelector("#banner h1")) {
         // .mainwrapper
         var onLoad = gsap.timeline({
-                paused: 1,
-            })
-            .to('#loading', 1.5, {
-                xPercent: -100,
-                delay: 0.5,
-                ease: Power4.easeInOut,
-            })
-            .from("h1 .word", 1, {
-                yPercent: 100,
-                // transformOrigin: "left",
-                opacity: 0.5,
-                stagger: 0.1,
-                skewX: 30,
-                ease: Power1.easeInOut,
-                delay: 0.1,
-            })
-            .from("#banner .subject", 3, {
-                opacity: 0,
-            }, 3);
+            paused: 1,
+        })
+                .to('#loading', 1.5, {
+                    xPercent: -100,
+                    delay: 0.5,
+                    ease: Power4.easeInOut,
+                })
+                .from("h1 .word", 1, {
+                    yPercent: 100,
+                    // transformOrigin: "left",
+                    opacity: 0.5,
+                    stagger: 0.1,
+                    skewX: 30,
+                    ease: Power1.easeInOut,
+                    delay: 0.1,
+                })
+                .from("#banner .subject", 3, {
+                    opacity: 0,
+                }, 3);
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
     }
     // --------------------------------------------
-    // Home Page
+    // on Load Home Page
     // --------------------------------------------
-
     if (document.querySelector("#loading.home-page")) {
-        // onLoad
         jQuery('img').imagesLoaded(function () {
-
             // images have loaded
             var count = 0;
             var counter = setInterval(function () {
@@ -154,67 +151,32 @@ jQuery(document).ready(function ($) {
                 } else {
                     clearInterval(counter);
                     gsap.timeline()
-                        .to(".subject-count", 1, {
-                            autoAlpha: 0,
-                            delay: 2,
-                        })
-                        .to("#loading", 1, {
-                            autoAlpha: 0,
-                        })
-                        .from(".m-c-center", 1, {
-                            autoAlpha: 0,
-                        })
-                        .to(".m-c-center , #line-scroll", 1, {
-                            autoAlpha: 0,
-                            delay: 1.5,
-                        })
-                        .to(".main-copy", 1, {
-                            autoAlpha: 0,
-                        })
-                        .to(".main-bg", 2, {
-                            scale: 1.3,
-                        }, '-=1')
-                        .from('.main-subjects h3, #panel', 1, {
-                            autoAlpha: 0,
-                            stagger: 0.1,
-                        });
+                            .to(".subject-count", 1, {
+                                autoAlpha: 0,
+                                delay: 2,
+                            })
+                            .to("#loading", 1, {
+                                autoAlpha: 0,
+                            })
+                            .from(".m-c-center", 1, {
+                                autoAlpha: 0,
+                            })
+                            .to(".m-c-center", 1, {
+                                autoAlpha: 0,
+                                delay: 1,
+                            })
+                            .to(".main-copy", 1, {
+                                autoAlpha: 0,
+                            })
+                            .to(".main-bg", 2, {
+                                scale: 1.3,
+                            }, '-=1')
+                            .from('.main-subjects h3', 1, {
+                                autoAlpha: 0,
+                                stagger: 0.1,
+                            })
                 }
-            }, 50);
-        });
-
-        //-----------------------------------------------------
-        // Hover targets on Home
-        //-----------------------------------------------------
-        jQuery(".main-subjects a").mouseenter(function () {
-            jQuery(this).addClass("focused");
-            jQuery(this).parent().siblings().children("a").addClass("focused-out");
-            jQuery("#panel>div").eq(jQuery(this).parent().index()).addClass("focused");
-            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().addClass("focused-out");
-        });
-        jQuery(".main-subjects a").mouseleave(function () {
-            jQuery(this).removeClass("focused");
-            jQuery(this).parent().siblings().children("a").removeClass("focused-out");
-            jQuery("#panel>div").eq(jQuery(this).parent().index()).removeClass("focused");
-            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().removeClass("focused-out");
-        });
-
-        document.querySelectorAll(".main-subjects a").forEach((target) => {
-            target.addEventListener("click", (e) => {
-                e.preventDefault();
-                document.querySelector("#loading").classList.remove("dark-mode");
-                gsap.set("#loading", {
-                    xPercent: 100,
-                    autoAlpha: 1,
-                });
-                gsap.timeline()
-                    .to("#loading", 1, {
-                        xPercent: 0,
-                        ease: Power4.easeInOut,
-                        // onComplete: () => {
-                        //     window.location = target.getAttribute("href")
-                        // },
-                    });
-            });
+            }, 100);
         });
     }
     // ----------------------
@@ -267,21 +229,182 @@ jQuery(document).ready(function ($) {
     //         $('.home-team-image').hide();
     //     })
     // }
+    // =================
+    // Modal Popup
+    // =================
+    // 
+    var modalPopup = {
+        galleries: [],
+        markup: '<div class="popup-gallery">\n\
+                                <div class="popup-gallery-thumbnail"><img class="" src="[image_active]" alt="" /></div>\n\
+                                <div class="popup-gallery-info">\n\
+                                    <div class="popup-cation">[title_active]</div>\n\
+                                    <div class="popup-action">\n\
+                                        <span class="action-arrow-prev"></span>\n\
+                                        <span class="action-number">[count] / [length]</span>\n\
+                                        <span class="action-arrow-next"></span>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>',
+        index_active: 0,
+        title_active: '',
+        init: function () {
+            $('*[data-modal]').on('click', function (e) {
+                e.preventDefault();
+                $('.modal-popup').attr('modal-type', $(this).data('modal'));
+                if ($(this).data('modal') == "popup-gallery") {
+                    modalPopup.init_popup_gallery($(this));
+                }
 
-    //    $('*[data-modal="popup-video"]').on('click',function(e){
-    //        e.preventDefault();
-    //        var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-    //        var url = $(this).data('url');
-    //        var urls = url.split('/');
-    //        var code = urls[urls.length - 1];
-    //        var view_iframe = iframe.replace('{id}',code);
-    //        $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
-    //        $('.modal-popup').fadeIn();
-    //    })    
+                $('.modal-popup').fadeIn();
+            });
 
-    //    $('.modal-popup .modal-popup-content').on('click','.modal-close',function(){
-    //        $(this).parents('.modal-popup').fadeOut('medium');
-    //    })
+            $('.modal-popup').on('click', '.action-arrow-prev', function () {
+                modalPopup.prev();
+            }).on('click', '.action-arrow-next', function () {
+                modalPopup.next();
+            })
+        },
+        init_popup_gallery: function (obj) {
+            modalPopup.galleries = $('body').find('a[data-modal="popup-gallery"]');
+            if (obj != undefined) {
+                modalPopup.index_active = obj.parent().index();
+            }
+            modalPopup.title_active = $(modalPopup.galleries[modalPopup.index_active]).data('title') != undefined ? $(modalPopup.galleries[modalPopup.index_active]).data('title') : $(modalPopup.galleries[modalPopup.index_active]).attr('title');
+
+            var clone_markup = modalPopup.markup;
+            clone_markup = clone_markup.replace('[image_active]', $(modalPopup.galleries[modalPopup.index_active]).attr('href'));
+            clone_markup = clone_markup.replace('[title_active]', modalPopup.title_active);
+            clone_markup = clone_markup.replace('[count]', modalPopup.index_active + 1);
+            clone_markup = clone_markup.replace('[length]', modalPopup.galleries.length);
+
+            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);
+        },
+        next: function () {
+            modalPopup.index_active++;
+            var current = parseInt(modalPopup.index_active) + 1;
+
+            $('.modal-popup[modal-type="popup-gallery"] .action-arrow-prev').removeClass('disabled');
+
+            if (current >= modalPopup.galleries.length) {
+                modalPopup.index_active = parseInt(modalPopup.galleries.length) - 1;
+                modalPopup.change();
+                $('.modal-popup[modal-type="popup-gallery"] .action-arrow-next').addClass('disabled');
+            } else {
+                modalPopup.change();
+            }
+        },
+        prev: function () {
+            modalPopup.index_active--;
+            var current = parseInt(modalPopup.index_active) + 1;
+
+            $('.modal-popup[modal-type="popup-gallery"] .action-arrow-next').removeClass('disabled');
+
+            if (current <= 0) {
+                modalPopup.index_active = 0;
+                modalPopup.change();
+                $('.modal-popup[modal-type="popup-gallery"] .action-arrow-prev').addClass('disabled');
+            } else {
+                modalPopup.change();
+            }
+        },
+        change: function (index) {
+            if (index == undefined) {
+                index = modalPopup.index_active;
+            } else {
+                modalPopup.index_active = index;
+            }
+            modalPopup.init_popup_gallery();
+        }
+    };
+    modalPopup.init();
+
+    // =================
+    // Team
+    // =================
+    $('.list-team .item-team').on('mouseenter', function () {
+        $(this).find('.content-text').fadeIn('medium');
+    }).on('mouseleave', function () {
+        $(this).find('.content-text').fadeOut('medium');
+    })
+
+//        $('*[data-modal="popup-video"]').on('click',function(e){
+//            e.preventDefault();
+//            var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+//            var url = $(this).data('url');
+//            var urls = url.split('/');
+//            var code = urls[urls.length - 1];
+//            var view_iframe = iframe.replace('{id}',code);
+//            $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
+//            $('.modal-popup').fadeIn();
+//        })    
+
+    $(window).on('keyup', function (e) {
+        console.log(e.which);
+
+        switch (e.which) {
+            case 13:
+                break;
+                // esc      
+            case 27:
+                $('.modal-popup').fadeOut('medium');
+                break;
+                //key next
+            case 39:
+                break;
+                //key prev
+            case 37:
+                break;
+        }
+    })
+    $('.modal-popup .modal-popup-content').on('click', '.modal-close', function () {
+        $(this).parents('.modal-popup').fadeOut('medium');
+    })
+
+    // =================
+    // Page Blocks
+    // =================
+    gsap.set('.page .page-content .tab-page ul li', {
+        opacity: 0,
+        ease: Power4.easeInOut,
+    });
+    gsap.set('.page .page-content .col-md-4', {
+        opacity: 0,
+        ease: Power4.easeInOut,
+    });
+    gsap.set('.page-content .content-text h3', {
+        // yPercent: 100,
+        y: 30,
+        opacity: 0,
+        ease: Power4.easeInOut,
+    })
+    gsap.timeline()
+            .to('.page .page-content .tab-page ul li', 1, {
+                // yPercent: 0,
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                ease: Power4.easeInOut,
+            })
+            .to('.page-content .content-text h3', 1, {
+                // yPercent: 0,
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                ease: Power4.easeInOut,
+            })
+            .to('.page-content .col-md-4', 1, {
+                opacity: 1,
+                stagger: 0.2,
+                ease: Power4.easeInOut,
+            }, 0.5);
+
+//    $('.page-content .col-md-4').on('mouseenter', function () {
+//
+//    }).on('mouseleave', function () {
+//
+//    })
+
     // ==========================================================
 
     // =================
@@ -296,7 +419,6 @@ jQuery(document).ready(function ($) {
         var heightMain = document.querySelector(".mainwrapper").offsetHeight;
     }
 
-
     // =================
     // Home-stories
     // =================
@@ -309,22 +431,22 @@ jQuery(document).ready(function ($) {
     });
 
     var homeStories = new ScrollMagic.Scene({
-            triggerElement: ".home-stories",
-            duration: 100,
-            offset: -100,
-        })
-        .on("enter", function () {
-            gsap.timeline()
-                .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
-                    opacity: 1,
-                    stagger: 0.25,
-                    ease: Power4.easeInOut,
-                });
-        })
-        // .addIndicators({
-        //     name: "homeStories"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-stories",
+        duration: 100,
+        offset: -100,
+    })
+            .on("enter", function () {
+                gsap.timeline()
+                        .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
+                            opacity: 1,
+                            stagger: 0.25,
+                            ease: Power4.easeInOut,
+                        });
+            })
+            // .addIndicators({
+            //     name: "homeStories"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ========================================
     // Report Breakthrough
     // ========================================
@@ -342,29 +464,29 @@ jQuery(document).ready(function ($) {
         var heightReport = document.querySelector(".home-report").offsetHeight;
     }
     var homeReport = new ScrollMagic.Scene({
-            triggerElement: ".home-report",
-            duration: "200%",
-            offset: 100,
-        })
-        .on("enter", function () {
-            gsap.timeline()
-                .to('.home-report-title h3 .word', 1, {
-                    // yPercent: 0,
-                    y: 0,
-                    opacity: 1,
-                    stagger: 0.1,
-                    ease: Power4.easeInOut,
-                })
-                .to('.slider-item', 1, {
-                    opacity: 1,
-                    stagger: 0.2,
-                    ease: Power4.easeInOut,
-                }, 0.5);
-        })
-        // .addIndicators({
-        // name: "Report"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-report",
+        duration: "200%",
+        offset: 100,
+    })
+            .on("enter", function () {
+                gsap.timeline()
+                        .to('.home-report-title h3 .word', 1, {
+                            // yPercent: 0,
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.1,
+                            ease: Power4.easeInOut,
+                        })
+                        .to('.slider-item', 1, {
+                            opacity: 1,
+                            stagger: 0.2,
+                            ease: Power4.easeInOut,
+                        }, 0.5);
+            })
+            // .addIndicators({
+            // name: "Report"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ========================================
     // Our Funds
     // ========================================
@@ -377,58 +499,58 @@ jQuery(document).ready(function ($) {
         // offset: 100,
     });
     var ourFunds = gsap.timeline({
-            paused: 1,
-        })
-        .to('.our-fund-content h3 .word', 1, {
-            opacity: 1,
-            stagger: 0.1,
-            delay: 0.5,
-        })
-        .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.1,
-        });
+        paused: 1,
+    })
+            .to('.our-fund-content h3 .word', 1, {
+                opacity: 1,
+                stagger: 0.1,
+                delay: 0.5,
+            })
+            .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
+                yPercent: 0,
+                opacity: 1,
+                stagger: 0.1,
+            });
     new ScrollMagic.Scene({
-            triggerElement: ".our-fund",
-            duration: "150%",
-            offset: -100,
-        })
-        .on('enter', () => {
-            ourFunds.play();
-        })
-        .on('leave', () => {
-            ourFunds.reverse();
-        })
-        // .setTween(ourFunds)
-        // .addIndicators({
-        //     name: "Our Funds",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".our-fund",
+        duration: "150%",
+        offset: -100,
+    })
+            .on('enter', () => {
+                ourFunds.play();
+            })
+            .on('leave', () => {
+                ourFunds.reverse();
+            })
+            // .setTween(ourFunds)
+            // .addIndicators({
+            //     name: "Our Funds",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Title Funds Running
     // ======================
     var titleFund = gsap.timeline({
-            // repeat: -1,
-            // yoyo: true,
-        })
-        .fromTo(".our-fund h3", 1, {
-            xPercent: 30,
-            // ease: Power3.easeOut,
-        }, {
-            xPercent: -30,
-            ease: Power4.easeOut,
-        });
+        // repeat: -1,
+        // yoyo: true,
+    })
+            .fromTo(".our-fund h3", 1, {
+                xPercent: 30,
+                // ease: Power3.easeOut,
+            }, {
+                xPercent: -30,
+                ease: Power4.easeOut,
+            });
     new ScrollMagic.Scene({
-            triggerElement: ".our-fund",
-            duration: "200%",
-            offset: -100,
-        })
-        .setTween(titleFund)
-        // .addIndicators({
-        //     name: "Our Funds",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".our-fund",
+        duration: "200%",
+        offset: -100,
+    })
+            .setTween(titleFund)
+            // .addIndicators({
+            //     name: "Our Funds",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Why Vietnam Flying Up
     // ======================
@@ -436,27 +558,27 @@ jQuery(document).ready(function ($) {
         var heightWhy = document.querySelector(".home-why").offsetHeight;
     }
     var flyingUpTl = gsap.timeline({
-            // paused: true,
-        })
-        .to(".home-why-thumb-left", 1, {
-            y: -heightWhy * 1.5,
-        })
-        .to(".home-why-thumb-right", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5')
-        .to(".home-why-thumb-bottom", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5')
+        // paused: true,
+    })
+            .to(".home-why-thumb-left", 1, {
+                y: -heightWhy * 1.5,
+            })
+            .to(".home-why-thumb-right", 1, {
+                y: -heightWhy * 1.5,
+            }, '-=0.5')
+            .to(".home-why-thumb-bottom", 1, {
+                y: -heightWhy * 1.5,
+            }, '-=0.5')
     var thumbLeft = new ScrollMagic.Scene({
-            triggerElement: ".home-why",
-            duration: heightWhy * 2,
-            offset: -100,
-        })
-        .setTween(flyingUpTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "Flying Up Left"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-why",
+        duration: heightWhy * 2,
+        offset: -100,
+    })
+            .setTween(flyingUpTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            //     name: "Flying Up Left"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Why Viet Nam Text
     // ======================
@@ -477,14 +599,14 @@ jQuery(document).ready(function ($) {
         });
 
         new ScrollMagic.Scene({
-                triggerElement: ".home-why",
-                duration: "100%",
-                offset: -200,
-            })
-            .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
-            // .addIndicators({
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-why",
+            duration: "100%",
+            offset: -200,
+        })
+                .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
+                // .addIndicators({
+                // }) // add indicators (requires plugin)
+                .addTo(controller);
     }
 
 
@@ -503,21 +625,21 @@ jQuery(document).ready(function ($) {
         stagger: 0.3,
     });
     new ScrollMagic.Scene({
-            triggerElement: ".home-team",
-            duration: "120%",
-            offset: -200,
-        })
-        .on('enter', () => {
-            classTeamTl.play();
-        })
-        .on('leave', () => {
-            classTeamTl.reverse();
-        })
-        // .setTween(classTeamTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "World Class Team",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-team",
+        duration: "120%",
+        offset: -200,
+    })
+            .on('enter', () => {
+                classTeamTl.play();
+            })
+            .on('leave', () => {
+                classTeamTl.reverse();
+            })
+            // .setTween(classTeamTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            //     name: "World Class Team",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     //-----------------------------------------------------
     // World Class Animation    
     //-----------------------------------------------------

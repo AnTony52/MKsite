@@ -1,0 +1,27 @@
+html.page{
+    .page-gallery{
+        #main{
+            .page-block{
+                .page-content{
+                    .tab-page{
+                        margin-bottom: 80px;
+                    }
+                    .container{
+                        .gallery-box{
+                            &:hover{
+                                .thumbnail{
+                                    filter: grayscale(0);
+                                }                                
+                            }
+                            .thumbnail{
+                                filter: grayscale(1);
+                                transition: 0.3s ease;
+                                -webkit-transition: 0.3s ease;                                                                    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
