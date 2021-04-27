@@ -1,6 +1,6 @@
 footer {
     // background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
-    background-color: #0F1C2D;
+    background-color: $footer-bg;
     padding-top: 48px;
     padding-top: 80px;
     color: $white-cl;
@@ -14,8 +14,8 @@ footer {
         max-width: $container-width;
         margin: 0 auto;
 
-        .footer-logo {
-        }
+        // .footer-logo {
+        // }
 
 
 

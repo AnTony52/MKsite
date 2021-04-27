@@ -1,7 +1,6 @@
 // ==================================
-// PxSlide
+// 
 // ==================================
-
 var reportSlide = (selector) => {
     var elem = document.querySelector(selector);
     var flkty = new Flickity(elem, {
@@ -20,6 +19,9 @@ var reportSlide = (selector) => {
         initialIndex: 0,
     });
 }
+// ==================================
+// Parallax Slide
+// ==================================
 var parallaxSlider = (selector, child, initialIndex = 0) => {
     options = {
         accessibility: 1,
@@ -46,20 +48,20 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
     // get transform propedrty
     let docStyle = document.documentElement.style;
     let transformProp = typeof docStyle.transform == 'string' ?
-            'transform' : 'WebkitTransform';
+        'transform' : 'WebkitTransform';
     flkty.on('scroll', function () {
         if (jQuery(child).length > 2) {
             flkty.slides.forEach(function (slide, i) {
                 let img = imgs[i],
-                        x = 0;
+                    x = 0;
                 if (0 === i) {
                     x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                            (slide.target + flkty.x);
+                        (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
+                        (slide.target + flkty.x);
                 } else if (i === flkty.slides.length - 1) {
                     x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                            (slide.target + flkty.x);
+                        (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
+                        (slide.target + flkty.x);
                 } else {
                     x = slide.target + flkty.x;
                 }
@@ -77,7 +79,6 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
 
 // ====================================================
 // 
-// 
 // ====================================================
 jQuery(document).ready(function ($) {
     // ----------------------
@@ -88,7 +89,7 @@ jQuery(document).ready(function ($) {
         jQuery(window).on('scroll', function () {
             scroll_top = jQuery(this).scrollTop();
             if (scroll_top > 10) {
-                (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up') : jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
+                (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up'): jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
                 last_scroll_top = scroll_top;
             }
             scroll_top > 500 ? jQuery('#header').addClass("bloody-hat--On") : jQuery('#header').removeClass("bloody-hat--On");
@@ -104,28 +105,29 @@ jQuery(document).ready(function ($) {
             by: 'lines',
         });
     }
+
     if (document.querySelector("#banner h1")) {
         // .mainwrapper
         var onLoad = gsap.timeline({
-            paused: 1,
-        })
-                .to('#loading', 1.5, {
-                    xPercent: -100,
-                    delay: 0.5,
-                    ease: Power4.easeInOut,
-                })
-                .from("h1 .word", 1, {
-                    yPercent: 100,
-                    // transformOrigin: "left",
-                    opacity: 0.5,
-                    stagger: 0.1,
-                    skewX: 30,
-                    ease: Power1.easeInOut,
-                    delay: 0.1,
-                })
-                .from("#banner .subject", 3, {
-                    opacity: 0,
-                }, 3);
+                paused: 1,
+            })
+            .to('#loading', 1.5, {
+                xPercent: -100,
+                delay: 0.5,
+                ease: Power4.easeInOut,
+            })
+            .from("h1 .word", 1, {
+                yPercent: 100,
+                // transformOrigin: "left",
+                opacity: 0.5,
+                stagger: 0.1,
+                // skewX: 30,
+                ease: Power1.easeInOut,
+                delay: 0.1,
+            })
+            .from("#banner .subject", 3, {
+                opacity: 0,
+            }, 3);
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
@@ -151,32 +153,66 @@ jQuery(document).ready(function ($) {
                 } else {
                     clearInterval(counter);
                     gsap.timeline()
-                            .to(".subject-count", 1, {
-                                autoAlpha: 0,
-                                delay: 2,
-                            })
-                            .to("#loading", 1, {
-                                autoAlpha: 0,
-                            })
-                            .from(".m-c-center", 1, {
-                                autoAlpha: 0,
-                            })
-                            .to(".m-c-center", 1, {
-                                autoAlpha: 0,
-                                delay: 1,
-                            })
-                            .to(".main-copy", 1, {
-                                autoAlpha: 0,
-                            })
-                            .to(".main-bg", 2, {
-                                scale: 1.3,
-                            }, '-=1')
-                            .from('.main-subjects h3', 1, {
-                                autoAlpha: 0,
-                                stagger: 0.1,
-                            })
+                        .to(".subject-count", 1, {
+                            autoAlpha: 0,
+                            delay: 2,
+                        })
+                        .to("#loading", 1, {
+                            autoAlpha: 0,
+                        })
+                        .from(".m-c-center", 1, {
+                            autoAlpha: 0,
+                        })
+                        .to(".m-c-center", 1, {
+                            autoAlpha: 0,
+                            delay: 1,
+                        })
+                        .to(".main-copy", 1, {
+                            autoAlpha: 0,
+                        })
+                        .to(".main-bg", 2, {
+                            scale: 1.3,
+                        }, '-=1')
+                        .from('.main-subjects h3, #panel', 1, {
+                            autoAlpha: 0,
+                            stagger: 0.1,
+                        })
                 }
-            }, 100);
+            }, 50);
+        });
+        //-----------------------------------------------------
+        // Hover targets on Home
+        //-----------------------------------------------------
+        jQuery(".main-subjects a").mouseenter(function () {
+            jQuery(this).addClass("focused");
+            jQuery(this).parent().siblings().children("a").addClass("focused-out");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).addClass("focused");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().addClass("focused-out");
+        });
+        jQuery(".main-subjects a").mouseleave(function () {
+            jQuery(this).removeClass("focused");
+            jQuery(this).parent().siblings().children("a").removeClass("focused-out");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).removeClass("focused");
+            jQuery("#panel>div").eq(jQuery(this).parent().index()).siblings().removeClass("focused-out");
+        });
+
+        document.querySelectorAll(".main-subjects a").forEach((target) => {
+            target.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.querySelector("#loading").classList.remove("dark-mode");
+                gsap.set("#loading", {
+                    xPercent: 100,
+                    autoAlpha: 1,
+                });
+                gsap.timeline()
+                    .to("#loading", 1, {
+                        xPercent: 0,
+                        ease: Power4.easeInOut,
+                        onComplete: () => {
+                            window.location = target.getAttribute("href")
+                        },
+                    });
+            });
         });
     }
     // ----------------------
@@ -232,7 +268,6 @@ jQuery(document).ready(function ($) {
     // =================
     // Modal Popup
     // =================
-    // 
     var modalPopup = {
         galleries: [],
         markup: '<div class="popup-gallery">\n\
@@ -255,7 +290,6 @@ jQuery(document).ready(function ($) {
                 if ($(this).data('modal') == "popup-gallery") {
                     modalPopup.init_popup_gallery($(this));
                 }
-
                 $('.modal-popup').fadeIn();
             });
 
@@ -328,16 +362,16 @@ jQuery(document).ready(function ($) {
         $(this).find('.content-text').fadeOut('medium');
     })
 
-//        $('*[data-modal="popup-video"]').on('click',function(e){
-//            e.preventDefault();
-//            var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-//            var url = $(this).data('url');
-//            var urls = url.split('/');
-//            var code = urls[urls.length - 1];
-//            var view_iframe = iframe.replace('{id}',code);
-//            $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
-//            $('.modal-popup').fadeIn();
-//        })    
+    //        $('*[data-modal="popup-video"]').on('click',function(e){
+    //            e.preventDefault();
+    //            var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    //            var url = $(this).data('url');
+    //            var urls = url.split('/');
+    //            var code = urls[urls.length - 1];
+    //            var view_iframe = iframe.replace('{id}',code);
+    //            $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
+    //            $('.modal-popup').fadeIn();
+    //        })    
 
     $(window).on('keyup', function (e) {
         console.log(e.which);
@@ -379,32 +413,42 @@ jQuery(document).ready(function ($) {
         ease: Power4.easeInOut,
     })
     gsap.timeline()
-            .to('.page .page-content .tab-page ul li', 1, {
-                // yPercent: 0,
-                y: 0,
-                opacity: 1,
-                stagger: 0.1,
-                ease: Power4.easeInOut,
-            })
-            .to('.page-content .content-text h3', 1, {
-                // yPercent: 0,
-                y: 0,
-                opacity: 1,
-                stagger: 0.1,
-                ease: Power4.easeInOut,
-            })
-            .to('.page-content .col-md-4', 1, {
-                opacity: 1,
-                stagger: 0.2,
-                ease: Power4.easeInOut,
-            }, 0.5);
+        .to('.page .page-content .tab-page ul li', 1, {
+            // yPercent: 0,
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: Power4.easeInOut,
+        })
+        .to('.page-content .content-text h3', 1, {
+            // yPercent: 0,
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: Power4.easeInOut,
+        })
+        .to('.page-content .col-md-4', 1, {
+            opacity: 1,
+            stagger: 0.2,
+            ease: Power4.easeInOut,
+        }, 0.5);
 
-//    $('.page-content .col-md-4').on('mouseenter', function () {
-//
-//    }).on('mouseleave', function () {
-//
-//    })
+    //    $('.page-content .col-md-4').on('mouseenter', function () {
+    //    }).on('mouseleave', function () {
+    // $('*[data-modal="popup-video"]').on('click',function(e){
+    //     e.preventDefault();
+    //     var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    //     var url = $(this).data('url');
+    //     var urls = url.split('/');
+    //     var code = urls[urls.length - 1];
+    //     var view_iframe = iframe.replace('{id}',code);
+    //     $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
+    //     $('.modal-popup').fadeIn();
+    // })    
 
+    //    $('.modal-popup .modal-popup-content').on('click','.modal-close',function(){
+    //        $(this).parents('.modal-popup').fadeOut('medium');
+    //    })
     // ==========================================================
 
     // =================
@@ -431,22 +475,22 @@ jQuery(document).ready(function ($) {
     });
 
     var homeStories = new ScrollMagic.Scene({
-        triggerElement: ".home-stories",
-        duration: 100,
-        offset: -100,
-    })
-            .on("enter", function () {
-                gsap.timeline()
-                        .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
-                            opacity: 1,
-                            stagger: 0.25,
-                            ease: Power4.easeInOut,
-                        });
-            })
-            // .addIndicators({
-            //     name: "homeStories"
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-stories",
+            duration: 100,
+            offset: -100,
+        })
+        .on("enter", function () {
+            gsap.timeline()
+                .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
+                    opacity: 1,
+                    stagger: 0.25,
+                    ease: Power4.easeInOut,
+                });
+        })
+        // .addIndicators({
+        //     name: "homeStories"
+        // }) // add indicators (requires plugin)
+        .addTo(controller);
     // ========================================
     // Report Breakthrough
     // ========================================
@@ -464,29 +508,29 @@ jQuery(document).ready(function ($) {
         var heightReport = document.querySelector(".home-report").offsetHeight;
     }
     var homeReport = new ScrollMagic.Scene({
-        triggerElement: ".home-report",
-        duration: "200%",
-        offset: 100,
-    })
-            .on("enter", function () {
-                gsap.timeline()
-                        .to('.home-report-title h3 .word', 1, {
-                            // yPercent: 0,
-                            y: 0,
-                            opacity: 1,
-                            stagger: 0.1,
-                            ease: Power4.easeInOut,
-                        })
-                        .to('.slider-item', 1, {
-                            opacity: 1,
-                            stagger: 0.2,
-                            ease: Power4.easeInOut,
-                        }, 0.5);
-            })
-            // .addIndicators({
-            // name: "Report"
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-report",
+            duration: "200%",
+            offset: 100,
+        })
+        .on("enter", function () {
+            gsap.timeline()
+                .to('.home-report-title h3 .word', 1, {
+                    // yPercent: 0,
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.1,
+                    ease: Power4.easeInOut,
+                })
+                .to('.slider-item', 1, {
+                    opacity: 1,
+                    stagger: 0.2,
+                    ease: Power4.easeInOut,
+                }, 0.5);
+        })
+        // .addIndicators({
+        // name: "Report"
+        // }) // add indicators (requires plugin)
+        .addTo(controller);
     // ========================================
     // Our Funds
     // ========================================
@@ -499,58 +543,65 @@ jQuery(document).ready(function ($) {
         // offset: 100,
     });
     var ourFunds = gsap.timeline({
-        paused: 1,
-    })
-            .to('.our-fund-content h3 .word', 1, {
-                opacity: 1,
-                stagger: 0.1,
-                delay: 0.5,
-            })
-            .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
-                yPercent: 0,
-                opacity: 1,
-                stagger: 0.1,
-            });
+            paused: 1,
+        })
+        .to('.our-fund-content h3 .word', 1, {
+            opacity: 1,
+            stagger: 0.1,
+            delay: 0.5,
+        })
+        .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.1,
+        });
     new ScrollMagic.Scene({
-        triggerElement: ".our-fund",
-        duration: "150%",
-        offset: -100,
-    })
-            .on('enter', () => {
-                ourFunds.play();
-            })
-            .on('leave', () => {
-                ourFunds.reverse();
-            })
-            // .setTween(ourFunds)
-            // .addIndicators({
-            //     name: "Our Funds",
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".our-fund",
+            duration: "150%",
+            offset: -100,
+        })
+        .on('enter', () => {
+            ourFunds.play();
+        })
+        .on('leave', () => {
+            ourFunds.reverse();
+        })
+        // .setTween(ourFunds)
+        // .addIndicators({
+        //     name: "Our Funds",
+        // }) // add indicators (requires plugin)
+        .addTo(controller);
     // ======================
     // Title Funds Running
     // ======================
+    // var heightFunds = document.querySelector(".our-fund").offsetHeight;
     var titleFund = gsap.timeline({
-        // repeat: -1,
-        // yoyo: true,
-    })
-            .fromTo(".our-fund h3", 1, {
-                xPercent: 30,
-                // ease: Power3.easeOut,
-            }, {
-                xPercent: -30,
-                ease: Power4.easeOut,
-            });
-    new ScrollMagic.Scene({
-        triggerElement: ".our-fund",
-        duration: "200%",
-        offset: -100,
-    })
-            .setTween(titleFund)
-            // .addIndicators({
-            //     name: "Our Funds",
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            scrollTrigger: {
+                trigger: ".our-fund",
+                // markers: true,
+                scrub: 2,
+                start: "bottom top", // when the top of the trigger hits the top of the viewport
+                end: "+= 500",
+
+            },
+        })
+        .fromTo(".our-fund h3", 1, {
+            xPercent: 30,
+            // ease: Power3.easeOut,
+        }, {
+            xPercent: -30,
+            // ease: Power4.easeOut,
+        });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".our-fund",
+    //         duration: "200%",
+    //         offset: -100,
+    //     })
+    //     .setTween(titleFund)
+    //     // .addIndicators({
+    //     //     name: "Our Funds",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
     // ======================
     // Why Vietnam Flying Up
     // ======================
@@ -558,27 +609,27 @@ jQuery(document).ready(function ($) {
         var heightWhy = document.querySelector(".home-why").offsetHeight;
     }
     var flyingUpTl = gsap.timeline({
-        // paused: true,
-    })
-            .to(".home-why-thumb-left", 1, {
-                y: -heightWhy * 1.5,
-            })
-            .to(".home-why-thumb-right", 1, {
-                y: -heightWhy * 1.5,
-            }, '-=0.5')
-            .to(".home-why-thumb-bottom", 1, {
-                y: -heightWhy * 1.5,
-            }, '-=0.5')
+            // paused: true,
+        })
+        .to(".home-why-thumb-left", 1, {
+            y: -heightWhy * 1.5,
+        })
+        .to(".home-why-thumb-right", 1, {
+            y: -heightWhy * 1.5,
+        }, '-=0.5')
+        .to(".home-why-thumb-bottom", 1, {
+            y: -heightWhy * 1.5,
+        }, '-=0.5');
     var thumbLeft = new ScrollMagic.Scene({
-        triggerElement: ".home-why",
-        duration: heightWhy * 2,
-        offset: -100,
-    })
-            .setTween(flyingUpTl) // trigger a TweenMax.to tween
-            // .addIndicators({
-            //     name: "Flying Up Left"
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-why",
+            duration: heightWhy * 2,
+            offset: -100,
+        })
+        .setTween(flyingUpTl) // trigger a TweenMax.to tween
+        // .addIndicators({
+        //     name: "Flying Up Left"
+        // }) // add indicators (requires plugin)
+        .addTo(controller);
     // ======================
     // Why Viet Nam Text
     // ======================
@@ -599,17 +650,15 @@ jQuery(document).ready(function ($) {
         });
 
         new ScrollMagic.Scene({
-            triggerElement: ".home-why",
-            duration: "100%",
-            offset: -200,
-        })
-                .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
-                // .addIndicators({
-                // }) // add indicators (requires plugin)
-                .addTo(controller);
+                triggerElement: ".home-why",
+                duration: "100%",
+                offset: -200,
+            })
+            .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     }
-
-
     // =======================
     // World Class Team
     // =======================
@@ -625,21 +674,21 @@ jQuery(document).ready(function ($) {
         stagger: 0.3,
     });
     new ScrollMagic.Scene({
-        triggerElement: ".home-team",
-        duration: "120%",
-        offset: -200,
-    })
-            .on('enter', () => {
-                classTeamTl.play();
-            })
-            .on('leave', () => {
-                classTeamTl.reverse();
-            })
-            // .setTween(classTeamTl) // trigger a TweenMax.to tween
-            // .addIndicators({
-            //     name: "World Class Team",
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-team",
+            duration: "120%",
+            offset: -200,
+        })
+        .on('enter', () => {
+            classTeamTl.play();
+        })
+        .on('leave', () => {
+            classTeamTl.reverse();
+        })
+        // .setTween(classTeamTl) // trigger a TweenMax.to tween
+        // .addIndicators({
+        //     name: "World Class Team",
+        // }) // add indicators (requires plugin)
+        .addTo(controller);
     //-----------------------------------------------------
     // World Class Animation    
     //-----------------------------------------------------
@@ -653,24 +702,6 @@ jQuery(document).ready(function ($) {
         jQuery(this).parent().siblings().removeClass("focused-out");
         jQuery('.home-team-image').hide();
     });
-    // =======================
-    // Building Parallaxing
-    // =======================
-    // var buildingPlxTl = gsap.timeline().fromTo(".building-1 img", 1, {
-    //     y: 150,
-    // }, {
-    //     y: 0,
-    // });
-    // new ScrollMagic.Scene({
-    //         triggerElement: ".city-view",
-    //         duration: "100%",
-    //         offset: -100,
-    //     })
-    //     .setTween(buildingPlxTl) // trigger a TweenMax.to tween
-    //     // .addIndicators({
-    //     //     name: "building Parallax",
-    //     // }) // add indicators (requires plugin)
-    //     .addTo(controller);
 
     $('.modal-fund-tabs > ul li a').on('click', function (e) {
         e.preventDefault();
@@ -701,20 +732,44 @@ jQuery(document).ready(function ($) {
     });
     //-----------------------------------------------------
 
-    let root = document.documentElement;
-    root.addEventListener("mousemove", e => {
-        root.style.setProperty('--mouse-x', e.clientX + "px");
-        root.style.setProperty('--mouse-y', e.clientY + "px");
-    });
-
-    // document.querySelector(".home-team-content").addEventListener("mouseenter", e => {
-    //     document.addEventListener("mousemove", e => {
-    //         gsap.set(".home-team-image", {
-    //             x: e.clientX,
-    //             y: e.clientY,
-    //         });
-    //     });
+    // let root = document.documentElement;
+    // root.addEventListener("mousemove", e => {
+    //     root.style.setProperty('--mouse-x', e.clientX + "px");
+    //     root.style.setProperty('--mouse-y', e.clientY + "px");
     // });
+
+    //-----------------------------------------------------
+    gsap.timeline({
+            scrollTrigger: {
+                trigger: ".horizon-carousel",
+                // markers: true,
+                pin: true,
+                start: "top top", // when the top of the trigger hits the top of the viewport
+                end: "+=5000", // end after scrolling 500px beyond the start
+                scrub: 2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                // snap: {
+                //     snapTo: "labels", // snap to the closest label in the timeline
+                //     duration: {
+                //         min: 0.2,
+                //         max: 3
+                //     }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+                //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+                //     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+                // }
+            },
+            // repeat: -1,
+        })
+        .fromTo(".top-carousel", 1, {
+            xPercent: -50,
+        }, {
+            xPercent: 0,
+        })
+        .fromTo(".bottom-carousel", 1, {
+            xPercent: 0,
+        }, {
+            xPercent: -50,
+        }, '-=1');
+    //-----------------------------------------------------
 })
 
 class Cursor {

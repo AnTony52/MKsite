@@ -1,7 +1,7 @@
 * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+    // font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
     appearance: none;
@@ -19,7 +19,7 @@ html,
     background-image: linear-gradient(to bottom, #DCEFF6, #B3DCEB, #B3DCEB, #DEF0F6, #FFFFFF);
 }
 html.page, html.page #main{
-    background: #FFFFFF;
+    background: #fff;
     overflow-x: initial;
 }
 html,
@@ -194,7 +194,7 @@ body {
                 // }
             }
 
-            .focused-out {
+            // .focused-out {
                 // >a {
                 //     -webkit-clip-path: inset(0 100% 0 0);
                 //     clip-path: inset(0 100% 0 0);
@@ -204,7 +204,7 @@ body {
                 //     -webkit-clip-path: inset(0 0 0 0) !important;
                 //     clip-path: inset(0 0 0 0) !important;
                 // }
-            }
+            // }
 
             li {
 

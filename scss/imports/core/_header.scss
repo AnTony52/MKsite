@@ -5,7 +5,9 @@ header {
     z-index: 99;
     width: 100%;
     height: 80px;
-    
+    @include mobile {
+        padding: 0 20px;
+    }
     &:before {
         content: "";
         position: absolute;
@@ -91,10 +93,7 @@ header {
     }
 }
 
-#banner {
-    position: relative;
-    z-index: 11;
-}
+
 
 .get-in-touch {
     position: fixed;
