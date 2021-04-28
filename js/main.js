@@ -746,7 +746,7 @@ jQuery(document).ready(function ($) {
                 pin: true,
                 start: "top top", // when the top of the trigger hits the top of the viewport
                 end: "+=5000", // end after scrolling 500px beyond the start
-                scrub: 2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
                 // snap: {
                 //     snapTo: "labels", // snap to the closest label in the timeline
                 //     duration: {
