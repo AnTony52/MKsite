@@ -1,0 +1,120 @@
+section.our-funds {
+  .our-funds-inner {
+    background: url('../images/our-funds/background.jpg') center center/cover;
+    padding: 200px 0 160px;
+
+    // heading
+    .heading {
+      margin-bottom: 120px;
+
+      .sub-heading {
+        margin-bottom: 80px;
+      }
+    }
+
+    // intro text
+    .intro-text {
+      margin-bottom: 100px;
+
+      .text {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    // key figures
+    .key-figures-list {
+      @include d-flex();
+      @include flex-wrap(wrap);
+      margin: -12px;
+
+      li.key-figures-item {
+        width: 33.33%;
+        padding: 12px;
+
+        .inner {
+          @include aspectRatio(332/274);
+          position: relative;
+
+          .link {
+            display: block;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 25px 30px 30px 28px;
+            transition: all .3s ease;
+
+            &:hover {
+              background: $text-red-cl;
+              color: #fff;
+
+              .number, .sub-heading {
+                color: #fff;
+              }
+
+              .icon-arrow {
+                .before {
+                  transform: translateX(50%);
+                  opacity: 0;
+                }
+
+                .after {
+                  opacity: 1;
+                  transform: translate(0, -50%);
+                }
+              }
+            }
+
+            .number {
+              font-family: 'GothicPro-Regular';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 80px;
+              line-height: 1;
+
+              letter-spacing: -0.07em;
+              text-transform: uppercase;
+
+              color: #0F1C2D;
+              margin-bottom: 30px;
+              transition: all .3s ease;
+            }
+
+            .sub-heading {
+              transition: all .3s ease;
+            }
+
+            .icon-arrow {
+              display: block;
+              position: absolute;
+              right: 30px;
+              bottom: 30px;
+
+              svg {
+
+                width: 40px;
+                height: 30px;
+                transition: all .3s ease;
+
+                &.before {
+                }
+
+                &.after {
+                  position: absolute;
+                  top: 50%;
+                  right: 0;
+                  transform: translate(-50%, -50%);
+                  opacity: 0;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+  }
+}
