@@ -6,6 +6,17 @@
     width: 100%;
     height: 100vh;
 
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
     >* {
         z-index: 3;
     }
@@ -18,33 +29,51 @@
         height: 100%;
 
         // &.subject {
-            // transition-timing-function: ease;
-            // @include transition(0.75 ease);
+        // transition-timing-function: ease;
+        // @include transition(0.75 ease);
         // }
     }
 
-    h1 {
+    .banner-content {
         position: absolute;
         top: 50%;
         left: 100px;
+        z-index: 10;
         @include transform(translateY(-50%));
-        color: #FFF;
-        line-height: 72px;
-        font-size: 80px;
-        font-family: 'happy-time-Bold';
-        font-weight: 400;
-        text-align: left;
 
-        @include mobile {
-            font-size: 32px;
-            left: 20px;
-            line-height: 1;
+        * {
+            // color: #FFF;
+            // text-transform: lowercase;
+            // font-family: 'Sackers Gothic Std Medium';
+            @include text(56px, 'Sackers Gothic Std Medium', 64px, #fff, lowercase);
         }
 
-        >span {
-            overflow: hidden !important;
-            display: inline-block;
-            line-height: 1.2;
+
+        h2 {
+            font-size: 16px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            line-height: 64px;
+            font-size: 56px;
+
+            font-weight: 400;
+            text-align: left;
+
+            @include mobile {
+                font-size: 32px;
+                left: 20px;
+                line-height: 1;
+            }
+
+            >span {
+                overflow: hidden !important;
+                display: inline-block;
+                line-height: 1.2;
+                line-height: 1;
+            }
         }
     }
 }
@@ -125,6 +154,22 @@
     }
 
     .home-stories {
+        .h-s-title {
+            position: relative;
+            margin-left: 100px;
+            margin-bottom: 120px;
+            max-width: 1150px;
+
+            h3 {
+                @include text(16px, 'Sackers Gothic Std Medium', 16px, $text-red-cl, lowercase);
+                margin-left: 10px;
+            }
+
+            h2 {
+                @include text(56px, 'Sackers Gothic Std Medium', 64px, #000, lowercase);
+            }
+        }
+
         .carousel-container {
             position: relative;
             @include d-flex;
@@ -282,27 +327,28 @@
                     .home-stories-content {
                         position: absolute;
                         bottom: 96px;
-                        left: 104px;
+                        left: 100px;
                         max-width: 400px;
                         opacity: 0;
                         @include transition(1.3s ease);
 
-                        h3 {
-                            font-family: 'GothicPro-Bold';
-                            font-weight: bold;
-                            font-size: 18px;
-                            line-height: 32px;
-                            color: white;
-                            text-transform: uppercase;
-                            letter-spacing: 0.5px;
-                        }
+                        // h3 {
+                        //     font-family: 'GothicPro-Bold';
+                        //     font-weight: bold;
+                        //     font-size: 18px;
+                        //     line-height: 32px;
+                        //     color: white;
+                        //     text-transform: uppercase;
+                        //     letter-spacing: 0.5px;
+                        // }
 
                         p {
-                            font-family: 'happy-time-Regular';
+                            // font-family: 'happy-time-Regular';
                             font-weight: 400;
                             font-size: 48px;
                             line-height: 56px;
                             color: white;
+                            @include text(16px, 'Sackers Gothic Std Medium', 16px, #fff, lowercase);
                         }
                     }
 
@@ -333,75 +379,84 @@
         margin-top: 160px;
         color: $text-black-cl;
 
-        .home-report-title {
-            // max-width: 1124px;
-            @include d-flex;
-            @include justify-content(space-between);
-            width: 90%;
-            padding-right: 14%;
-            margin-left: auto;
+        .showall {
+            position: relative;
 
-            .showall {
-                position: relative;
+            &::after {
+                content: "";
+                width: 0%;
+                height: 1px;
+                background-color: #B70004;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @include transition(0.3s ease);
+            }
 
+            &:hover {
                 &::after {
-                    content: "";
-                    width: 0%;
-                    height: 1px;
-                    background-color: #B70004;
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    @include transition(0.3s ease);
-                }
-
-                &:hover {
-                    &::after {
-                        width: 100%;
-                    }
-                }
-            }
-
-            h3 {
-                // float: left;
-                // padding-left: 100px;
-                font-family: 'GothicPro-Bold';
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                display: inline-block;
-                font-size: 18px;
-                font-weight: bold;
-            }
-
-            a {
-                // float: right;
-                line-height: 16px;
-                font-family: 'happy-time-Italic';
-                font-weight: 400;
-                size: 14px;
-                color: $text-gray-cl;
-                display: inline-block;
-
-                &:hover {
-                    color: $text-red-cl;
+                    width: 100%;
                 }
             }
         }
 
+        .home-report-title {
+            // max-width: 1124px;
+            // @include d-flex;
+            // @include justify-content(space-between);
+            // width: 90%;
+            // padding-right: 14%;
+            // margin-left: auto;
+            text-align: center;
+
+            h3 {
+                // font-family: 'GothicPro-Bold';
+                // text-transform: uppercase;
+                // letter-spacing: 0.5px;
+                // display: inline-block;
+                // font-size: 18px;
+                // font-weight: bold;
+                @include text(16px, 'Sackers Gothic Std Medium', 16px, $text-red-cl, lowercase);
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                @include text(56px, 'Sackers Gothic Std Medium', 64px, #000, lowercase);
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            // a {
+            //     // float: right;
+            //     line-height: 16px;
+            //     font-family: 'happy-time-Italic';
+            //     font-weight: 400;
+            //     size: 14px;
+            //     color: $text-gray-cl;
+            //     display: inline-block;
+
+            //     &:hover {
+            //         color: $text-red-cl;
+            //     }
+            // }
+        }
+
         .home-report-slider {
-            margin-top: 64px;
-            margin-left: auto;
-            // height: 50vh;
+            
+            // margin-left: auto;
             width: 90%;
+            width: 100%;
             height: 100vh;
             min-height: 800px;
             overflow-x: hidden;
-
+            max-width: 1100px;
+            margin: 0 auto; 
+            margin-top: 64px;
             .slider-item {
-                width: 25%;
+                width: 31%;
                 height: 50%;
                 min-height: 400px;
-                margin-right: 60px;
+                margin-right: 3%;
 
                 @include mobile {
                     width: 80%;
@@ -789,6 +844,7 @@
         margin-top: 160px;
         position: relative;
         z-index: 10;
+
         .showall {
             font-family: 'happy-time-Italic';
             font-size: 16px;
@@ -834,24 +890,36 @@
         display: block;
         z-index: 999;
 
-        &::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            z-index: 0;
-            background-image: linear-gradient(to top, rgba(0, 0, 0, 100%), rgba(0, 0, 0, 80%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 0));
-            background-color: transparent;
+        // &::after {
+        //     content: "";
+        //     width: 100%;
+        //     height: 100%;
+        //     position: absolute;
+        //     bottom: -10px;
+        //     left: 0;
+        //     z-index: 0;
+        //     background-image: linear-gradient(to top, rgba(0, 0, 0, 100%), rgba(0, 0, 0, 80%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 10%), rgba(0, 0, 0, 0));
+        //     background-color: transparent;
+        // }
+        .cta-content {
+            @include mid;
+            text-align: center;
+            max-width: 650px;
+            h4 {
+                @include text(40px, 'Sackers Gothic Std Medium', 64px, #fff, lowercase);
+                margin-bottom: 60px;
+            }
+            a {
+                @include text(16px, 'Sackers Gothic Std Medium', 16px, #fff, lowercase);
+            }
         }
-
         [class^="building-"] {
             position: absolute;
             left: 0;
             bottom: -10px;
             z-index: -1;
             width: 100%;
+
             img {
                 width: 100%;
             }

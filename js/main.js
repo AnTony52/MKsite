@@ -98,13 +98,14 @@ jQuery(document).ready(function ($) {
     // ----------------------
     // on Load
     // ----------------------
-    const target = document.querySelectorAll('.target, .report-content h3 a, .our-fund-tabs .tab-content ul li a');
-    if (target) {
-        const bannerText = Splitting({
-            target: target,
-            by: 'lines',
-        });
-    }
+    
+    // const target = document.querySelectorAll('.target, .report-content h3 a, .our-fund-tabs .tab-content ul li a');
+    // if (target) {
+    //     const bannerText = Splitting({
+    //         target: target,
+    //         by: 'lines',
+    //     });
+    // }
 
     if (document.querySelector("#banner h1")) {
         // .mainwrapper
@@ -731,7 +732,6 @@ jQuery(document).ready(function ($) {
         x: 700,
     });
     //-----------------------------------------------------
-
     // let root = document.documentElement;
     // root.addEventListener("mousemove", e => {
     //     root.style.setProperty('--mouse-x', e.clientX + "px");
@@ -739,36 +739,36 @@ jQuery(document).ready(function ($) {
     // });
 
     //-----------------------------------------------------
-    gsap.timeline({
-            scrollTrigger: {
-                trigger: ".horizon-carousel",
-                // markers: true,
-                pin: true,
-                start: "top top", // when the top of the trigger hits the top of the viewport
-                end: "+=5000", // end after scrolling 500px beyond the start
-                scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-                // snap: {
-                //     snapTo: "labels", // snap to the closest label in the timeline
-                //     duration: {
-                //         min: 0.2,
-                //         max: 3
-                //     }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-                //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-                //     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
-                // }
-            },
-            // repeat: -1,
-        })
-        .fromTo(".top-carousel", 1, {
-            xPercent: -50,
-        }, {
-            xPercent: 0,
-        })
-        .fromTo(".bottom-carousel", 1, {
-            xPercent: 0,
-        }, {
-            xPercent: -50,
-        }, '-=1');
+    // gsap.timeline({
+    //         scrollTrigger: {
+    //             trigger: ".horizon-carousel",
+    //             // markers: true,
+    //             pin: true,
+    //             start: "top top", // when the top of the trigger hits the top of the viewport
+    //             end: "+=5000", // end after scrolling 500px beyond the start
+    //             scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    //             // snap: {
+    //             //     snapTo: "labels", // snap to the closest label in the timeline
+    //             //     duration: {
+    //             //         min: 0.2,
+    //             //         max: 3
+    //             //     }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+    //             //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+    //             //     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+    //             // }
+    //         },
+    //         // repeat: -1,
+    //     })
+    //     .fromTo(".top-carousel", 1, {
+    //         xPercent: -50,
+    //     }, {
+    //         xPercent: 0,
+    //     })
+    //     .fromTo(".bottom-carousel", 1, {
+    //         xPercent: 0,
+    // }, {
+    //     xPercent: -50,
+    // }, '-=1');
     //-----------------------------------------------------
 })
 

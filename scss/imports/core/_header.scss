@@ -5,9 +5,12 @@ header {
     z-index: 99;
     width: 100%;
     height: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
     @include mobile {
         padding: 0 20px;
     }
+
     &:before {
         content: "";
         position: absolute;
@@ -21,18 +24,22 @@ header {
         @include transform(translateY(-100%));
 
     }
+
     .logo {
         width: 120px;
         height: auto;
         margin-left: -15px;
     }
+
     &.bloody-hat--On {
         &:before {
             @include transform(translateY(0));
         }
     }
+
     // mix-blend-mode: difference;
-    .container {
+    // .container {
+    .content--fixed {
         @include d-flex;
         @include justify-content(space-between);
         @include align-items(center);
@@ -53,14 +60,16 @@ header {
                 align-items: center;
 
                 @include d-flex;
-                @include justify-content(space-between);
-                width: 120px;
+                @include justify-content(space-around);
+                width: 200px;
                 margin-right: 16px;
 
                 a {
                     letter-spacing: 0.1px;
                     font-weight: bold;
-                    font-family: 'GothicPro-Regular';
+                    // font-family: 'GothicPro-Regular';
+                    font-family: 'Sackers Gothic Std Medium';
+                    text-transform: lowercase;
                     font-size: 12px;
                     color: #fff;
                 }
@@ -104,6 +113,7 @@ header {
     border-radius: 100%;
     width: 60px;
     height: 60px;
+
     // @include transform(translateX(-50%));
     // mix-blend-mode: difference;
     &::before {
@@ -146,7 +156,7 @@ header {
         left: 0;
         opacity: 0;
         font-size: 14px;
-        
+
     }
 
     img {
