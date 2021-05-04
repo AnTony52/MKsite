@@ -1,6 +1,6 @@
 footer {
     // background-image: linear-gradient(to bottom, #ffffff, #cfcfd3, #a0a0aa, #727582, #474c5c, #363948, #252634, #161522, #16101a, #130b12, #0c0509, #000000);
-    background-color: $footer-bg;
+    background-color: #0F1C2D;
     padding-top: 48px;
     padding-top: 80px;
     color: $white-cl;
@@ -13,6 +13,11 @@ footer {
     .container {
         max-width: $container-width;
         margin: 0 auto;
+
+        .footer-logo {
+        }
+
+
 
         .footer-menu {
 
@@ -33,7 +38,7 @@ footer {
                         a {
                             opacity: 1;
 
-                            
+
                         }
                     }
 
@@ -108,13 +113,44 @@ footer {
             }
         }
     }
-
-    @include desktop {}
-
-    @include tablet {}
-
-    @include mobile {}
-
-    @include mobile-xxs {}
 }
 
+@include desktop {}
+
+@include tablet {}
+
+@include mobile {
+    footer{
+        .footer-logo{
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .footer-menu, .policy-menu {
+            ul{
+                display: block !important;
+                max-width: 320px;
+                margin: 0 auto;
+                text-align: center;
+                li{
+                    display: block;
+                    line-height: 40px !important;
+                }
+            }
+        }
+        .info-company{
+            .col-md-2{
+                text-align: center;
+                margin-top: 80px;
+                img{
+                    float: none !important;
+                }
+            }
+        }
+        .social{
+            text-align: center !important;
+            margin-top: 80px;
+        }
+    }
+}
+
+@include mobile-xxs {}

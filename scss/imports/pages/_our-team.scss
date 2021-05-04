@@ -1,5 +1,13 @@
 html.page{
     .page-our-team{
+        .get-in-touch{
+            .text{
+                .getintouch-detail{ 
+                    display: none;
+
+                }
+            }
+        }
         #main{
             padding-bottom: 100px;
             .page-block{
@@ -10,16 +18,47 @@ html.page{
                     .list-team{
                         .item-team{
                             position: relative;
+                            overflow: hidden;
+
+                            .content-image{
+                                overflow: hidden;
+                                max-height: 510px;  
+                               
+                            }    .report-content{
+                                    text-transform: uppercase;
+                                    padding-top: 20px;
+                                    h3{
+                                        font-family: 'Sackers Gothic Std Heavy';
+                                        font-size: 16px;
+                                        line-height: 48px;
+                                        text-transform: uppercase;
+
+                                    }
+                                    p{
+                                        font-family: 'Sackers Gothic Std Heavy';
+                                        color: #000000;                                     
+                                        font-size: 14px;
+                                        line-height: 14px;                                                
+                                        text-transform: lowercase;
+                                        color: $text-red-cl;
+
+                                    }
+
+                                }                    
                             &:hover{
                                 .thumbnail{
                                     filter: grayscale(0);
-                                }                                
+                                    transform: scale(1.1);
+                                    transition: .8s all;                                                                      
+                                }    
+
                             }
                             .thumbnail{
                                 filter: grayscale(1);
-                                transition: 0.3s ease;
-                                -webkit-transition: 0.3s ease;                                                                    
-                            }                            
+                                transform: scale(1);
+                                transition:  .8s all;
+                                -webkit-transition:  .8s all;                                                            
+                            }                          
                             .content-text{
                                 display: none;
                                 text-align: center;
@@ -30,6 +69,7 @@ html.page{
                                 bottom:15px;
                                 color: $white-cl;
                                 text-transform: uppercase;
+                                z-index: 9999;
                                 a{
                                     color: $white-cl;
                                     font-family: 'Sackers Gothic Std Heavy';
@@ -40,6 +80,9 @@ html.page{
                                     font-size: 14px;
                                     line-height: 14px;
                                     font-family: 'Sackers Gothic Std Medium';
+                                }
+                                .our-fund-detail{
+                                    display: none;
                                 }
                             }
                         }
