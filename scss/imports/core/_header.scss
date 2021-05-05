@@ -1,3 +1,102 @@
+html.page{
+    header {
+        .logo-white{
+            display: none;
+        }
+        .logo-black{
+            display:inline-block;
+        }
+        &.bloody-hat--On {
+            &.scrolled-up{
+                .container {
+                    .right-side {
+                        #lang {
+                            a {
+                                color: $white-cl;
+                            }
+                        }
+                    }
+                }
+                .hamburger{
+                    .hamburger-inner{
+                        background: $white-cl; 
+                        &:before, &:after{
+                            background: $white-cl; 
+                        }
+                    }
+                }
+                .logo-white{
+                    display: inline-block;
+                }
+                .logo-black{
+                    display:none;
+                }
+
+            }
+        }
+        .container {
+            @include d-flex;
+            @include justify-content(space-between);
+            @include align-items(center);
+            height: 100%;
+            width: 100%;
+
+            [title="MEKONG"] {
+                margin-right: auto;
+                margin-left: 100px;
+            }
+
+            .right-side {
+                @include d-flex;
+                margin-right: 100px;
+
+                #lang {
+                    padding-top: 8px;
+                    align-items: center;
+                    @include d-flex;
+                    @include justify-content(space-between);
+                    width: 200px;
+                    margin-right: 40px;
+
+                    a {
+                        letter-spacing: 0.1px;
+                        font-weight: bold;
+                        font-family: 'Sackers Gothic Std Heavy';
+                        font-size: 14px;
+                        color: #000000;
+                        text-transform: uppercase;
+                        line-height: 32px;
+                    }
+                }
+            }
+        }
+        .hamburger {
+            padding: 0;
+
+            .hamburger-box {
+                .hamburger-inner:after {
+                    opacity: 0;
+                }
+
+                .hamburger-inner,
+                .hamburger-inner:after,
+                    .hamburger-inner:before {
+                    background-color: #000000;
+                    height: 2px;
+                }
+            }
+
+            &:hover {
+                .hamburger-inner {
+                    @include transform(scaleX(0.8));
+                    @include transition(.3s ease);
+                }
+            }
+        }
+    }
+}
+
+
 header {
     position: fixed;
     top: 0;
@@ -87,7 +186,7 @@ header {
 
             .hamburger-inner,
             .hamburger-inner:after,
-            .hamburger-inner:before {
+                .hamburger-inner:before {
                 background-color: #fff;
                 height: 2px;
             }
@@ -116,6 +215,7 @@ header {
 
     // @include transform(translateX(-50%));
     // mix-blend-mode: difference;
+    .contact-detail{display: none;}
     &::before {
         content: "";
         color: white;
@@ -156,7 +256,9 @@ header {
         left: 0;
         opacity: 0;
         font-size: 14px;
-
+        > a{
+            color: $white-cl;
+        }
     }
 
     img {

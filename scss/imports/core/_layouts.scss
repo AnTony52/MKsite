@@ -1,7 +1,7 @@
 * {
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale;
-    // font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
     appearance: none;
@@ -9,7 +9,6 @@
     -webkit-appearance: none;
     outline: none;
     font-family: 'happy-time-Regular';
-    
 }
 
 html,
@@ -19,13 +18,10 @@ html,
     background-color: #fff;
     background-image: linear-gradient(to bottom, #DCEFF6, #B3DCEB, #B3DCEB, #DEF0F6, #FFFFFF);
 }
-
-html.page,
-html.page #main {
-    background: #fff;
+html.page, html.page #main{
+    background: #FFFFFF;
     overflow-x: initial;
 }
-
 html,
 body {
     width: 100%;
@@ -35,7 +31,6 @@ body {
     background-color: $main-bg-cl;
     position: relative;
     @include custom-scrollbar();
-
     .container {
         width: 100%;
         max-width: $container-max-width;
@@ -46,6 +41,10 @@ body {
         font-weight: 700;
         font-size: 18px;
         line-height: 32px;
+    }
+    
+    .mb-4, .my-4{
+        margin-bottom: 100px !important;
     }
 
     @include desktop {}
@@ -63,6 +62,9 @@ body {
     z-index: -1;
 
     >* {
+        // position: absolute;
+        // top: 0;
+        // right: 0;
         width: 40vw;
         height: auto;
         object-fit: cover;
@@ -196,17 +198,17 @@ body {
                 // }
             }
 
-            // .focused-out {
-            // >a {
-            //     -webkit-clip-path: inset(0 100% 0 0);
-            //     clip-path: inset(0 100% 0 0);
-            // }
+            .focused-out {
+                // >a {
+                //     -webkit-clip-path: inset(0 100% 0 0);
+                //     clip-path: inset(0 100% 0 0);
+                // }
 
-            // .word-grey {
-            //     -webkit-clip-path: inset(0 0 0 0) !important;
-            //     clip-path: inset(0 0 0 0) !important;
-            // }
-            // }
+                // .word-grey {
+                //     -webkit-clip-path: inset(0 0 0 0) !important;
+                //     clip-path: inset(0 0 0 0) !important;
+                // }
+            }
 
             li {
 

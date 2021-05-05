@@ -3,7 +3,8 @@ html.page{
         max-width: $container-width;
     }
     #header{
-        background-color: $text-red-cl;
+        background-color: $white-cl;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
         .right-side{
             a:last-child{
                 opacity: 50%;
@@ -12,40 +13,72 @@ html.page{
     }
     #main{
         margin-top: 0px;
+        padding-top: 240px;
         .page-block{
             .page-title{
-                padding-top: 40px;
-                padding-bottom: 40px;
+                padding-top: 0px;
+                padding-bottom: 160px;
                 /*padding-left: 40px;*/
                 h2{
-                    text-transform: uppercase;
+                    text-transform: lowercase;
                     color: $cl-title;
-                    font-size: 80px;
+                    font-size: 72px;
                     line-height: 80px;
-                    font-family: 'Sackers Gothic Std Medium';
-                    padding-bottom: 200px;
+                    font-family: 'Sackers Gothic Std Heavy';
+                    /*padding-bottom: 200px;*/
+                    letter-spacing: -2px;
+                    margin: 0 auto;
                 }
             }
         }
     }
     .page-content{
+        padding-bottom: 160px;
         .tab-page{
             width: 100%;
             border-bottom: 1px solid $text-black-50;
-            border-top: 1px solid $text-black-50;
+            border-top: 1px solid $text-black-50;            
+            .container{
+                position: relative;
+                /*overflow: hidden;*/
+            }
+            @include transition(0.3s ease-in-out);
+            &.tab-fixed-top{
+                @include transition(0.3s ease-in-out);
+                @include transform(translateY(0));
+                position: fixed;
+                top: 0px;
+                left: 0;
+                background: #fff;
+                z-index: 9999;
+            }
+            &.scrolled-up{
+                /*display: block;*/
+                @include transition(0.3s ease-in-out);
+                @include transform(translateY(0));
+                top: 80px;
+            }
             ul{
-                display: flex;
+                /*display: flex;*/
                 margin-left: 65px;
                 padding: 0;
                 margin: 0;
+                /*overflow: hidden;*/
+                width: 100%;
+                position: relative;
+                left: 0;
+                white-space: nowrap;
                 li{
                     list-style: none;
                     text-decoration: none;
-                    font-size: 18px;
-                    line-height: 88px;
+                    font-size: 14px;
+                    line-height: 60px;
                     text-transform: uppercase;
                     font-family: 'Sackers Gothic Std Heavy';
-                    color: $text-gray-cl;
+                    color: $text-gray-cl;                    
+                    position: relative;
+                    display: inline-block;
+                    z-index: 999;
                     &.active {
                         a {
                             color: $text-red-cl;
@@ -54,7 +87,8 @@ html.page{
                     }
                     a {
                         color: #14171C;
-                        padding: 0px 20px;
+                        padding: 0px 60px;
+                        display: inline-block;
                         &:first-child{
                             padding-left: 0;
                         }
@@ -63,8 +97,72 @@ html.page{
                             opacity: 1;
                         }
                     }
+                    ul{
+                        display: none;
+                        position: absolute;
+                        top: 60px;
+                        left: 0;
+                        z-index: 9;
+                        border: 1px solid #000000;
+                        background: #ffffff;
+                        padding: 25px;
+                        min-width: 240px;
+                        max-height: 190px;
+                        overflow-y: auto;    
+                        @include custom-scrollbar();
+                        li{
+                            display: block;
+                            line-height: 28px;
+                            a{
+                                display: block;
+                            }
+                        }
+                    }
                 } 
-            }        
+            }
+            .tab-arrow-prev, .tab-arrow-next{
+                position: absolute;
+                top: 0;
+                width: 60px;
+                height: 60px;
+                border-left: 1px solid #00000080;
+                border-right: 1px solid #00000080;                
+                display: none;
+            }            
+            .tab-arrow-prev{
+                left: 0;
+                background: #fff url('../images/icons/arrow-prev.svg') no-repeat center center;
+                z-index: 9999;
+                &:hover{
+                    background: #fff url('../images/icons/arrow-prev-hover.svg') no-repeat center center;
+                }
+                &:before{
+                    content: "";
+                    width: 100vh;
+                    height: 60px;
+                    position: absolute;
+                    left: calc(-100vh - 1px);
+                    background: #fff;
+                    z-index: 20;                    
+                }
+            }
+            .tab-arrow-next{
+                right: 0;
+                background: #fff url('../images/icons/arrow-next.svg') no-repeat center center;
+                z-index: 9999;
+                &:hover{
+                    background: #fff url('../images/icons/arrow-next-hover.svg') no-repeat center center;
+                }
+                &:after{
+                    content: "";
+                    width: 100vh;
+                    height: 60px;
+                    position: absolute;
+                    right: calc(-100vh - 1px);
+                    background: #fff;
+                    z-index: 20;
+                }
+            }            
         }        
     }
 }
@@ -78,38 +176,50 @@ html.page{
                     .container{
                         .row{
                             .col-md-4{
-                                margin-top: 100px;
+                                margin-top: 100px;                                
+                                .content-image{
+                                    overflow: hidden;
+                                    max-height: 360px;
+                                    display: inline-block;
+                                }
                                 &:hover{
                                     .thumbnail{
                                         filter: grayscale(0);
+                                        transform: scale(1.1);
+                                        transition: .8s all;
+                                    }
+                                    h3{
+                                        a{
+                                            color: $text-red-cl;
+                                        }                                        
                                     }
                                 }
                                 .thumbnail{
                                     width: 100%;
-                                    height: 360px;
+                                    max-width: 100%;
+                                    /*                                    height: 360px;*/
                                     object-fit: cover;
                                     filter: grayscale(1);
-                                    transition: 0.3s ease;
-                                    -webkit-transition: 0.3s ease;                                    
+                                    transform: scale(1);
+                                    transition:  .8s all;
+                                    -webkit-transition:  .8s all;                                    
 
                                 }
                                 .content-text{
                                     color: $text-gray-cl;
                                     padding-top: 20px;
                                     p{
-                                        text-transform: uppercase;
-                                        color: $cl-category;
+                                        text-transform: lowercase;
+                                        color: $cl-catelory;
                                         font-family: 'Sackers Gothic Std Heavy';
-
-
                                         font-size: 12px;
                                         line-height: 14px;
                                         padding-bottom: 30px;
                                     }
                                     h3{
-                                        font-family: 'GothicPro-Regular';
+                                        font-family: 'Zona-Pro-ExtraLight';
                                         line-height: 32px;
-                                        font-size: 24px;
+                                        font-size: 18px;
                                         font-weight: 400;
                                         a{
                                             &:hover{
@@ -127,8 +237,8 @@ html.page{
     }
     .view-more{
         width: 100%;
-        height: 300px;
-        margin-top: 133px;
+        /*height: 300px;*/
+        margin-top: 130px;
         text-align: center;        
         clear: both;
         font-family: 'Sackers Gothic Std Light';
@@ -136,6 +246,7 @@ html.page{
             font-size: 14px;
             line-height: 18px;
             text-decoration: underline;
+            display: inline-block;
             &:hover{
                 color: $text-red-cl;
             }
@@ -143,9 +254,21 @@ html.page{
     }
 }  
 
-
-/*html.page #footer {
-  
-    position: fixed;
-    width: 100%;
-}*/
+@include mobile {
+    .page-content{
+        .container{
+            .col-md-4{
+                text-align: center;
+                .gallery-box{
+                    display: inline-block;
+                }
+                .content-image{
+                    display: inline-block;
+                }
+                .content-text{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 // ==================================
-// 
+// PxSlide
 // ==================================
+
 var reportSlide = (selector) => {
     var elem = document.querySelector(selector);
     var flkty = new Flickity(elem, {
@@ -19,9 +20,6 @@ var reportSlide = (selector) => {
         initialIndex: 0,
     });
 }
-// ==================================
-// Parallax Slide
-// ==================================
 var parallaxSlider = (selector, child, initialIndex = 0) => {
     options = {
         accessibility: 1,
@@ -48,20 +46,20 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
     // get transform propedrty
     let docStyle = document.documentElement.style;
     let transformProp = typeof docStyle.transform == 'string' ?
-        'transform' : 'WebkitTransform';
+            'transform' : 'WebkitTransform';
     flkty.on('scroll', function () {
         if (jQuery(child).length > 2) {
             flkty.slides.forEach(function (slide, i) {
                 let img = imgs[i],
-                    x = 0;
+                        x = 0;
                 if (0 === i) {
                     x = Math.abs(flkty.x) > flkty.slidesWidth ?
-                        (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
-                        (slide.target + flkty.x);
+                            (flkty.slidesWidth + flkty.x + flkty.slides[flkty.slides.length - 1].outerWidth + slide.target) :
+                            (slide.target + flkty.x);
                 } else if (i === flkty.slides.length - 1) {
                     x = Math.abs(flkty.x) + flkty.slides[i].outerWidth < flkty.slidesWidth ?
-                        (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
-                        (slide.target + flkty.x);
+                            (slide.target - flkty.slidesWidth + flkty.x - flkty.slides[i].outerWidth) :
+                            (slide.target + flkty.x);
                 } else {
                     x = slide.target + flkty.x;
                 }
@@ -79,8 +77,14 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
 
 // ====================================================
 // 
+// 
 // ====================================================
 jQuery(document).ready(function ($) {
+    var scrol_tab_page = 0;
+    if (jQuery('#main .tab-page').length > 0) {
+        scrol_tab_page = jQuery('#main .tab-page').position().top;
+    }
+
     // ----------------------
     // Smart scroll
     // ----------------------
@@ -89,16 +93,36 @@ jQuery(document).ready(function ($) {
         jQuery(window).on('scroll', function () {
             scroll_top = jQuery(this).scrollTop();
             if (scroll_top > 10) {
-                (scroll_top < last_scroll_top) ? jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up'): jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
+                if ((scroll_top < last_scroll_top)) {
+                    jQuery('#header').removeClass('scrolled-down').addClass('scrolled-up');
+                    if (jQuery('#main .tab-page').length > 0) {
+                        jQuery('#main .tab-page').addClass('scrolled-up');
+                    }
+                } else {
+                    jQuery('#header').removeClass('scrolled-up').addClass('scrolled-down');
+                    if (jQuery('#main .tab-page').length > 0) {
+                        jQuery('#main .tab-page').removeClass('scrolled-up');
+                    }
+                }
                 last_scroll_top = scroll_top;
             }
+
             scroll_top > 500 ? jQuery('#header').addClass("bloody-hat--On") : jQuery('#header').removeClass("bloody-hat--On");
+
+            if (scroll_top >= scrol_tab_page) {
+                if (jQuery('#main .tab-page').length > 0) {
+                    jQuery('#main .tab-page').addClass('tab-fixed-top');
+                }
+            } else {
+                if (jQuery('#main .tab-page').length > 0) {
+                    jQuery('#main .tab-page').removeClass('tab-fixed-top');
+                }
+            }
         });
     }
     // ----------------------
     // on Load
     // ----------------------
-    
     // const target = document.querySelectorAll('.target, .report-content h3 a, .our-fund-tabs .tab-content ul li a');
     // if (target) {
     //     const bannerText = Splitting({
@@ -110,25 +134,25 @@ jQuery(document).ready(function ($) {
     if (document.querySelector("#banner h1")) {
         // .mainwrapper
         var onLoad = gsap.timeline({
-                paused: 1,
-            })
-            .to('#loading', 1.5, {
-                xPercent: -100,
-                delay: 0.5,
-                ease: Power4.easeInOut,
-            })
-            .from("h1 .word", 1, {
-                yPercent: 100,
-                // transformOrigin: "left",
-                opacity: 0.5,
-                stagger: 0.1,
-                // skewX: 30,
-                ease: Power1.easeInOut,
-                delay: 0.1,
-            })
-            .from("#banner .subject", 3, {
-                opacity: 0,
-            }, 3);
+            paused: 1,
+        })
+                .to('#loading', 1.5, {
+                    xPercent: -100,
+                    delay: 0.5,
+                    ease: Power4.easeInOut,
+                })
+                .from("h1 .word", 1, {
+                    yPercent: 100,
+                    // transformOrigin: "left",
+                    opacity: 0.5,
+                    stagger: 0.1,
+                    // skewX: 30,
+                    ease: Power1.easeInOut,
+                    delay: 0.1,
+                })
+                .from("#banner .subject", 3, {
+                    opacity: 0,
+                }, 3);
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
@@ -154,30 +178,30 @@ jQuery(document).ready(function ($) {
                 } else {
                     clearInterval(counter);
                     gsap.timeline()
-                        .to(".subject-count", 1, {
-                            autoAlpha: 0,
-                            delay: 2,
-                        })
-                        .to("#loading", 1, {
-                            autoAlpha: 0,
-                        })
-                        .from(".m-c-center", 1, {
-                            autoAlpha: 0,
-                        })
-                        .to(".m-c-center", 1, {
-                            autoAlpha: 0,
-                            delay: 1,
-                        })
-                        .to(".main-copy", 1, {
-                            autoAlpha: 0,
-                        })
-                        .to(".main-bg", 2, {
-                            scale: 1.3,
-                        }, '-=1')
-                        .from('.main-subjects h3, #panel', 1, {
-                            autoAlpha: 0,
-                            stagger: 0.1,
-                        })
+                            .to(".subject-count", 1, {
+                                autoAlpha: 0,
+                                delay: 2,
+                            })
+                            .to("#loading", 1, {
+                                autoAlpha: 0,
+                            })
+                            .from(".m-c-center", 1, {
+                                autoAlpha: 0,
+                            })
+                            .to(".m-c-center", 1, {
+                                autoAlpha: 0,
+                                delay: 1,
+                            })
+                            .to(".main-copy", 1, {
+                                autoAlpha: 0,
+                            })
+                            .to(".main-bg", 2, {
+                                scale: 1.3,
+                            }, '-=1')
+                            .from('.main-subjects h3, #panel', 1, {
+                                autoAlpha: 0,
+                                stagger: 0.1,
+                            })
                 }
             }, 50);
         });
@@ -206,13 +230,13 @@ jQuery(document).ready(function ($) {
                     autoAlpha: 1,
                 });
                 gsap.timeline()
-                    .to("#loading", 1, {
-                        xPercent: 0,
-                        ease: Power4.easeInOut,
-                        onComplete: () => {
-                            window.location = target.getAttribute("href")
-                        },
-                    });
+                        .to("#loading", 1, {
+                            xPercent: 0,
+                            ease: Power4.easeInOut,
+                            onComplete: () => {
+                                window.location = target.getAttribute("href")
+                            },
+                        });
             });
         });
     }
@@ -269,6 +293,7 @@ jQuery(document).ready(function ($) {
     // =================
     // Modal Popup
     // =================
+    // 
     var modalPopup = {
         galleries: [],
         markup: '<div class="popup-gallery">\n\
@@ -276,9 +301,9 @@ jQuery(document).ready(function ($) {
                                 <div class="popup-gallery-info">\n\
                                     <div class="popup-cation">[title_active]</div>\n\
                                     <div class="popup-action">\n\
-                                        <span class="action-arrow-prev"></span>\n\
+                                        <a href="javascript:void(0)" class="cvb"><span class="action-arrow-prev"></span><a/>\n\
                                         <span class="action-number">[count] / [length]</span>\n\
-                                        <span class="action-arrow-next"></span>\n\
+                                        <a href="javascript:void(0)" class="cvb"><span class="action-arrow-next cvb"></span></a>\n\
                                     </div>\n\
                                 </div>\n\
                             </div>',
@@ -290,8 +315,25 @@ jQuery(document).ready(function ($) {
                 $('.modal-popup').attr('modal-type', $(this).data('modal'));
                 if ($(this).data('modal') == "popup-gallery") {
                     modalPopup.init_popup_gallery($(this));
-                }
-                $('.modal-popup').fadeIn();
+                } else if ($(this).data('modal') == "popup-data") {
+                    var modal_content = $(this).parent().find('*[data-modal-content]').html();
+                    $('.modal-popup .modal-popup-content .modal-body').html(modal_content);
+                } else if ($(this).data('modal') == "popup-get-in-touch") {
+                    var modal_getInTouch = $(this).parent().find('*[data-modal-getintouch]').html();
+                    $('.modal-popup .modal-popup-content .modal-body').html(modal_getInTouch);
+                } else if ($(this).data('modal') == "popup-contact") {
+                    var modal_Contact = $(this).parent().find('*[data-modal-contact]').html();
+                    $('.modal-popup .modal-popup-content .modal-body').html(modal_Contact);
+                }                
+                
+                modalPopup.setButtonClose($(this));
+
+                gsap.fromTo('.modal-popup', 1,
+                        {x: 600, 'z-index': '-1'},
+                        {x: 0, 'z-index': 99999, duration: 2.5, ease: "slow(0.1, 1, false)", onComplete: function () {
+                                $('html').css('overflow', 'hidden');
+                                cursorCustomize.initHovers();
+                            }});
             });
 
             $('.modal-popup').on('click', '.action-arrow-prev', function () {
@@ -299,6 +341,9 @@ jQuery(document).ready(function ($) {
             }).on('click', '.action-arrow-next', function () {
                 modalPopup.next();
             })
+            
+            this.close();
+            this.supportKey();            
         },
         init_popup_gallery: function (obj) {
             modalPopup.galleries = $('body').find('a[data-modal="popup-gallery"]');
@@ -310,10 +355,28 @@ jQuery(document).ready(function ($) {
             var clone_markup = modalPopup.markup;
             clone_markup = clone_markup.replace('[image_active]', $(modalPopup.galleries[modalPopup.index_active]).attr('href'));
             clone_markup = clone_markup.replace('[title_active]', modalPopup.title_active);
-            clone_markup = clone_markup.replace('[count]', modalPopup.index_active + 1);
+
+            var curr_count = parseInt(modalPopup.index_active) + 1;
+            curr_count = curr_count.toString().padStart(2, '0');
+
+            clone_markup = clone_markup.replace('[count]', curr_count);
             clone_markup = clone_markup.replace('[length]', modalPopup.galleries.length);
 
-            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);
+            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);                    
+        },
+        setButtonClose: function (obj) {
+            var obj_close = $('.modal-popup .modal-popup-content .modal-close');
+            if(obj.data('close-default') != undefined){
+                obj_close.attr('data-image', 'images/modal/close-'+obj.data('close-default')+'.png');
+            }
+            
+            obj_close.find('img').attr('src', obj_close.attr('data-image'));
+            
+            obj_close.on('mouseenter', function () {
+                $(this).find('img').attr('src', $(this).attr('data-image-hover'));
+            }).on('mouseleave', function () {
+                $(this).find('img').attr('src', $(this).attr('data-image'));
+            })
         },
         next: function () {
             modalPopup.index_active++;
@@ -323,10 +386,10 @@ jQuery(document).ready(function ($) {
 
             if (current >= modalPopup.galleries.length) {
                 modalPopup.index_active = parseInt(modalPopup.galleries.length) - 1;
-                modalPopup.change();
+                modalPopup.change('next');
                 $('.modal-popup[modal-type="popup-gallery"] .action-arrow-next').addClass('disabled');
             } else {
-                modalPopup.change();
+                modalPopup.change('next');
             }
         },
         prev: function () {
@@ -337,19 +400,65 @@ jQuery(document).ready(function ($) {
 
             if (current <= 0) {
                 modalPopup.index_active = 0;
-                modalPopup.change();
+                modalPopup.change('prev');
                 $('.modal-popup[modal-type="popup-gallery"] .action-arrow-prev').addClass('disabled');
             } else {
-                modalPopup.change();
+                modalPopup.change('prev');
             }
         },
-        change: function (index) {
-            if (index == undefined) {
-                index = modalPopup.index_active;
+        change: function (action) {
+//            modalPopup.init_popup_gallery();
+            var url = $(modalPopup.galleries[modalPopup.index_active]).attr('href');
+            var obj_img = '.modal-popup[modal-type="popup-gallery"] .popup-gallery-thumbnail img';
+            var obj_title = '.modal-popup[modal-type="popup-gallery"] .popup-gallery-info .popup-cation';
+            var obj_count = '.modal-popup[modal-type="popup-gallery"] .popup-gallery-info .popup-action .action-number';
+
+            if (action == 'next') {
+                gsap.fromTo(obj_img, {x: 0, opacity: 1}, {x: -200, opacity: 0});
+                $(obj_img).attr('src', url);
+                gsap.fromTo(obj_img, {x: 200, opacity: 0}, {x: 0, opacity: 1});
             } else {
-                modalPopup.index_active = index;
+                gsap.fromTo(obj_img, {x: 0, opacity: 1}, {x: 200, opacity: 0});
+                $(obj_img).attr('src', url);
+                gsap.fromTo(obj_img, {x: -200, opacity: 0}, {x: 0, opacity: 1});
             }
-            modalPopup.init_popup_gallery();
+
+            modalPopup.title_active = $(modalPopup.galleries[modalPopup.index_active]).data('title') != undefined ? $(modalPopup.galleries[modalPopup.index_active]).data('title') : $(modalPopup.galleries[modalPopup.index_active]).attr('title');
+            $(obj_title).html(modalPopup.title_active);
+
+            var curr_count = parseInt(modalPopup.index_active) + 1;
+            curr_count = curr_count.toString().padStart(2, '0');
+            $(obj_count).html(curr_count + ' / ' + modalPopup.galleries.length);
+
+        },
+        close: function () {
+            $('.modal-popup .modal-popup-content').on('click', '.modal-close', function () {
+                gsap.fromTo('.modal-popup', 1, {x: 0, 'z-index': 99999}, {x: '-100%', 'z-index': '-1', onComplete: function () {
+                        $('html').css('overflow', 'inherit');
+                    }});
+            })
+        },
+        supportKey: function () {
+            $(window).on('keyup', function (e) {
+//                console.log(e.which);
+
+                switch (e.which) {
+                    case 13:
+                        break;
+                        // esc      
+                    case 27:
+                        $('.modal-popup .modal-popup-content .modal-close').trigger('click');
+                        break;
+                        //key next
+                    case 39:
+                        modalPopup.next();
+                        break;
+                        //key prev
+                    case 37:
+                        modalPopup.prev();
+                        break;
+                }
+            })
         }
     };
     modalPopup.init();
@@ -363,43 +472,125 @@ jQuery(document).ready(function ($) {
         $(this).find('.content-text').fadeOut('medium');
     })
 
-    //        $('*[data-modal="popup-video"]').on('click',function(e){
-    //            e.preventDefault();
-    //            var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-    //            var url = $(this).data('url');
-    //            var urls = url.split('/');
-    //            var code = urls[urls.length - 1];
-    //            var view_iframe = iframe.replace('{id}',code);
-    //            $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
-    //            $('.modal-popup').fadeIn();
-    //        })    
+//        $('*[data-modal="popup-video"]').on('click',function(e){
+//            e.preventDefault();
+//            var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+//            var url = $(this).data('url');
+//            var urls = url.split('/');
+//            var code = urls[urls.length - 1];
+//            var view_iframe = iframe.replace('{id}',code);
+//            $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
+//            $('.modal-popup').fadeIn();
+//        })    
 
-    $(window).on('keyup', function (e) {
-        console.log(e.which);
+    // =================
+    // Tab Blocks
+    // =================
+    var tabBlocks = {
+        selector: '#main .tab-page',
+        arrow_markup: '<div class="tab-arrow-prev cvb"></div><div class="tab-arrow-next cvb"></div>',
+        element_selector: '#main .tab-page ul > li',
+        width_arrow: 60,
+        width_scroll: 0,
+        dropdown_leave: true,
+        init: function () {
+            if ($(this.selector).length > 0) {
+                this.getWidthScroll();
+                this.dropdown();
+                /* reset arrow */
+                $(this.selector).find('.tab-arrow-prev').hide();
+                $(this.selector).find('.tab-arrow-next').hide();
 
-        switch (e.which) {
-            case 13:
-                break;
-                // esc      
-            case 27:
-                $('.modal-popup').fadeOut('medium');
-                break;
-                //key next
-            case 39:
-                break;
-                //key prev
-            case 37:
-                break;
+                if (this.width_scroll - this.width_arrow > $(this.selector).width()) {
+//                    console.log($(this.selector).find('.tab-arrow-prev'));
+                    if ($(this.selector).find('.tab-arrow-prev').length == 0) {
+                        $(this.selector + ' .container').append(this.arrow_markup);
+                        cursorCustomize.initHovers();
+                    }
+                    $(this.selector).find('.tab-arrow-next').show();
+                }
+
+                $(this.selector).on('click', '.tab-arrow-prev', function () {
+                    tabBlocks.prev();
+                }).on('click', '.tab-arrow-next', function () {
+                    tabBlocks.next();
+                });
+            }
+        },
+        getWidthScroll: function () {
+            $(this.element_selector).each(function () {
+                tabBlocks.width_scroll += $(this).width();
+            })
+        },
+        dropdown: function () {
+
+            $(this.element_selector + ' > a').on('click', function (e) {
+                e.preventDefault();
+                if ($(this).parent().find(' > ul').length > 0) {
+                    $(this).parent().find(' > ul').slideToggle();
+                }
+            });
+//            $(this.element_selector + ' > ul').on('mouseover', function () {
+//                tabBlocks.dropdown_leave = true;
+//            });
+//            $(this.element_selector + ' > ul').on('mouseleave', function () {
+//                setTimeout(function () {
+//                    tabBlocks.dropdown_leave = false;
+//                }, 3000);
+//            });
+            return;
+        },
+        prev: function () {
+            var widthul = $(tabBlocks.selector + ' ul').width();
+            var left = $(tabBlocks.selector + ' ul').position().left;
+            var scroll_left = (left * -1) - widthul;
+//                    console.log('==============');
+//                    console.log(left, widthul);
+//                    console.log(scroll_left);
+            if (-scroll_left > 0) {
+                scroll_left = 0;
+//                $(tabBlocks.selector).find('.tab-arrow-prev').hide();
+            }
+            gsap.fromTo($(tabBlocks.selector + ' ul'), 3, {x: left}, {x: -scroll_left, onComplete: function () {
+                    if (-scroll_left == 0) {
+                        $(tabBlocks.selector).find('.tab-arrow-prev').hide();
+                    }
+                }});
+
+            if (left < tabBlocks.width_scroll) {
+                $(tabBlocks.selector).find('.tab-arrow-next').show();
+            }
+        },
+        next: function () {
+            var widthul = $(tabBlocks.selector + ' ul').width();
+            var left = $(tabBlocks.selector + ' ul').position().left;
+            var scroll_left = widthul + (left * -1);
+
+            if (scroll_left > tabBlocks.width_scroll) {
+                scroll_left = tabBlocks.width_scroll;
+//                $(tabBlocks.selector).find('.tab-arrow-next').hide();
+            }
+//                    console.log(scroll_left);
+            gsap.fromTo($(tabBlocks.selector + ' ul'), 3, {x: left}, {x: -scroll_left, onComplete: function () {
+                    if (scroll_left == tabBlocks.width_scroll) {
+                        $(tabBlocks.selector).find('.tab-arrow-next').hide();
+                    }
+                }});
+
+            if (left > 0) {
+                $(tabBlocks.selector).find('.tab-arrow-prev').show();
+            }
         }
-    })
-    $('.modal-popup .modal-popup-content').on('click', '.modal-close', function () {
-        $(this).parents('.modal-popup').fadeOut('medium');
-    })
 
+    };
+    tabBlocks.init();
+    $(window).resize(function () {
+        tabBlocks.init();
+    })
     // =================
     // Page Blocks
     // =================
-    gsap.set('.page .page-content .tab-page ul li', {
+    gsap.set('.page .page-content .tab-page ul > li', {
         opacity: 0,
         ease: Power4.easeInOut,
     });
@@ -414,42 +605,32 @@ jQuery(document).ready(function ($) {
         ease: Power4.easeInOut,
     })
     gsap.timeline()
-        .to('.page .page-content .tab-page ul li', 1, {
-            // yPercent: 0,
-            y: 0,
-            opacity: 1,
-            stagger: 0.1,
-            ease: Power4.easeInOut,
-        })
-        .to('.page-content .content-text h3', 1, {
-            // yPercent: 0,
-            y: 0,
-            opacity: 1,
-            stagger: 0.1,
-            ease: Power4.easeInOut,
-        })
-        .to('.page-content .col-md-4', 1, {
-            opacity: 1,
-            stagger: 0.2,
-            ease: Power4.easeInOut,
-        }, 0.5);
+            .to('.page .page-content .tab-page ul > li', 1, {
+                // yPercent: 0,
+                y: 0,
+                opacity: 1,
+                stagger: 0.3,
+                ease: Power4.easeInOut,
+            })
+            .to('.page-content .content-text h3', 1, {
+                // yPercent: 0,
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                ease: Power4.easeInOut,
+            })
+            .to('.page-content .col-md-4', 1, {
+                opacity: 1,
+                stagger: 0.3,
+                ease: Power4.easeInOut,
+            }, 0.5);
 
-    //    $('.page-content .col-md-4').on('mouseenter', function () {
-    //    }).on('mouseleave', function () {
-    // $('*[data-modal="popup-video"]').on('click',function(e){
-    //     e.preventDefault();
-    //     var iframe = '<iframe src="https://player.vimeo.com/video/{id}" width="100%" height="100%" frameborder="0" title="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-    //     var url = $(this).data('url');
-    //     var urls = url.split('/');
-    //     var code = urls[urls.length - 1];
-    //     var view_iframe = iframe.replace('{id}',code);
-    //     $('.modal-popup .modal-popup-content .modal-body').html(view_iframe);
-    //     $('.modal-popup').fadeIn();
-    // })    
+//    $('.page-content .col-md-4').on('mouseenter', function () {
+//
+//    }).on('mouseleave', function () {
+//
+//    })
 
-    //    $('.modal-popup .modal-popup-content').on('click','.modal-close',function(){
-    //        $(this).parents('.modal-popup').fadeOut('medium');
-    //    })
     // ==========================================================
 
     // =================
@@ -476,22 +657,22 @@ jQuery(document).ready(function ($) {
     });
 
     var homeStories = new ScrollMagic.Scene({
-            triggerElement: ".home-stories",
-            duration: 100,
-            offset: -100,
-        })
-        .on("enter", function () {
-            gsap.timeline()
-                .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
-                    opacity: 1,
-                    stagger: 0.25,
-                    ease: Power4.easeInOut,
-                });
-        })
-        // .addIndicators({
-        //     name: "homeStories"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-stories",
+        duration: 100,
+        offset: -100,
+    })
+            .on("enter", function () {
+                gsap.timeline()
+                        .to('.carousel-wrapper, .second-carousel-wrapper', 1, {
+                            opacity: 1,
+                            stagger: 0.25,
+                            ease: Power4.easeInOut,
+                        });
+            })
+            // .addIndicators({
+            //     name: "homeStories"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ========================================
     // Report Breakthrough
     // ========================================
@@ -509,29 +690,29 @@ jQuery(document).ready(function ($) {
         var heightReport = document.querySelector(".home-report").offsetHeight;
     }
     var homeReport = new ScrollMagic.Scene({
-            triggerElement: ".home-report",
-            duration: "200%",
-            offset: 100,
-        })
-        .on("enter", function () {
-            gsap.timeline()
-                .to('.home-report-title h3 .word', 1, {
-                    // yPercent: 0,
-                    y: 0,
-                    opacity: 1,
-                    stagger: 0.1,
-                    ease: Power4.easeInOut,
-                })
-                .to('.slider-item', 1, {
-                    opacity: 1,
-                    stagger: 0.2,
-                    ease: Power4.easeInOut,
-                }, 0.5);
-        })
-        // .addIndicators({
-        // name: "Report"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-report",
+        duration: "200%",
+        offset: 100,
+    })
+            .on("enter", function () {
+                gsap.timeline()
+                        .to('.home-report-title h3 .word', 1, {
+                            // yPercent: 0,
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.1,
+                            ease: Power4.easeInOut,
+                        })
+                        .to('.slider-item', 1, {
+                            opacity: 1,
+                            stagger: 0.2,
+                            ease: Power4.easeInOut,
+                        }, 0.5);
+            })
+            // .addIndicators({
+            // name: "Report"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ========================================
     // Our Funds
     // ========================================
@@ -544,65 +725,58 @@ jQuery(document).ready(function ($) {
         // offset: 100,
     });
     var ourFunds = gsap.timeline({
-            paused: 1,
-        })
-        .to('.our-fund-content h3 .word', 1, {
-            opacity: 1,
-            stagger: 0.1,
-            delay: 0.5,
-        })
-        .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.1,
-        });
+        paused: 1,
+    })
+            .to('.our-fund-content h3 .word', 1, {
+                opacity: 1,
+                stagger: 0.1,
+                delay: 0.5,
+            })
+            .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
+                yPercent: 0,
+                opacity: 1,
+                stagger: 0.1,
+            });
     new ScrollMagic.Scene({
-            triggerElement: ".our-fund",
-            duration: "150%",
-            offset: -100,
-        })
-        .on('enter', () => {
-            ourFunds.play();
-        })
-        .on('leave', () => {
-            ourFunds.reverse();
-        })
-        // .setTween(ourFunds)
-        // .addIndicators({
-        //     name: "Our Funds",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".our-fund",
+        duration: "150%",
+        offset: -100,
+    })
+            .on('enter', () => {
+                ourFunds.play();
+            })
+            .on('leave', () => {
+                ourFunds.reverse();
+            })
+            // .setTween(ourFunds)
+            // .addIndicators({
+            //     name: "Our Funds",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Title Funds Running
     // ======================
-    // var heightFunds = document.querySelector(".our-fund").offsetHeight;
     var titleFund = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".our-fund",
-                // markers: true,
-                scrub: 2,
-                start: "bottom top", // when the top of the trigger hits the top of the viewport
-                end: "+= 500",
-
-            },
-        })
-        .fromTo(".our-fund h3", 1, {
-            xPercent: 30,
-            // ease: Power3.easeOut,
-        }, {
-            xPercent: -30,
-            // ease: Power4.easeOut,
-        });
-    // new ScrollMagic.Scene({
-    //         triggerElement: ".our-fund",
-    //         duration: "200%",
-    //         offset: -100,
-    //     })
-    //     .setTween(titleFund)
-    //     // .addIndicators({
-    //     //     name: "Our Funds",
-    //     // }) // add indicators (requires plugin)
-    //     .addTo(controller);
+        // repeat: -1,
+        // yoyo: true,
+    })
+            .fromTo(".our-fund h3", 1, {
+                xPercent: 30,
+                // ease: Power3.easeOut,
+            }, {
+                xPercent: -30,
+                ease: Power4.easeOut,
+            });
+    new ScrollMagic.Scene({
+        triggerElement: ".our-fund",
+        duration: "200%",
+        offset: -100,
+    })
+            .setTween(titleFund)
+            // .addIndicators({
+            //     name: "Our Funds",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Why Vietnam Flying Up
     // ======================
@@ -610,27 +784,27 @@ jQuery(document).ready(function ($) {
         var heightWhy = document.querySelector(".home-why").offsetHeight;
     }
     var flyingUpTl = gsap.timeline({
-            // paused: true,
-        })
-        .to(".home-why-thumb-left", 1, {
-            y: -heightWhy * 1.5,
-        })
-        .to(".home-why-thumb-right", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5')
-        .to(".home-why-thumb-bottom", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5');
+        // paused: true,
+    })
+            .to(".home-why-thumb-left", 1, {
+                y: -heightWhy * 1.5,
+            })
+            .to(".home-why-thumb-right", 1, {
+                y: -heightWhy * 1.5,
+            }, '-=0.5')
+            .to(".home-why-thumb-bottom", 1, {
+                y: -heightWhy * 1.5,
+            }, '-=0.5')
     var thumbLeft = new ScrollMagic.Scene({
-            triggerElement: ".home-why",
-            duration: heightWhy * 2,
-            offset: -100,
-        })
-        .setTween(flyingUpTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "Flying Up Left"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-why",
+        duration: heightWhy * 2,
+        offset: -100,
+    })
+            .setTween(flyingUpTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            //     name: "Flying Up Left"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ======================
     // Why Viet Nam Text
     // ======================
@@ -651,15 +825,17 @@ jQuery(document).ready(function ($) {
         });
 
         new ScrollMagic.Scene({
-                triggerElement: ".home-why",
-                duration: "100%",
-                offset: -200,
-            })
-            .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
-            // .addIndicators({
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
+            triggerElement: ".home-why",
+            duration: "100%",
+            offset: -200,
+        })
+                .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
+                // .addIndicators({
+                // }) // add indicators (requires plugin)
+                .addTo(controller);
     }
+
+
     // =======================
     // World Class Team
     // =======================
@@ -675,21 +851,21 @@ jQuery(document).ready(function ($) {
         stagger: 0.3,
     });
     new ScrollMagic.Scene({
-            triggerElement: ".home-team",
-            duration: "120%",
-            offset: -200,
-        })
-        .on('enter', () => {
-            classTeamTl.play();
-        })
-        .on('leave', () => {
-            classTeamTl.reverse();
-        })
-        // .setTween(classTeamTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "World Class Team",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-team",
+        duration: "120%",
+        offset: -200,
+    })
+            .on('enter', () => {
+                classTeamTl.play();
+            })
+            .on('leave', () => {
+                classTeamTl.reverse();
+            })
+            // .setTween(classTeamTl) // trigger a TweenMax.to tween
+            // .addIndicators({
+            //     name: "World Class Team",
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     //-----------------------------------------------------
     // World Class Animation    
     //-----------------------------------------------------
@@ -713,6 +889,34 @@ jQuery(document).ready(function ($) {
             $('.modal-fund-tabs .tab-content .tab-panel:eq(' + index + ')').show();
         });
     })
+    // =======================
+    // Building Parallaxing
+    // =======================
+    // var buildingPlxTl = gsap.timeline().fromTo(".building-1 img", 1, {
+    //     y: 150,
+    // }, {
+    //     y: 0,
+    // });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".city-view",
+    //         duration: "100%",
+    //         offset: -100,
+    //     })
+    //     .setTween(buildingPlxTl) // trigger a TweenMax.to tween
+    //     // .addIndicators({
+    //     //     name: "building Parallax",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
+
+//    $('.modal-fund-tabs > ul li a').on('click', function (e) {
+//        e.preventDefault();
+//        $(this).parents('ul').find('li.active').removeClass('active');
+//        $(this).parent().addClass('active');
+//        var index = $(this).parent().index();
+//        $('.modal-fund-tabs .tab-content .tab-panel').fadeOut('medium', function () {
+//            $('.modal-fund-tabs .tab-content .tab-panel:eq(' + index + ')').show();
+//        });
+//    })
 
     //-----------------------------------------------------
     // Clouds
@@ -732,44 +936,21 @@ jQuery(document).ready(function ($) {
         x: 700,
     });
     //-----------------------------------------------------
-    // let root = document.documentElement;
-    // root.addEventListener("mousemove", e => {
-    //     root.style.setProperty('--mouse-x', e.clientX + "px");
-    //     root.style.setProperty('--mouse-y', e.clientY + "px");
-    // });
 
-    //-----------------------------------------------------
-    // gsap.timeline({
-    //         scrollTrigger: {
-    //             trigger: ".horizon-carousel",
-    //             // markers: true,
-    //             pin: true,
-    //             start: "top top", // when the top of the trigger hits the top of the viewport
-    //             end: "+=5000", // end after scrolling 500px beyond the start
-    //             scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    //             // snap: {
-    //             //     snapTo: "labels", // snap to the closest label in the timeline
-    //             //     duration: {
-    //             //         min: 0.2,
-    //             //         max: 3
-    //             //     }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-    //             //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-    //             //     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
-    //             // }
-    //         },
-    //         // repeat: -1,
-    //     })
-    //     .fromTo(".top-carousel", 1, {
-    //         xPercent: -50,
-    //     }, {
-    //         xPercent: 0,
-    //     })
-    //     .fromTo(".bottom-carousel", 1, {
-    //         xPercent: 0,
-    // }, {
-    //     xPercent: -50,
-    // }, '-=1');
-    //-----------------------------------------------------
+//    let root = document.documentElement;
+//    root.addEventListener("mousemove", e => {
+//        root.style.setProperty('--mouse-x', e.clientX + "px");
+//        root.style.setProperty('--mouse-y', e.clientY + "px");
+//    });
+
+    // document.querySelector(".home-team-content").addEventListener("mouseenter", e => {
+    //     document.addEventListener("mousemove", e => {
+    //         gsap.set(".home-team-image", {
+    //             x: e.clientX,
+    //             y: e.clientY,
+    //         });
+    //     });
+    // });
 })
 
 class Cursor {
