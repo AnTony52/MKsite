@@ -137,6 +137,50 @@ table {
     height: 100%;
     object-fit: cover; }
 
+/**
+ * Extra mixin classes for text styles
+ */
+.text-body {
+  font-family: Zona Pro, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2F2F2F; }
+
+.sub-heading {
+  font-size: 16px;
+  font-family: "Sackers Gothic Std Medium";
+  line-height: 16px;
+  color: #0F1C2D;
+  text-transform: lowercase; }
+
+.heading_2 {
+  font-family: "Sackers Gothic Std Medium", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.17;
+  letter-spacing: -0.05em;
+  text-transform: uppercase; }
+
+.text-color-white {
+  color: #fff; }
+
+.btn-underline {
+  font-family: "Sackers Gothic Std Medium", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: all .3s ease; }
+  .btn-underline.text-color-white {
+    color: #fff; }
+  .btn-underline:hover, .btn-underline:focus {
+    color: #B70004; }
+
 /*@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');*/
 @font-face {
   font-family: 'happy-time-Bold';
@@ -8322,3 +8366,93 @@ html.page .page-our-team #main {
   background-color: #ccc;
   padding: 80px 20px;
   height: 100vh; }
+
+section.our-funds .our-funds-inner {
+  background: url("../images/our-funds/background.jpg") center center/cover;
+  padding: 200px 0 160px; }
+  section.our-funds .our-funds-inner .heading {
+    margin-bottom: 120px; }
+    section.our-funds .our-funds-inner .heading .sub-heading {
+      margin-bottom: 80px; }
+  section.our-funds .our-funds-inner .intro-text {
+    margin-bottom: 100px; }
+    section.our-funds .our-funds-inner .intro-text .text {
+      color: rgba(255, 255, 255, 0.5); }
+  section.our-funds .our-funds-inner .key-figures-list {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: -12px; }
+    section.our-funds .our-funds-inner .key-figures-list li.key-figures-item {
+      width: 33.33%;
+      padding: 12px; }
+      section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner {
+        height: 0;
+        padding-bottom: 82.5301204819%;
+        position: relative; }
+        @supports (aspect-ratio: 16/9) {
+          section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner {
+            aspect-ratio: 1.2116788321;
+            height: initial;
+            padding-bottom: initial; } }
+        section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link {
+          display: block;
+          background: #fff;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 25px 30px 30px 28px;
+          transition: all .3s ease; }
+          section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link:hover {
+            background: #B70004;
+            color: #fff; }
+            section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link:hover .number, section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link:hover .sub-heading {
+              color: #fff; }
+            section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link:hover .icon-arrow .before {
+              transform: translateX(50%);
+              opacity: 0; }
+            section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link:hover .icon-arrow .after {
+              opacity: 1;
+              transform: translate(0, -50%); }
+          section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link .number {
+            font-family: 'GothicPro-Regular';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 80px;
+            line-height: 1;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+            color: #0F1C2D;
+            margin-bottom: 30px;
+            transition: all .3s ease; }
+          section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link .sub-heading {
+            transition: all .3s ease; }
+          section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link .icon-arrow {
+            display: block;
+            position: absolute;
+            right: 30px;
+            bottom: 30px; }
+            section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link .icon-arrow svg {
+              width: 40px;
+              height: 30px;
+              transition: all .3s ease; }
+              section.our-funds .our-funds-inner .key-figures-list li.key-figures-item .inner .link .icon-arrow svg.after {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(-50%, -50%);
+                opacity: 0; }
