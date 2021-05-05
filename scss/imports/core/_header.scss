@@ -96,6 +96,7 @@ html.page{
     }
 }
 
+
 header {
     position: fixed;
     top: 0;
@@ -185,7 +186,7 @@ header {
 
             .hamburger-inner,
             .hamburger-inner:after,
-            .hamburger-inner:before {
+                .hamburger-inner:before {
                 background-color: #fff;
                 height: 2px;
             }
@@ -214,6 +215,7 @@ header {
 
     // @include transform(translateX(-50%));
     // mix-blend-mode: difference;
+    .contact-detail{display: none;}
     &::before {
         content: "";
         color: white;
@@ -254,7 +256,9 @@ header {
         left: 0;
         opacity: 0;
         font-size: 14px;
-
+        > a{
+            color: $white-cl;
+        }
     }
 
     img {

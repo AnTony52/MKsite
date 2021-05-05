@@ -324,12 +324,15 @@ jQuery(document).ready(function ($) {
                 } else if ($(this).data('modal') == "popup-contact") {
                     var modal_Contact = $(this).parent().find('*[data-modal-contact]').html();
                     $('.modal-popup .modal-popup-content .modal-body').html(modal_Contact);
-                }
+                }                
+                
+                modalPopup.setButtonClose($(this));
 
                 gsap.fromTo('.modal-popup', 1,
                         {x: 600, 'z-index': '-1'},
                         {x: 0, 'z-index': 99999, duration: 2.5, ease: "slow(0.1, 1, false)", onComplete: function () {
                                 $('html').css('overflow', 'hidden');
+                                cursorCustomize.initHovers();
                             }});
             });
 
@@ -338,9 +341,9 @@ jQuery(document).ready(function ($) {
             }).on('click', '.action-arrow-next', function () {
                 modalPopup.next();
             })
-
+            
             this.close();
-            this.supportKey();
+            this.supportKey();            
         },
         init_popup_gallery: function (obj) {
             modalPopup.galleries = $('body').find('a[data-modal="popup-gallery"]');
@@ -359,18 +362,20 @@ jQuery(document).ready(function ($) {
             clone_markup = clone_markup.replace('[count]', curr_count);
             clone_markup = clone_markup.replace('[length]', modalPopup.galleries.length);
 
-            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);
-            cursorCustomize.initHovers();
-
-            this.setButtonClose();
+            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);                    
         },
-        setButtonClose: function () {
+        setButtonClose: function (obj) {
             var obj_close = $('.modal-popup .modal-popup-content .modal-close');
-            obj_close.find('img').attr('src', obj_close.data('image'));
+            if(obj.data('close-default') != undefined){
+                obj_close.attr('data-image', 'images/modal/close-'+obj.data('close-default')+'.png');
+            }
+            
+            obj_close.find('img').attr('src', obj_close.attr('data-image'));
+            
             obj_close.on('mouseenter', function () {
-                $(this).find('img').attr('src', $(this).data('image-hover'));
+                $(this).find('img').attr('src', $(this).attr('data-image-hover'));
             }).on('mouseleave', function () {
-                $(this).find('img').attr('src', $(this).data('image'));
+                $(this).find('img').attr('src', $(this).attr('data-image'));
             })
         },
         next: function () {

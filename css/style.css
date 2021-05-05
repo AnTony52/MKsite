@@ -218,7 +218,7 @@ table {
   font-family: 'Zona-Pro-ExtraLight';
   src: url("../fonts/ZonaPro-ExtraLight.eot");
   src: url("../fonts/ZonaPro-ExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/ZonaPro-ExtraLight.woff2") format("woff2"), url("../fonts/ZonaPro-ExtraLight.woff") format("woff"), url("../fonts/ZonaPro-ExtraLight.ttf") format("truetype"), url("../fonts/ZonaPro-ExtraLight.svg#ZonaPro-ExtraLight") format("svg");
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
   font-display: swap; }
 .modal-popup[modal-type="popup-gallery"] {
@@ -449,13 +449,118 @@ table {
           letter-spacing: 3px;
           float: right; }
 
+.modal-popup[modal-type="popup-contact"] .modal-popup-content {
+  height: calc(100% - 290px); }
+  .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body {
+    height: 100%; }
+    .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left {
+      width: 50%;
+      height: 100vh;
+      color: #FFFFFF;
+      float: left;
+      background: url("../images/team/wall-back2.png");
+      background-size: cover;
+      padding-left: 130px; }
+      .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left img {
+        width: 120px;
+        height: auto;
+        position: relative;
+        top: -70px; }
+      .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact {
+        padding-top: calc(100vh/3); }
+        .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact h3 {
+          max-width: 100%;
+          font-weight: 800;
+          font-size: 48px;
+          line-height: 58px;
+          /*                        font-family: 'GothicPro-Regular';*/
+          font-family: 'Sackers Gothic Std Heavy';
+          letter-spacing: 10px; }
+        .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item {
+          margin-bottom: 30px;
+          letter-spacing: 1px; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item h4 {
+            font-family: 'Sackers Gothic Std Heavy';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 25px;
+            text-transform: uppercase; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item p {
+            font-style: normal;
+            font-size: 14px;
+            line-height: 19px;
+            margin-bottom: 0px; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item span {
+            font-weight: bold; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item:last-child {
+            margin-bottom: 0px; }
+    .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right {
+      padding-left: 70px;
+      padding-top: calc(100vh/3);
+      height: 100vh;
+      width: 50%;
+      background: url("../images/team/wall-black.png");
+      background-size: cover;
+      float: right; }
+      .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form {
+        display: none; }
+        .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form form {
+          width: 600px;
+          height: 400px; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form form input {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            font-family: 'GothicPro-Regular';
+            border: 1px solid #FFFFFF;
+            width: 100%;
+            height: 50px;
+            display: block;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            margin-bottom: 20px;
+            background: none; }
+            .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form form input::placeholder {
+              color: #FFFFFF; }
+            .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form form input:nth-child(4) {
+              margin-top: 50px; }
+          .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .contact-form form button {
+            background: none;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            color: #FFFFFF;
+            border-bottom: 1px solid #FFFFFF;
+            text-transform: uppercase;
+            font-family: 'GothicPro-Regular';
+            letter-spacing: 3px;
+            float: right; }
+      .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .modal-contact-thank h3 {
+        max-width: 70%;
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 900;
+        font-family: 'Sackers Gothic Std Heavy';
+        text-transform: uppercase; }
+      .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .modal-contact-thank p {
+        font-family: 'Zona-Pro-ExtraLight';
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0; }
+        .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-right .modal-contact-thank p:last-child {
+          font-family: 'Zona-Pro-ExtraLight';
+          font-size: 14px;
+          line-height: 24px; }
+
 .modal-popup {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
-  /*display: none;*/
-  /*opacity: 0;*/
+  /*    display: none;*/
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -533,6 +638,28 @@ table {
             .modal-popup .modal-popup-content .modal-body .modal-body-right .modal-fund-tabs .tab-content .tab-panel .client-list .client-item img {
               width: 80%; }
 
+/*
+.modal-contact{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+        display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+    background: #fff;
+    color: #fff;
+    .modal-popup-content{
+        height: 100%;
+        .modal-close{
+            position: absolute;
+            top:32px;
+            right: 32px;
+        }
+    }
+}*/
 /*                    img{
                                           width: 12px;
                                           height: 24px;
@@ -6809,6 +6936,8 @@ header {
   border-radius: 100%;
   width: 60px;
   height: 60px; }
+  .get-in-touch .contact-detail {
+    display: none; }
   .get-in-touch::before {
     content: "";
     color: white;
@@ -6848,6 +6977,8 @@ header {
     left: 0;
     opacity: 0;
     font-size: 14px; }
+    .get-in-touch .text > a {
+      color: #fff; }
   .get-in-touch img {
     top: 50%;
     left: 50%;
@@ -8121,8 +8252,13 @@ html.page .page-gallery #main .page-block .page-content .container .gallery-box 
     transition: .8s all;
     -webkit-transition: .8s all; }
 
-html.page .page-our-team .get-in-touch .text .getintouch-detail {
-  display: none; }
+html.page .page-our-team .get-in-touch .text {
+  /*                .getintouch-detail{ 
+                      display: none;
+  
+                  }*/ }
+  html.page .page-our-team .get-in-touch .text .contact-detail {
+    display: none; }
 html.page .page-our-team #main {
   padding-bottom: 100px; }
   html.page .page-our-team #main .page-block .page-content .tab-page {
@@ -8143,15 +8279,16 @@ html.page .page-our-team #main {
         text-transform: uppercase; }
       html.page .page-our-team #main .page-block .page-content .list-team .item-team .report-content p {
         font-family: 'Sackers Gothic Std Heavy';
-        color: #000000;
         font-size: 14px;
         line-height: 14px;
         text-transform: lowercase;
-        color: #B70004; }
+        /*color: $text-red-cl;*/ }
     html.page .page-our-team #main .page-block .page-content .list-team .item-team:hover .thumbnail {
       filter: grayscale(0);
       transform: scale(1.1);
       transition: .8s all; }
+    html.page .page-our-team #main .page-block .page-content .list-team .item-team:hover .report-content h3 a {
+      color: #B70004; }
     html.page .page-our-team #main .page-block .page-content .list-team .item-team .thumbnail {
       filter: grayscale(1);
       transform: scale(1);
