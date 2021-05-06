@@ -174,7 +174,9 @@ header {
                 @include justify-content(space-around);
                 width: 200px;
                 margin-right: 16px;
-
+                @include mobile {
+                    display: none;
+                }
                 a {
                     letter-spacing: 0.1px;
                     font-weight: bold;
