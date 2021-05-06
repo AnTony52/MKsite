@@ -3,4 +3,5 @@ $(function () {
     $(".full-screen-video").detach(); // temporarily remove
 
     $("section.our-funds").load("/partials/our-funds.html");
+    $("section.pioneers").load("/partials/pioneers.html");
 });

@@ -649,7 +649,7 @@
  */
 
 .text-body {
-  font-family: Zona Pro, sans-serif;
+  font-family: 'Zona-Pro-ExtraLight', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -664,9 +664,9 @@
 }
 
 .heading_2 {
-  font-family: "Sackers Gothic Std Medium", sans-serif;
+  font-family: 'Sackers Gothic Std Heavy', sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 900;
   font-size: 48px;
   line-height: 1.17;
   letter-spacing: -0.05em;
@@ -678,11 +678,15 @@
   color: #fff;
 }
 
+.text-color-red {
+  color: $text-red-cl;
+}
+
 // buttons
 .btn-underline {
-  font-family: "Sackers Gothic Std Medium", sans-serif;
+  font-family: "Sackers Gothic Std", sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.17;
   text-transform: uppercase;
