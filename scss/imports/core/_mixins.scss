@@ -660,6 +660,7 @@
 // headings
 .sub-heading {
   @include text(16px, 'Sackers Gothic Std Medium', 16px, #0F1C2D, lowercase);
+  font-weight: 800;
 }
 
 .heading_2 {
