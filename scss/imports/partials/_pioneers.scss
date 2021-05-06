@@ -1,0 +1,18 @@
+section.pioneers {
+  .pioneers-inner {
+    padding: 160px 0 120px;
+    background: #e3f6ff;
+
+    // heading
+    .row.heading {
+      margin-bottom: 15px;
+    }
+
+    // content
+    .row.content {
+      .text {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

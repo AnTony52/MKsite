@@ -1,1 +1,41 @@
-.full-screen-video {background-color:#ccc; padding:80px 20px;height: 100vh}
+section.full-screen-video {
+  .full-screen-video-inner {
+    padding: 80px 20px;
+    height: 100vh;
+    position: relative;
+    @include d-flex();
+    align-items: flex-end;
+
+    &:before {
+      @include fullpage();
+      content: '';
+      background: #000;
+      opacity: .4;
+    }
+
+    // content
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    // play button
+    .full-screen-video__play-button {
+      @include mid();
+      z-index: 3;
+      width: 40px;
+      height: 56px;
+      @include transition(all .3s ease);
+
+      path {
+        @include transition(all .3s ease);
+      }
+
+      &:hover {
+        path {
+          fill: $text-red-cl;
+        }
+      }
+    }
+  }
+}
