@@ -183,7 +183,7 @@ jQuery(document).ready(function ($) {
     //     });
     // }
 
-    if (document.querySelector("#banner h1")) {
+    if (document.querySelector("#banner")) {
         // .mainwrapper
         var onLoad = gsap.timeline({
                 paused: 1,
@@ -193,18 +193,18 @@ jQuery(document).ready(function ($) {
                 delay: 0.5,
                 ease: Power4.easeInOut,
             })
-            .from("h1 .word", 1, {
-                yPercent: 100,
-                // transformOrigin: "left",
-                opacity: 0.5,
-                stagger: 0.1,
-                // skewX: 30,
-                ease: Power1.easeInOut,
-                delay: 0.1,
-            })
-            .from("#banner .subject", 3, {
-                opacity: 0,
-            }, 3);
+            // .from("h1 .word", 1, {
+            //     yPercent: 100,
+            //     // transformOrigin: "left",
+            //     opacity: 0.5,
+            //     stagger: 0.1,
+            //     // skewX: 30,
+            //     ease: Power1.easeInOut,
+            //     delay: 0.1,
+            // })
+            // .from("#banner .subject", 3, {
+            //     opacity: 0,
+            // }, 3);
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
@@ -935,179 +935,179 @@ jQuery(document).ready(function ($) {
     // ========================================
     // Our Funds
     // ========================================
-    gsap.set('.our-fund-content h3 .word', {
-        opacity: 0,
-    });
-    gsap.set('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', {
-        yPercent: 100,
-        opacity: 0,
-        // offset: 100,
-    });
-    var ourFunds = gsap.timeline({
-            paused: 1,
-        })
-        .to('.our-fund-content h3 .word', 1, {
-            opacity: 1,
-            stagger: 0.1,
-            delay: 0.5,
-        })
-        .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.1,
-        });
-    new ScrollMagic.Scene({
-            triggerElement: ".our-fund",
-            duration: "150%",
-            offset: -100,
-        })
-        .on('enter', () => {
-            ourFunds.play();
-        })
-        .on('leave', () => {
-            ourFunds.reverse();
-        })
-        // .setTween(ourFunds)
-        // .addIndicators({
-        //     name: "Our Funds",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    // gsap.set('.our-fund-content h3 .word', {
+    //     opacity: 0,
+    // });
+    // gsap.set('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', {
+    //     yPercent: 100,
+    //     opacity: 0,
+    //     // offset: 100,
+    // });
+    // var ourFunds = gsap.timeline({
+    //         paused: 1,
+    //     })
+    //     .to('.our-fund-content h3 .word', 1, {
+    //         opacity: 1,
+    //         stagger: 0.1,
+    //         delay: 0.5,
+    //     })
+    //     .to('.our-fund-tabs>ul>li>a, .our-fund-tabs .tab-content ul li a .word', 1, {
+    //         yPercent: 0,
+    //         opacity: 1,
+    //         stagger: 0.1,
+    //     });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".our-fund",
+    //         duration: "150%",
+    //         offset: -100,
+    //     })
+    //     .on('enter', () => {
+    //         ourFunds.play();
+    //     })
+    //     .on('leave', () => {
+    //         ourFunds.reverse();
+    //     })
+    //     // .setTween(ourFunds)
+    //     // .addIndicators({
+    //     //     name: "Our Funds",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
     // ======================
     // Title Funds Running
     // ======================
-    var titleFund = gsap.timeline({
-            // repeat: -1,
-            // yoyo: true,
-        })
-        .fromTo(".our-fund h3", 1, {
-            xPercent: 30,
-            // ease: Power3.easeOut,
-        }, {
-            xPercent: -30,
-            ease: Power4.easeOut,
-        });
-    new ScrollMagic.Scene({
-            triggerElement: ".our-fund",
-            duration: "200%",
-            offset: -100,
-        })
-        .setTween(titleFund)
-        // .addIndicators({
-        //     name: "Our Funds",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    // var titleFund = gsap.timeline({
+    //         // repeat: -1,
+    //         // yoyo: true,
+    //     })
+    //     .fromTo(".our-fund h3", 1, {
+    //         xPercent: 30,
+    //         // ease: Power3.easeOut,
+    //     }, {
+    //         xPercent: -30,
+    //         ease: Power4.easeOut,
+    //     });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".our-fund",
+    //         duration: "200%",
+    //         offset: -100,
+    //     })
+    //     .setTween(titleFund)
+    //     // .addIndicators({
+    //     //     name: "Our Funds",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
     // ======================
     // Why Vietnam Flying Up
     // ======================
-    if (document.querySelector(".home-why")) {
-        var heightWhy = document.querySelector(".home-why").offsetHeight;
-    }
-    var flyingUpTl = gsap.timeline({
-            // paused: true,
-        })
-        .to(".home-why-thumb-left", 1, {
-            y: -heightWhy * 1.5,
-        })
-        .to(".home-why-thumb-right", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5')
-        .to(".home-why-thumb-bottom", 1, {
-            y: -heightWhy * 1.5,
-        }, '-=0.5')
-    var thumbLeft = new ScrollMagic.Scene({
-            triggerElement: ".home-why",
-            duration: heightWhy * 2,
-            offset: -100,
-        })
-        .setTween(flyingUpTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "Flying Up Left"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    // if (document.querySelector(".home-why")) {
+    //     var heightWhy = document.querySelector(".home-why").offsetHeight;
+    // }
+    // var flyingUpTl = gsap.timeline({
+    //         // paused: true,
+    //     })
+    //     .to(".home-why-thumb-left", 1, {
+    //         y: -heightWhy * 1.5,
+    //     })
+    //     .to(".home-why-thumb-right", 1, {
+    //         y: -heightWhy * 1.5,
+    //     }, '-=0.5')
+    //     .to(".home-why-thumb-bottom", 1, {
+    //         y: -heightWhy * 1.5,
+    //     }, '-=0.5')
+    // var thumbLeft = new ScrollMagic.Scene({
+    //         triggerElement: ".home-why",
+    //         duration: heightWhy * 2,
+    //         offset: -100,
+    //     })
+    //     .setTween(flyingUpTl) // trigger a TweenMax.to tween
+    //     // .addIndicators({
+    //     //     name: "Flying Up Left"
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
     // ======================
     // Why Viet Nam Text
     // ======================
-    const whyVietNamSplit = document.querySelector('.home-why-content');
-    if (whyVietNamSplit) {
-        var charTarget = Splitting({
-            target: whyVietNamSplit,
-            by: 'lines',
-        });
-        gsap.set(charTarget[0].lines, {
-            autoAlpha: 0,
-            yPercent: 50,
-        });
-        var whyVietNamTextTl = gsap.timeline().to(charTarget[0].lines, 1, {
-            autoAlpha: 1,
-            yPercent: 0,
-            stagger: 0.05,
-        });
+    // const whyVietNamSplit = document.querySelector('.home-why-content');
+    // if (whyVietNamSplit) {
+    //     var charTarget = Splitting({
+    //         target: whyVietNamSplit,
+    //         by: 'lines',
+    //     });
+    //     gsap.set(charTarget[0].lines, {
+    //         autoAlpha: 0,
+    //         yPercent: 50,
+    //     });
+    //     var whyVietNamTextTl = gsap.timeline().to(charTarget[0].lines, 1, {
+    //         autoAlpha: 1,
+    //         yPercent: 0,
+    //         stagger: 0.05,
+    //     });
 
-        new ScrollMagic.Scene({
-                triggerElement: ".home-why",
-                duration: "100%",
-                offset: -200,
-            })
-            .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
-            // .addIndicators({
-            // }) // add indicators (requires plugin)
-            .addTo(controller);
-    }
+    //     new ScrollMagic.Scene({
+    //             triggerElement: ".home-why",
+    //             duration: "100%",
+    //             offset: -200,
+    //         })
+    //         .setTween(whyVietNamTextTl) // trigger a TweenMax.to tween
+    //         // .addIndicators({
+    //         // }) // add indicators (requires plugin)
+    //         .addTo(controller);
+    // }
 
 
     // =======================
     // World Class Team
     // =======================
-    gsap.set(".home-team-content li", {
-        opacity: 0,
-        yPercent: -40,
-    });
-    var classTeamTl = gsap.timeline({
-        paused: 1,
-    }).to('.home-team-content li', 1, {
-        opacity: 1,
-        yPercent: 0,
-        stagger: 0.3,
-    });
-    new ScrollMagic.Scene({
-            triggerElement: ".home-team",
-            duration: "120%",
-            offset: -200,
-        })
-        .on('enter', () => {
-            classTeamTl.play();
-        })
-        .on('leave', () => {
-            classTeamTl.reverse();
-        })
-        // .setTween(classTeamTl) // trigger a TweenMax.to tween
-        // .addIndicators({
-        //     name: "World Class Team",
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+    // gsap.set(".home-team-content li", {
+    //     opacity: 0,
+    //     yPercent: -40,
+    // });
+    // var classTeamTl = gsap.timeline({
+    //     paused: 1,
+    // }).to('.home-team-content li', 1, {
+    //     opacity: 1,
+    //     yPercent: 0,
+    //     stagger: 0.3,
+    // });
+    // new ScrollMagic.Scene({
+    //         triggerElement: ".home-team",
+    //         duration: "120%",
+    //         offset: -200,
+    //     })
+    //     .on('enter', () => {
+    //         classTeamTl.play();
+    //     })
+    //     .on('leave', () => {
+    //         classTeamTl.reverse();
+    //     })
+    //     // .setTween(classTeamTl) // trigger a TweenMax.to tween
+    //     // .addIndicators({
+    //     //     name: "World Class Team",
+    //     // }) // add indicators (requires plugin)
+    //     .addTo(controller);
     //-----------------------------------------------------
     // World Class Animation    
     //-----------------------------------------------------
-    jQuery(".home-team-content li a").mouseenter(function () {
-        jQuery(this).parent().addClass("focused");
-        jQuery(this).parent().siblings().addClass("focused-out");
-        jQuery('.home-team-image').attr('src', jQuery(this).parent().find('a').data('image')).show();
-    });
-    jQuery(".home-team-content li a").mouseleave(function () {
-        jQuery(this).parent().removeClass("focused");
-        jQuery(this).parent().siblings().removeClass("focused-out");
-        jQuery('.home-team-image').hide();
-    });
+    // jQuery(".home-team-content li a").mouseenter(function () {
+    //     jQuery(this).parent().addClass("focused");
+    //     jQuery(this).parent().siblings().addClass("focused-out");
+    //     jQuery('.home-team-image').attr('src', jQuery(this).parent().find('a').data('image')).show();
+    // });
+    // jQuery(".home-team-content li a").mouseleave(function () {
+    //     jQuery(this).parent().removeClass("focused");
+    //     jQuery(this).parent().siblings().removeClass("focused-out");
+    //     jQuery('.home-team-image').hide();
+    // });
 
-    $('.modal-fund-tabs > ul li a').on('click', function (e) {
-        e.preventDefault();
-        $(this).parents('ul').find('li.active').removeClass('active');
-        $(this).parent().addClass('active');
-        var index = $(this).parent().index();
-        $('.modal-fund-tabs .tab-content .tab-panel').fadeOut('medium', function () {
-            $('.modal-fund-tabs .tab-content .tab-panel:eq(' + index + ')').show();
-        });
-    })
+    // $('.modal-fund-tabs > ul li a').on('click', function (e) {
+    //     e.preventDefault();
+    //     $(this).parents('ul').find('li.active').removeClass('active');
+    //     $(this).parent().addClass('active');
+    //     var index = $(this).parent().index();
+    //     $('.modal-fund-tabs .tab-content .tab-panel').fadeOut('medium', function () {
+    //         $('.modal-fund-tabs .tab-content .tab-panel:eq(' + index + ')').show();
+    //     });
+    // })
     // =======================
     // Building Parallaxing
     // =======================
