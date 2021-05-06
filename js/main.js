@@ -104,13 +104,13 @@ jQuery(document).ready(function ($) {
         // ================================
         //  get list of images
         // ================================
-        var imgs = document.querySelectorAll(".banner-slider .slider-item img");
+        var imgs = document.querySelectorAll(".banner-slider .banner-slider-item img");
         // get transform propedrty
         let docStyle = document.documentElement.style;
         let transformProp = typeof docStyle.transform == 'string' ?
             'transform' : 'WebkitTransform';
         flkty.on('scroll', function () {
-            if (jQuery(".banner-slider .slider-item img").length > 2) {
+            if (jQuery(".banner-slider .banner-slider-item img").length > 2) {
                 flkty.slides.forEach(function (slide, i) {
                     let img = imgs[i],
                         x = 0;
