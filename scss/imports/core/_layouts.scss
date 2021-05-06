@@ -33,9 +33,9 @@ body {
     @include custom-scrollbar();
     .container {
         width: 100%;
-        max-width: $container-max-width;
+        max-width: $container-width;
+        margin: 0 auto;
     }
-
     h3 {
         font-family: 'GothicPro-Regular';
         font-weight: 700;
@@ -54,10 +54,7 @@ body {
     @include mobile {}
 }
 
-.container {
-    max-width: $container-width;
-    margin: 0 auto;
-}
+
 
 .clouds {
     position: absolute;
@@ -257,3 +254,4 @@ body {
         }
     }
 }
+
