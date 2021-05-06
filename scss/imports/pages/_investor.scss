@@ -21,21 +21,28 @@
         z-index: 3;
     }
 
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
 
-        // &.subject {
-        // transition-timing-function: ease;
-        // @include transition(0.75 ease);
-        // }
-    }
     .banner-slider {
         height: 100%;
+        width: 100%;
+
+        .slider-item {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            img {
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                width: 100%;
+                height: 100%;
+
+
+            }
+        }
     }
+
     .banner-content {
         position: absolute;
         top: 50%;
@@ -935,6 +942,7 @@
             bottom: -10px;
             z-index: -1;
             width: 100%;
+
             img {
                 width: 100%;
             }

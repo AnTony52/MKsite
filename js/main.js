@@ -241,6 +241,7 @@ jQuery(document).ready(function ($) {
             });
         });
     }
+    parallaxSlider(".banner-slider",".banner-slider .slider-item");
     // ----------------------
     // Stories
     // ----------------------
