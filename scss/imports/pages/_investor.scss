@@ -33,7 +33,9 @@
         // @include transition(0.75 ease);
         // }
     }
-
+    .banner-slider {
+        height: 100%;
+    }
     .banner-content {
         position: absolute;
         top: 50%;
@@ -933,7 +935,6 @@
             bottom: -10px;
             z-index: -1;
             width: 100%;
-
             img {
                 width: 100%;
             }

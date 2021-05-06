@@ -111,33 +111,39 @@ footer {
 @include tablet {}
 
 @include mobile {
-    footer{
-        .footer-logo{
+    footer {
+        .footer-logo {
             text-align: center;
             margin-bottom: 80px;
         }
-        .footer-menu, .policy-menu {
-            ul{
+
+        .footer-menu,
+        .policy-menu {
+            ul {
                 display: block !important;
                 max-width: 320px;
                 margin: 0 auto;
                 text-align: center;
-                li{
+
+                li {
                     display: block;
                     line-height: 40px !important;
                 }
             }
         }
-        .info-company{
-            .col-md-2{
+
+        .info-company {
+            .col-md-2 {
                 text-align: center;
                 margin-top: 80px;
-                img{
+
+                img {
                     float: none !important;
                 }
             }
         }
-        .social{
+
+        .social {
             text-align: center !important;
             margin-top: 80px;
         }
@@ -145,3 +151,68 @@ footer {
 }
 
 @include mobile-xxs {}
+
+
+
+#footer {
+    padding: 80px 0;
+    width: 100%;
+    background-color: #000;
+    position: relative;
+
+    * {
+        color: #fff;
+        font-family: 'Sackers Gothic Std Light';
+        font-size: 12px;
+
+        p {
+            line-height: 1.5;
+            font-family: 'Zona-Pro';
+            opacity: 0.5;
+        }
+
+        .footer-logo img,
+        .acitve {
+            opacity: 1;
+        }
+
+        h3 {
+            line-height: 1;
+            margin-bottom: 10px;
+            font-size: 14px;
+            opacity: 1;
+        }
+    }
+
+    .footer-top {
+        margin-bottom: 80px;
+
+        .footer-menu {
+            li {
+                margin-bottom: 10px;
+
+                a {
+                    opacity: 0.5;
+
+                }
+            }
+
+            .active {
+                a {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+
+        .socials {
+            @include d-flex;
+            @include justify-content(space-between);
+            max-width: 150px;
+
+        }
+    }
+
+}
