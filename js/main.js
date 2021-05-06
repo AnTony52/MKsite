@@ -1,4 +1,4 @@
-// ==================================
+// // ==================================
 // PxSlide
 // ==================================
 
@@ -80,6 +80,7 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
 // 
 // ====================================================
 jQuery(document).ready(function ($) {
+
     var scrol_tab_page = 0;
     if (jQuery('#main .tab-page').length > 0) {
         scrol_tab_page = jQuery('#main .tab-page').position().top;
@@ -296,6 +297,7 @@ jQuery(document).ready(function ($) {
     // 
     var modalPopup = {
         galleries: [],
+        sliders: [],
         markup: '<div class="popup-gallery">\n\
                                 <div class="popup-gallery-thumbnail"><img class="" src="[image_active]" alt="" /></div>\n\
                                 <div class="popup-gallery-info">\n\
@@ -316,16 +318,15 @@ jQuery(document).ready(function ($) {
                 if ($(this).data('modal') == "popup-gallery") {
                     modalPopup.init_popup_gallery($(this));
                 } else if ($(this).data('modal') == "popup-data") {
-                    var modal_content = $(this).parent().find('*[data-modal-content]').html();
-                    $('.modal-popup .modal-popup-content .modal-body').html(modal_content);
+                    modalPopup.init_slider($(this));
                 } else if ($(this).data('modal') == "popup-get-in-touch") {
                     var modal_getInTouch = $(this).parent().find('*[data-modal-getintouch]').html();
                     $('.modal-popup .modal-popup-content .modal-body').html(modal_getInTouch);
                 } else if ($(this).data('modal') == "popup-contact") {
                     var modal_Contact = $(this).parent().find('*[data-modal-contact]').html();
                     $('.modal-popup .modal-popup-content .modal-body').html(modal_Contact);
-                }                
-                
+                }
+
                 modalPopup.setButtonClose($(this));
 
                 gsap.fromTo('.modal-popup', 1,
@@ -336,14 +337,74 @@ jQuery(document).ready(function ($) {
                             }});
             });
 
-            $('.modal-popup').on('click', '.action-arrow-prev', function () {
-                modalPopup.prev();
-            }).on('click', '.action-arrow-next', function () {
-                modalPopup.next();
-            })
-            
             this.close();
-            this.supportKey();            
+            this.supportKey();
+        },
+        init_slider: function (obj) {
+            var content_slider = {
+                index_active: 0,
+                next: function () {
+                    content_slider.index_active++;
+                    var current = parseInt(this.index_active) + 1;
+
+                    if (current >= modalPopup.sliders.length) {
+                        this.index_active = parseInt(modalPopup.sliders.length) - 1;
+                    }
+                    console.log(this.index_active);
+                    content_slider.change('next');
+                },
+                prev: function () {
+                    this.index_active--;
+                    var current = parseInt(this.index_active) + 1;
+                    if (current <= 0) {
+                        this.index_active = 0;
+                    }
+                    console.log(this.index_active);
+                    content_slider.change('prev');
+                },
+                change: function (action) {
+                    var obj_modal = $(modalPopup.sliders[this.index_active]);
+                    var modal_content = '';
+                    if (obj_modal.find('*[data-modal-content]').length > 0) {
+                        modal_content = obj_modal.find('*[data-modal-content]').html();
+                    } else {
+                        modal_content = obj_modal.parent().find('*[data-modal-content]').html();
+                    }
+
+                    var obj_slider = '.modal-popup[modal-type="popup-data"]';
+
+                    if (action == 'next') {
+                        gsap.fromTo(obj_slider, {x: 0, opacity: 1}, {x: -200, opacity: 0});
+                        $('.modal-popup .modal-popup-content .modal-body').html(modal_content);
+                        gsap.fromTo(obj_slider, {x: 200, opacity: 0}, {x: 0, opacity: 1});
+                    } else {
+                        gsap.fromTo(obj_slider, {x: 0, opacity: 1}, {x: 200, opacity: 0});
+                        $('.modal-popup .modal-popup-content .modal-body').html(modal_content);
+                        gsap.fromTo(obj_slider, {x: -200, opacity: 0}, {x: 0, opacity: 1});
+                    }
+                },
+            };
+            
+//            modalPopup.index_active = 0;
+            var modal_content = '';
+            if (obj.find('*[data-modal-content]').length > 0) {
+                content_slider.index_active = obj.parent().index();
+                modal_content = obj.find('*[data-modal-content]').html();
+            } else {
+                content_slider.index_active = obj.parent().parent().index();
+                modal_content = obj.parent().find('*[data-modal-content]').html();
+            }
+            console.log(content_slider.index_active);
+            $('.modal-popup .modal-popup-content .modal-body').html(modal_content);
+            modalPopup.sliders = $('body').find('*[data-modal="popup-data"]');
+
+            $('.modal-popup[modal-type="popup-data"]').on('click', '.action-arrow-prev', function (e) {
+                e.preventDefault();
+                content_slider.prev();
+            }).on('click', '.action-arrow-next', function (e) {
+                e.preventDefault();
+                content_slider.next();
+            })
         },
         init_popup_gallery: function (obj) {
             modalPopup.galleries = $('body').find('a[data-modal="popup-gallery"]');
@@ -362,16 +423,25 @@ jQuery(document).ready(function ($) {
             clone_markup = clone_markup.replace('[count]', curr_count);
             clone_markup = clone_markup.replace('[length]', modalPopup.galleries.length);
 
-            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);                    
+            $('.modal-popup .modal-popup-content .modal-body').html(clone_markup);
+
+            // arrow click
+            $('.modal-popup[modal-type="popup-gallery"]').on('click', '.action-arrow-prev', function (e) {
+                e.preventDefault();
+                modalPopup.prev();
+            }).on('click', '.action-arrow-next', function (e) {
+                e.preventDefault();
+                modalPopup.next();
+            })
         },
         setButtonClose: function (obj) {
             var obj_close = $('.modal-popup .modal-popup-content .modal-close');
-            if(obj.data('close-default') != undefined){
-                obj_close.attr('data-image', 'images/modal/close-'+obj.data('close-default')+'.png');
+            if (obj.data('close-default') != undefined) {
+                obj_close.attr('data-image', 'images/modal/close-' + obj.data('close-default') + '.png');
             }
-            
+
             obj_close.find('img').attr('src', obj_close.attr('data-image'));
-            
+
             obj_close.on('mouseenter', function () {
                 $(this).find('img').attr('src', $(this).attr('data-image-hover'));
             }).on('mouseleave', function () {
@@ -432,8 +502,10 @@ jQuery(document).ready(function ($) {
 
         },
         close: function () {
-            $('.modal-popup .modal-popup-content').on('click', '.modal-close', function () {
+            $('.modal-popup .modal-popup-content').on('click', '.modal-close', function (e) {
+                e.preventDefault();
                 gsap.fromTo('.modal-popup', 1, {x: 0, 'z-index': 99999}, {x: '-100%', 'z-index': '-1', onComplete: function () {
+                        modalPopup.index_active = 0;
                         $('html').css('overflow', 'inherit');
                     }});
             })

@@ -93,7 +93,7 @@
                     font-weight: 800;
                     font-size: 14px;
                     line-height: 14px;
-                    font-family: 'GothicPro-Regular';
+                    font-family: 'Sackers Gothic Std Heavy';
                     text-transform: uppercase;
                     transform: none !important ;
                     max-width: 100%;
@@ -110,8 +110,10 @@
                     .action-arrow-next, .action-arrow-prev{
                         width: 12px;
                         height: 20px;     
-
                         min-width: 0px;
+                        &.disabled{
+                            display: none;
+                        }                        
                     }
                     .action-arrow-prev{                     
                         background: url('../images/icons/arrow-prev.svg') no-repeat;  
@@ -129,7 +131,7 @@
                     }               
 
                     span{
-                        font-family: 'Sackers Gothic Std Medium';
+                        font-family: 'Sackers Gothic Std Heavy';
                         color: $text-black-cl;                        
                         font-size: 14px;
                         line-height: 24px;
@@ -156,20 +158,21 @@
                     font-weight: 800;
                     font-size: 18px;
                     line-height: 48px; 
-                    font-family: 'GothicPro-Regular';
+                    font-family: 'Sackers Gothic Std Heavy';
                     text-transform: uppercase;
                     transform: none !important ;
                     max-width: 100%;
                 }
                 h4{
-                    font-family: 'GothicPro-Regular';             
+                    font-family: 'Sackers Gothic Std Heavy';          
                     font-weight: 500;
                     font-size: 14px;
                     line-height: 14px;
-                    text-transform: uppercase;
+                    text-transform: lowercase;
                     margin-bottom: 50px;
                 }
                 p{ 
+                    font-family: 'Zona-Pro-ExtraLight';
                     margin: 0;
                     line-height: 24px;
                     font-size: 14px;
@@ -364,8 +367,7 @@
                 background: url('../images/team/wall-black.png');
                 background-size: cover;
                 float: right;
-                .contact-form{
-                    display: none;
+                .contact-form{                    
                     form{
                         width: 600px;
                         height: 400px;
@@ -407,6 +409,7 @@
                     }   
                 }
                 .modal-contact-thank{
+                    display: none;
                     h3{
                         max-width: 70%;
                         font-size: 48px;

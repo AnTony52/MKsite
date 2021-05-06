@@ -257,7 +257,7 @@ html.page{
 @include mobile {
     .page-content{
         .container{
-            .col-md-4{
+            .col-md-4, .col-md-3{
                 text-align: center;
                 .gallery-box{
                     display: inline-block;

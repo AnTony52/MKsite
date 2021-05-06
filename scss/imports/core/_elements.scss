@@ -34,7 +34,7 @@ strong {
     height: $cursor-radius;
     left: -$cursor-radius/2;
     top: -$cursor-radius/2;
-    z-index: 11000;
+    z-index: 999999;
     background-color: darkred;
     // display: none;
 
@@ -44,7 +44,7 @@ strong {
     width: 30px;
     height: 30px;
     border: 2px solid #b70004;
-    z-index: 12000;
+    z-index: 999999;
 
     img {
         @include transform(translate(-50%, -50%));
