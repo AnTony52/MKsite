@@ -54,6 +54,10 @@ body {
     @include mobile {}
 }
 
+.container {
+    max-width: $container-width;
+    margin: 0 auto;
+}
 
 .clouds {
     position: absolute;
