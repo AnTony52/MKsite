@@ -8,6 +8,32 @@ section.our-team {
 
       .text {
         color: rgba(255, 255, 255, 0.5);
+
+        .emphasis {
+          color: #fff;
+        }
+
+        @include mobile {
+          color: rgba(0, 0, 0, 0.5);
+          .emphasis {
+            color: #000;
+          }
+        }
+      }
+
+      @include desktop {
+        margin-bottom: 80px;
+      }
+      @include tablet {
+        margin-bottom: 50px;
+      }
+      @include mobile {
+        .heading_2 {
+          margin-bottom: 30px;
+        }
+        .text-color-white {
+          color: #0F1C2D;
+        }
       }
     }
 
@@ -16,11 +42,25 @@ section.our-team {
       // slider body {
       .slider-body {
         @include d-flex();
-        margin-bottom: 80px;
+        margin: 0 -10px 80px;
+
+        @include tablet {
+          margin: 0 -5px 30px;
+        }
+        @media only screen and (max-width: 567px) {
+          margin: 0 -15px 30px;
+          .slick-track {
+            margin-left: -25px;
+          }
+        }
 
         .team-item {
           width: 25%;
           padding: 0 15px;
+
+          @include tablet {
+            padding: 0 10px;
+          }
 
           .team-inner {
             display: block;
@@ -56,6 +96,16 @@ section.our-team {
               font-size: 16px;
               margin-bottom: 5px;
               @include transition(all .3s ease);
+
+              @include mobile {
+                color: #0f1c2d;
+              }
+            }
+
+            .description {
+              @include mobile {
+                color: rgba(0, 0, 0, 0.5);
+              }
             }
 
           }
@@ -69,11 +119,21 @@ section.our-team {
         justify-content: space-between;
         align-items: center;
 
+        @include mobile {
+          .text-color-white {
+            color: #0F1C2D;
+          }
+        }
+
         .arrows {
           button {
             background: transparent;
             outline: none;
             border: none;
+
+            &.prev {
+              margin-right: 60px;
+            }
 
             &:hover {
               path {
@@ -86,8 +146,24 @@ section.our-team {
               height: 16px;
             }
           }
+
+          @include mobile {
+            display: none;
+          }
         }
       }
+    }
+
+    // responsive
+    @include desktop {
+      padding: 80px 0;
+    }
+    @include tablet {
+
+    }
+    @include mobile {
+      background: none;
+      padding: 0 0 65px;
     }
   }
 }

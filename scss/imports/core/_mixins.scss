@@ -649,7 +649,6 @@
  */
 
 .text-body {
-  font-family: 'Zona-Pro-ExtraLight', sans-serif;
   font-family: 'Zona-Pro', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -699,14 +698,15 @@
 
 // buttons
 .btn-underline {
-  font-family: "Sackers Gothic Std", sans-serif;
+  font-family: "Sackers Gothic Std Medium", sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 800;
+  font-size: 14px;
   line-height: 1.17;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: underline;
-  transition: all .3s ease;
+  @include transition(all .3s ease);
 
   &.text-color-white {
     color: #fff;
