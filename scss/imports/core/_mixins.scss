@@ -660,8 +660,12 @@
 
 // headings
 .sub-heading {
-  @include text(16px, 'Sackers Gothic Std Medium', 16px, #0F1C2D, lowercase);
+  @include text(16px, 'Sackers Gothic Std Medium', 18px, #0F1C2D, lowercase);
   font-weight: 800;
+
+  @include mobile {
+    @include text(12px, 'Sackers Gothic Std Medium', 14px, #0F1C2D, lowercase);
+  }
 }
 
 .heading_2 {
@@ -672,6 +676,16 @@
   line-height: 1.17;
   letter-spacing: -0.05em;
   text-transform: uppercase;
+
+  @include desktop {
+    font-size: 42px;
+  }
+  @include tablet {
+    font-size: 35px;
+  }
+  @include mobile {
+    font-size: 30px;
+  }
 }
 
 // text color
@@ -700,6 +714,10 @@
 
   &:hover, &:focus {
     color: $text-red-cl;
+  }
+
+  @include mobile {
+    font-size: 14px;
   }
 }
 

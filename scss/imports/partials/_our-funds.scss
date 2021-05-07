@@ -2,6 +2,26 @@ section.our-funds {
   .our-funds-inner {
     padding: 200px 0 160px;
 
+    // responsive
+    @include desktop {
+      padding: 120px 0;
+    }
+    @include tablet {
+      padding: 80px 0;
+    }
+    @include mobile {
+      background: none !important;
+      padding: 0 0 80px;
+
+      &:before {
+        display: none;
+      }
+
+      .text-color-white {
+        color: #0F1C2D;
+      }
+    }
+
     &:before {
       content: '';
       @include fullpage();
@@ -18,18 +38,47 @@ section.our-funds {
     // heading
     .heading {
       margin-bottom: 120px;
+      @include desktop {
+        margin-bottom: 100px;
+      }
+      @include tablet {
+        margin-bottom: 40px;
+      }
+
+      @include mobile {
+        margin-bottom: 35px;
+      }
 
       .sub-heading {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
+
+        @include mobile {
+          margin-bottom: 25px;
+        }
       }
     }
 
     // intro text
-    .intro-text {
+    .row.intro-text {
       margin-bottom: 100px;
+      @include tablet {
+        margin-bottom: 80px;
+        @include flex-direction(column-reverse);
+      }
+
+      @include mobile {
+        margin-bottom: 40px;
+      }
 
       .text {
         color: rgba(255, 255, 255, 0.5);
+        @include tablet {
+          margin-bottom: 35px;
+        }
+        @include mobile {
+          margin-bottom: 25px;
+          color: rgba(0, 0, 0, 0.5);
+        }
       }
     }
 
@@ -39,13 +88,26 @@ section.our-funds {
       @include flex-wrap(wrap);
       margin: -12px;
 
+      @include mobile {
+        margin: -4px;
+      }
+
       li.key-figures-item {
         width: 33.33%;
         padding: 12px;
 
+        @include mobile {
+          width: 100%;
+          padding: 4px;
+        }
+
         .inner {
           @include aspectRatio(332/274);
           position: relative;
+
+          @include mobile {
+            @include aspectRatio(334/120);
+          }
 
           .link {
             display: block;
@@ -53,6 +115,13 @@ section.our-funds {
             @include fullpage();
             padding: 25px 30px 30px 28px;
             @include transition(all .3s ease);
+
+            @include mobile {
+              @include d-flex();
+              align-items: center;
+              justify-content: space-between;
+              padding: 20px 15px 20px 20px;
+            }
 
             &:hover {
               background: $text-red-cl;
@@ -88,6 +157,19 @@ section.our-funds {
               color: #0F1C2D;
               margin-bottom: 30px;
               @include transition(all .3s ease);
+
+              @include desktop {
+                font-size: 60px;
+                margin-bottom: 20px;
+              }
+              @include tablet {
+                font-size: 55px;
+                margin-bottom: 20px;
+              }
+              @include mobile {
+                font-size: 45px;
+                margin-bottom: 10px;
+              }
             }
 
             .sub-heading {
@@ -99,6 +181,12 @@ section.our-funds {
               position: absolute;
               right: 20px;
               bottom: 30px;
+
+              @include mobile {
+                position: relative;
+                right: auto;
+                bottom: auto;
+              }
 
               svg {
 
