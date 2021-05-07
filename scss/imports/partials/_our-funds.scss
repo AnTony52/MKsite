@@ -1,7 +1,19 @@
 section.our-funds {
   .our-funds-inner {
-    background: url('../images/our-funds/background.jpg') center center/cover;
     padding: 200px 0 160px;
+
+    &:before {
+      content: '';
+      @include fullpage();
+      background: #000;
+      opacity: .4;
+    }
+
+    // container
+    .container {
+      position: relative;
+      z-index: 2;
+    }
 
     // heading
     .heading {
