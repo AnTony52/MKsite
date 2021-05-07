@@ -12,7 +12,7 @@ $(function () {
     let GSAP = {};
 
     /**
-     * Parallax background image using GSAP and ScrollTrigger
+     * Parallax background image using GSAP and ScrollTrigger v1.1
      * add attribute [data-parallax="speed from 0 to 1"] to html element which has background image
      * https://codepen.io/GreenSock/pen/QWjjYEw
      */
@@ -44,11 +44,83 @@ $(function () {
         });
     };
 
+
+    /**
+     * Counter Effect using GSAP and ScrollTrigger v0.1
+     * https://codepen.io/snorkltv/pen/NWRqmOv
+     */
+    GSAP.counterEffect = function (options) {
+        $('[data-counter]').each(function () {
+            let $this = $(this),
+                settings = $.extend({
+                    end: $this.attr('data-counter'),
+                    duration: 2,
+                    ease: 'power1',
+                    increment: 1,
+                }, options);
+
+            if (typeof settings.end === "undefined") return;
+
+            // register counter effect
+            gsap.registerEffect({
+                name: "counter",
+                extendTimeline: true,
+                defaults: {
+                    end: 0,
+                    duration: 2,
+                    ease: "power1",
+                    increment: 1,
+                },
+                effect: (targets, config) => {
+                    let tl = gsap.timeline();
+                    targets[0].innerText = targets[0].innerText.replace(/\,/g, '');
+
+                    tl.to(targets, {
+                        duration: config.duration,
+                        innerText: config.end,
+                        //snap:{innerText:config.increment},
+                        modifiers: {
+                            innerText: function (innerText) {
+                                let num = gsap.utils.snap(config.increment, innerText).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                num = num.length === 1 ? "0" + num : num;
+                                return num;
+                            }
+                        },
+                        ease: config.ease
+                    }, 0);
+
+                    return tl;
+                }
+            });
+
+            // set begin number to zero
+            $this.text(0);
+
+            // set timeline
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: $this,
+                    start: "top bottom",
+                    end: "bottom top",
+                }
+            });
+            tl.from($this, {opacity: 0});
+            tl.counter($this, {
+                end: settings.end,
+                increment: settings.increment,
+                ease: settings.ease,
+                duration: settings.duration
+            }, 0);
+        });
+    };
+
+
     /**
      * init functions, setTimeOut to wait for html loading finish,
      * could be removed after merging step
      */
     setTimeout(function () {
         GSAP.parallaxBackground();
+        GSAP.counterEffect();
     }, 300);
 });
