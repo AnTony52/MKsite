@@ -81,10 +81,12 @@
         position: absolute;
         bottom: 40px;
         left: 100px;
-
+        @include d-flex;
+        @include justify-content(space-between);
         * {
             color: #fff;
             font-family: 'Sackers Gothic Std Heavy';
+            text-transform: lowercase;
         }
 
         .active {
@@ -94,6 +96,7 @@
         }
 
         .banner-button {
+            margin-right: 20px;
             a {
                 display: inline-block;
                 padding-bottom: 8px;
