@@ -116,11 +116,78 @@ $(function () {
 
 
     /**
+     * Magnetic button using GSAP v2.0
+     */
+    GSAP.magneticButton = function (options) {
+        $('[data-magnetic]').each(function () {
+            let $this = $(this),
+                settings = $.extend({
+                    activeClass: 'magnetizing',
+                    scale: 1,
+                    onEnter: function (data) {
+                    },
+                    onExit: function (data) {
+                    },
+                }, options),
+                isEnter = false,
+                calculateDistance = function ($el, mouseX, mouseY) {
+                    return Math.floor(Math.sqrt(Math.pow(mouseX - ($el.offset().left + ($el.width() / 2)), 2) + Math.pow(mouseY - ($el.offset().top + ($el.height() / 2)), 2)));
+
+                },
+                magnetize = function ($this, e) {
+                    let mX = e.pageX, mY = e.pageY;
+                    $this.each(function () {
+                        let $this = $(this),
+                            customDist = parseFloat($this.attr('data-magnetic')) * 20 || 100,
+                            centerX = $this.offset().left + ($this.width() / 2),
+                            centerY = $this.offset().top + ($this.height() / 2),
+                            deltaX = Math.floor((centerX - mX)) * -0.45,
+                            deltaY = Math.floor((centerY - mY)) * -0.45,
+                            distance = calculateDistance($this, mX, mY);
+
+                        if (distance < customDist) {
+                            gsap.to($this, 0.3, {y: deltaY, x: deltaX, scale: settings.scale});
+
+                            if (!isEnter) {
+                                isEnter = true;
+                                $this.addClass(settings.activeClass);
+                                settings.onEnter({target: $this, y: deltaY, x: deltaX, scale: settings.scale});
+                            }
+                        } else {
+                            gsap.to($this, 0.45, {y: 0, x: 0, scale: 1});
+
+                            if (isEnter) {
+                                isEnter = false;
+                                $this.removeClass(settings.activeClass);
+                                settings.onExit({target: $this, y: deltaY, x: deltaX, scale: settings.scale});
+                            }
+                        }
+                    });
+                };
+
+            // init
+            $this.css('display', 'inline-block');
+            $(window).on('mousemove', function (e) {
+                magnetize($this, e);
+            });
+        });
+    };
+
+
+    /**
      * init functions, setTimeOut to wait for html loading finish,
      * could be removed after merging step
      */
     setTimeout(function () {
         GSAP.parallaxBackground();
         GSAP.counterEffect();
+        GSAP.magneticButton({
+            onEnter: function (data) {
+                data.target.find('button').addClass('active');
+            },
+            onExit: function (data) {
+                data.target.find('button').removeClass('active');
+            },
+        });
     }, 300);
 });

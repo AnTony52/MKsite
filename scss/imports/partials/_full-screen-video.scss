@@ -13,6 +13,16 @@ section.full-screen-video {
       opacity: .4;
     }
 
+    @include desktop {
+      height: auto;
+      padding-top: 56%;
+      padding-bottom: 65px;
+    }
+    @include mobile {
+      height: 350px;
+      padding: 20px 5px;
+    }
+
     // content
     .container {
       position: relative;
@@ -20,20 +30,30 @@ section.full-screen-video {
     }
 
     // play button
-    .full-screen-video__play-button {
-      @include mid();
-      z-index: 3;
-      width: 40px;
-      height: 56px;
-      @include transition(all .3s ease);
+    .full-screen-video__open-video {
+      display: block;
+      @include fullpage();
 
-      path {
-        @include transition(all .3s ease);
-      }
+      .full-screen-video-button {
+        @include mid();
+        z-index: 3;
 
-      &:hover {
-        path {
-          fill: $text-red-cl;
+        .full-screen-video__play-button {
+          width: 40px;
+          height: 56px;
+          @include transition(all .3s ease);
+          background: none;
+          border: none;
+
+          path {
+            @include transition(all .3s ease);
+          }
+
+          &:hover, &.active {
+            path {
+              fill: $text-red-cl;
+            }
+          }
         }
       }
     }
