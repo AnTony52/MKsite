@@ -1,21 +1,24 @@
 #banner {
+    $base: 1;
     position: fixed;
     // position: relative;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: $base;
     width: 100%;
     height: 100vh;
 
+
+
     &::before {
-        // content: "";
+        content: "";
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, .1);
+        background-color: rgba(0, 0, 0, .5);
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 10;
+        z-index: $base;
     }
 
     .banner-slider {
@@ -38,13 +41,14 @@
         position: absolute;
         top: 50%;
         left: 100px;
-        z-index: 10;
+        z-index: $base+1;
         @include transform(translateY(-50%));
 
+        @include mobile {
+            left: 15px;
+        }
+
         * {
-            // color: #FFF;
-            // text-transform: lowercase;
-            // font-family: 'Sackers Gothic Std Medium';
             @include text(56px, 'Sackers Gothic Std Medium', 64px, #fff, lowercase);
         }
 
@@ -67,13 +71,6 @@
                 left: 20px;
                 line-height: 1;
             }
-
-            // >span {
-            //     overflow: hidden !important;
-            //     display: inline-block;
-            //     line-height: 1.2;
-            //     line-height: 1;
-            // }
         }
     }
 
@@ -81,32 +78,77 @@
         position: absolute;
         bottom: 40px;
         left: 100px;
+        z-index: $base+1;
         @include d-flex;
         @include justify-content(space-between);
+
+        @include mobile {
+            @include flex-direction(column);
+            left: 15px;
+        }
+
         * {
             color: #fff;
             font-family: 'Sackers Gothic Std Heavy';
             text-transform: lowercase;
         }
 
-        .active {
-            a {
-                border-bottom: 1px solid #fff;
-            }
-        }
-
         .banner-button {
             margin-right: 20px;
+            position: relative;
+
+            @include mobile {
+                display: inline-block;
+                margin-bottom: 16px;
+                width: fit-content;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 1px;
+                background: $primary;
+            }
+
+            &::before {
+                left: 0;
+            }
+
+            &::after {
+                right: 0;
+                transition: width .3s;
+            }
+
+            &:hover::before {
+                width: 100%;
+                transition: width .3s;
+            }
+
+            &:hover::after {
+                width: 100%;
+                background: transparent;
+            }
+
             a {
                 display: inline-block;
                 padding-bottom: 8px;
-                margin-bottom: 16px;
-
             }
-
-
         }
 
+        .active {
+            &::before {
+                width: 100%;
+                transition: width .5s;
+            }
+
+            &::after {
+                width: 100%;
+                background: transparent;
+            }
+        }
     }
 }
 
@@ -188,17 +230,21 @@
     .home-stories {
         .h-s-title {
             position: relative;
-            margin-left: 100px;
+            margin: 0 auto;
             margin-bottom: 120px;
-            max-width: 1150px;
+            // max-width: 1150px;
+            max-width: 800px;
 
-            h3 {
-                @include text(16px, 'Sackers Gothic Std Medium', 16px, $text-red-cl, lowercase);
-                margin-left: 10px;
+            * {
+                text-align: center;
             }
 
             h2 {
                 @include text(56px, 'Sackers Gothic Std Medium', 64px, #000, lowercase);
+            }
+
+            p {
+                font-family: 'Zona-Pro', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }
         }
 
@@ -256,30 +302,16 @@
                     }
                 }
 
-                // img {
-                // @include transition(0.3s ease);
-                // }
             }
 
             .stories-prev {
                 right: 200px;
 
-                // &:hover {
-                // img {
-                // @include transform(translateX(-10px));
-                // }
-                // }
             }
 
             .stories-next {
                 right: 100px;
                 text-align: right;
-
-                // &:hover {
-                //     img {
-                //         @include transform(translateX(10px));
-                //     }
-                // }
             }
 
             .carousel-wrapper,
@@ -294,21 +326,6 @@
                 overflow: hidden;
 
                 .carousel-slide {
-                    &.is-selected {
-                        .home-stories-icon img {
-                            opacity: 1;
-                            z-index: 999;
-                        }
-
-                        .home-news-content {
-                            opacity: 1;
-                        }
-
-                        .home-stories-content {
-                            opacity: 1;
-                        }
-                    }
-
                     overflow: hidden;
                     width: 100%;
                     height: 100%;
@@ -322,11 +339,29 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        z-index: 1;
+                        z-index: 2;
                     }
 
-                    >* {
-                        z-index: 2;
+                    // >* {
+                    //     z-index: 3;
+                    // }
+
+                    &.is-selected {
+                        .home-stories-icon {
+                            opacity: 1;
+                            z-index: 999;
+                            @include transition(0.5s ease 2s);
+                        }
+
+                        .home-news-content {
+                            opacity: 1;
+                            @include transition(0.5s ease 2s);
+                        }
+
+                        .home-stories-content {
+                            opacity: 1;
+                            @include transition(0.5s ease 2s);
+                        }
                     }
 
                     .home-stories-icon {
@@ -334,48 +369,47 @@
                         position: absolute;
                         top: 50%;
                         left: 50%;
+                        z-index: 3;
                         @include transform(translate(-50%, -50%));
                         width: 100px;
                         height: 100px;
+                        opacity: 0;
 
                         &:hover {
-                            img {
+                            svg {
                                 @include transform(translate(-50%, -50%) scale(0.7));
+
+                                path {
+                                    fill: $text-red-cl;
+                                }
                             }
                         }
 
-                        img {
-                            @include transition(0.3s ease 1.5s);
-                            transition: opacity 0.3s ease 1.5s, transform 0.3s ease;
-                            opacity: 0;
-                            width: 50px;
-                            height: auto;
-                            object-fit: cover;
+                        svg {
                             @include mid;
                             left: 55%;
+                            @include transition(0.3s ease-in-out);
+
+                            path {
+                                @include transition(0.3s ease-in-out);
+                            }
+
                         }
                     }
 
                     .home-stories-content {
                         position: absolute;
-                        bottom: 96px;
+                        z-index: 3;
+                        bottom: 100px;
                         left: 100px;
                         max-width: 400px;
                         opacity: 0;
                         @include transition(1.3s ease);
-
-                        // h3 {
-                        //     font-family: 'GothicPro-Bold';
-                        //     font-weight: bold;
-                        //     font-size: 18px;
-                        //     line-height: 32px;
-                        //     color: white;
-                        //     text-transform: uppercase;
-                        //     letter-spacing: 0.5px;
-                        // }
-
+                        @include mobile {
+                            left: 15px;
+                            bottom: 15px;
+                        }
                         p {
-                            // font-family: 'happy-time-Regular';
                             font-weight: 400;
                             font-size: 48px;
                             line-height: 56px;
@@ -433,21 +467,9 @@
         }
 
         .home-report-title {
-            // max-width: 1124px;
-            // @include d-flex;
-            // @include justify-content(space-between);
-            // width: 90%;
-            // padding-right: 14%;
-            // margin-left: auto;
             text-align: center;
 
             h3 {
-                // font-family: 'GothicPro-Bold';
-                // text-transform: uppercase;
-                // letter-spacing: 0.5px;
-                // display: inline-block;
-                // font-size: 18px;
-                // font-weight: bold;
                 @include text(16px, 'Sackers Gothic Std Medium', 16px, $text-red-cl, lowercase);
                 margin-bottom: 10px;
             }
@@ -458,30 +480,15 @@
                 margin: 0 auto;
             }
 
-            // a {
-            //     // float: right;
-            //     line-height: 16px;
-            //     font-family: 'happy-time-Italic';
-            //     font-weight: 400;
-            //     size: 14px;
-            //     color: $text-gray-cl;
-            //     display: inline-block;
-
-            //     &:hover {
-            //         color: $text-red-cl;
-            //     }
-            // }
         }
 
         .home-report-slider {
-
-            // margin-left: auto;
-            width: 90%;
+            // width: 90%;
             width: 100%;
             height: 100vh;
-            min-height: 800px;
+            // min-height: 800px;
             overflow-x: hidden;
-            max-width: 1100px;
+            max-width: 1224px;
             margin: 0 auto;
             margin-top: 64px;
 
@@ -494,10 +501,6 @@
                 @include mobile {
                     width: 80%;
                 }
-
-                // &:nth-child(even) {
-                //     margin-top: 60px;
-                // }
 
                 &:hover {
                     .report-thumbnail {
@@ -932,7 +935,9 @@
         height: 180vh;
         display: block;
         z-index: 999;
-
+        @include mobile {
+            height: 100vh;
+        }
         // &::after {
         //     content: "";
         //     width: 100%;
@@ -968,6 +973,7 @@
 
             img {
                 width: 100%;
+                @include mobile {width: unset;}
             }
         }
     }

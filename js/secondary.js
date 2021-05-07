@@ -175,7 +175,7 @@ $(function () {
 
 
     /**
-     * init functions, setTimeOut to wait for html loading finish,
+     * init functions, setTimeOut to wait for html finish loading,
      * could be removed after merging step
      */
     setTimeout(function () {
@@ -189,5 +189,47 @@ $(function () {
                 data.target.find('button').removeClass('active');
             },
         });
+
+        // our team slider
+        $('section.our-team').each(function () {
+            let $wrapper = $(this),
+                $slider = $wrapper.find('.slider-body');
+
+            $slider.slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                speed: 700,
+                arrows: true,
+                prevArrow: $wrapper.find('.prev'),
+                nextArrow: $wrapper.find('.next'),
+                dots: false,
+                infinite: true,
+                //autoplay: true,
+                //autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 769,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 567,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: true,
+                            centerPadding: '30px',
+                        }
+                    }
+                ]
+            });
+        });
+
     }, 300);
 });

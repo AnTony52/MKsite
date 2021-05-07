@@ -74,16 +74,12 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
         flkty.next();
     });
 }
+// ----------------------
+// Banner
+// ----------------------
+var bannerSlider = () => {
 
-// ====================================================
-// 
-// 
-// ====================================================
-jQuery(document).ready(function ($) {
-    // parallaxSlider(".banner-slider",".banner-slider .slider-item");
-    // ----------------------
-    // Banner
-    // ----------------------
+
     let banner = document.querySelector(".banner-slider");
     if (banner) {
         var flkty = new Flickity(banner, {
@@ -96,6 +92,16 @@ jQuery(document).ready(function ($) {
             imagesLoaded: 1,
             percentPosition: 1,
             wrapAround: 1,
+            autoPlay: 5000,
+            on: {
+                ready: (index) => {
+                    jQuery('.banner-button').eq(index).addClass("active").siblings().removeClass("active");
+                },
+                change: (index) => {
+                    jQuery('.banner-button').eq(index).addClass("active").siblings().removeClass("active");
+                },
+                
+            }
         });
         window.onresize = function (event) {
             flkty.resize();
@@ -130,15 +136,25 @@ jQuery(document).ready(function ($) {
             }
         });
     }
+    jQuery('.banner-button').on('click', function (e) {
+        e.preventDefault();
+        jQuery(this).addClass("active").siblings().removeClass("active");
+        flkty.select(jQuery(this).index());
+    });
+}
+// ====================================================
+// On Ready
+// ====================================================
+jQuery(document).ready(function ($) {
 
-
+    bannerSlider();
     var scrol_tab_page = 0;
     if (jQuery('#main .tab-page').length > 0) {
         scrol_tab_page = jQuery('#main .tab-page').position().top;
     }
 
     // ----------------------
-    // Smart scroll
+    // Menu Smart scroll
     // ----------------------
     if (jQuery('#header').length > 0) { // check if element exists
         var last_scroll_top = 0;
@@ -193,18 +209,18 @@ jQuery(document).ready(function ($) {
                 delay: 0.5,
                 ease: Power4.easeInOut,
             })
-            // .from("h1 .word", 1, {
-            //     yPercent: 100,
-            //     // transformOrigin: "left",
-            //     opacity: 0.5,
-            //     stagger: 0.1,
-            //     // skewX: 30,
-            //     ease: Power1.easeInOut,
-            //     delay: 0.1,
-            // })
-            // .from("#banner .subject", 3, {
-            //     opacity: 0,
-            // }, 3);
+        // .from("h1 .word", 1, {
+        //     yPercent: 100,
+        //     // transformOrigin: "left",
+        //     opacity: 0.5,
+        //     stagger: 0.1,
+        //     // skewX: 30,
+        //     ease: Power1.easeInOut,
+        //     delay: 0.1,
+        // })
+        // .from("#banner .subject", 3, {
+        //     opacity: 0,
+        // }, 3);
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
@@ -1156,7 +1172,7 @@ jQuery(document).ready(function ($) {
     // });
     //-----------------------------------------------------
 
-   
+
 })
 
 class Cursor {
