@@ -14,7 +14,7 @@
         content: "";
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, .45);
         position: absolute;
         top: 0;
         left: 0;
@@ -33,6 +33,7 @@
             img {
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
     }
@@ -49,17 +50,18 @@
         }
 
         * {
-            @include text(56px, 'Sackers Gothic Std Medium', 64px, #fff, lowercase);
+            @include text(56px, 'Sackers Gothic Std Heavy', 64px, #fff, lowercase);
         }
 
 
         h2 {
             font-size: 16px;
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 24px;
         }
 
         h1 {
+            text-transform: uppercase;
             line-height: 64px;
             font-size: 56px;
 
@@ -94,7 +96,7 @@
         }
 
         .banner-button {
-            margin-right: 20px;
+            margin-right: 40px;
             position: relative;
 
             @include mobile {
@@ -153,9 +155,11 @@
 }
 
 #main {
+    // overflow: hidden;
     background-color: $main-bg-cl;
+    background-image: linear-gradient(180deg, #E4E8EC 5.89%, #E5EDF4 42.71%, #F4F6F8 70.85%, #CED6E9 91.64%);
     margin-top: calc(224px + 100vh);
-    padding-top: 200px;
+    padding-top: 240px;
     // margin-bottom: $footer-height;
     position: relative;
     z-index: 11;
@@ -172,7 +176,7 @@
             text-align: center;
 
             * {
-                text-transform: uppercase;
+                text-transform: lowercase;
             }
 
             h2 {
@@ -231,20 +235,35 @@
         .h-s-title {
             position: relative;
             margin: 0 auto;
-            margin-bottom: 120px;
-            // max-width: 1150px;
-            max-width: 800px;
+            margin-bottom: 80px;
+            max-width: 930px;
 
             * {
                 text-align: center;
             }
 
             h2 {
-                @include text(56px, 'Sackers Gothic Std Medium', 64px, #000, lowercase);
+                @include text(48px, 'Sackers Gothic Std Heavy', 56px, #000, uppercase);
+                letter-spacing: -3px;
+                margin-bottom: 32px;
+
+                @include mobile {
+                    font-size: 24px;
+                    line-height: 1.5;
+                    margin-bottom: 16px;
+                }
             }
 
             p {
                 font-family: 'Zona-Pro', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                line-height: 1.5;
+                max-width: 800px;
+                margin: 0 auto;
+
+                @include mobile {
+                    font-size: 14px;
+                }
+
             }
         }
 
@@ -255,7 +274,7 @@
 
             .stories-button {
                 position: absolute;
-                bottom: 5%;
+                bottom: 0;
                 right: 13vw;
                 width: 7vw;
                 @include d-flex;
@@ -266,28 +285,28 @@
 
 
 
-                    &::before {
-                        content: "";
-                        width: 20px;
-                        width: 0;
-                        height: 2px;
-                        background-color: #000;
-                        position: absolute;
-                        @include transition(0.5s ease);
-                        @include transform(translate(-50%, -50%) rotate(45deg));
-                    }
+                    // &::before {
+                    //     content: "";
+                    //     width: 20px;
+                    //     width: 0;
+                    //     height: 2px;
+                    //     background-color: #000;
+                    //     position: absolute;
+                    //     @include transition(0.5s ease);
+                    //     @include transform(translate(-50%, -50%) rotate(45deg));
+                    // }
 
-                    &.left {
-                        &::before {
-                            border-radius: 50px;
-                        }
-                    }
+                    // &.left {
+                    //     &::before {
+                    //         border-radius: 50px;
+                    //     }
+                    // }
 
-                    &.right {
-                        &::before {
-                            border-radius: 50px;
-                        }
-                    }
+                    // &.right {
+                    //     &::before {
+                    //         border-radius: 50px;
+                    //     }
+                    // }
                 }
             }
 
@@ -330,6 +349,11 @@
                     width: 100%;
                     height: 100%;
                     position: relative;
+                    $zBase: 1;
+
+                    img {
+                        z-index: $zBase;
+                    }
 
                     &:before {
                         background-color: rgba(0, 0, 0, 30%);
@@ -339,12 +363,8 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        z-index: 2;
+                        z-index: $zBase+1;
                     }
-
-                    // >* {
-                    //     z-index: 3;
-                    // }
 
                     &.is-selected {
                         .home-stories-icon {
@@ -377,7 +397,7 @@
 
                         &:hover {
                             svg {
-                                @include transform(translate(-50%, -50%) scale(0.7));
+                                @include transform(translate(-50%, -50%) scale(0.5));
 
                                 path {
                                     fill: $text-red-cl;
@@ -387,8 +407,13 @@
 
                         svg {
                             @include mid;
+                            @include transform(translate(-50%, -50%) scale(0.6));
                             left: 55%;
                             @include transition(0.3s ease-in-out);
+
+                            @include mobile {
+                                width: 30;
+                            }
 
                             path {
                                 @include transition(0.3s ease-in-out);
@@ -400,21 +425,23 @@
                     .home-stories-content {
                         position: absolute;
                         z-index: 3;
-                        bottom: 100px;
+                        bottom: 40px;
                         left: 100px;
                         max-width: 400px;
                         opacity: 0;
                         @include transition(1.3s ease);
+
                         @include mobile {
                             left: 15px;
                             bottom: 15px;
                         }
+
                         p {
                             font-weight: 400;
                             font-size: 48px;
                             line-height: 56px;
                             color: white;
-                            @include text(16px, 'Sackers Gothic Std Medium', 16px, #fff, lowercase);
+                            @include text(16px, 'Sackers Gothic Std Heavy', 16px, #fff, lowercase);
                         }
                     }
 
@@ -426,10 +453,21 @@
                 }
             }
 
+            .carousel-wrapper {
+                @include mobile {
+                    width: 100vw;
+                    height: 350px;
+                }
+            }
+
             .second-carousel-wrapper {
                 height: calc(70vw*0.7*9/16);
                 width: 20vw;
                 align-self: center;
+
+                @include mobile {
+                    display: none;
+                }
 
                 .carousel-slide {
                     >img {
@@ -442,58 +480,97 @@
     }
 
     .home-report {
-        margin-top: 160px;
+        margin-top: 240px;
         color: $text-black-cl;
 
-        .showall {
-            position: relative;
+        @include mobile {
+            margin-bottom: 160px;
+            @include d-flex();
+            flex-direction: column;
+        }
 
-            &::after {
-                content: "";
-                width: 0%;
-                height: 1px;
-                background-color: #B70004;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                @include transition(0.3s ease);
+        .text-right {
+            @include mobile {
+                text-align: center;
+                order: 999;
+                margin-top: 32px;
             }
 
-            &:hover {
+            .showall {
+                position: relative;
+                display: inline-block;
+                text-transform: lowercase;
+
                 &::after {
-                    width: 100%;
+                    content: "";
+                    width: 0%;
+                    height: 1px;
+                    background-color: #B70004;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    @include transition(0.3s ease);
+                }
+
+                &:hover {
+                    color: $text-red-cl;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                @include mobile {
+                    &::after {
+                        background-color: #000;
+                        width: 100%;
+                    }
                 }
             }
         }
 
+
         .home-report-title {
             text-align: center;
+            margin-bottom: 80px;
+
+            @include mobile {
+                margin-bottom: 0;
+            }
 
             h3 {
-                @include text(16px, 'Sackers Gothic Std Medium', 16px, $text-red-cl, lowercase);
-                margin-bottom: 10px;
+                @include text(16px, 'Sackers Gothic Std Heavy', 16px, $text-red-cl, lowercase);
+                margin-bottom: 24px;
+
+                @include mobile {
+                    font-size: 14px;
+                }
             }
 
             h2 {
-                @include text(56px, 'Sackers Gothic Std Medium', 64px, #000, lowercase);
+                @include text(48px, 'Sackers Gothic Std Heavy', 56px, #000, uppercase);
                 max-width: 1000px;
                 margin: 0 auto;
+
+                @include mobile {
+                    font-size: 24px;
+                    line-height: 1.5;
+                }
             }
 
         }
 
         .home-report-slider {
-            // width: 90%;
             width: 100%;
             height: 100vh;
-            // min-height: 800px;
+            height: 600px;
             overflow-x: hidden;
             max-width: 1224px;
             margin: 0 auto;
-            margin-top: 64px;
+            margin-top: 32px;
 
             .slider-item {
-                width: 31%;
+                width: 32%;
                 height: 50%;
                 min-height: 400px;
                 margin-right: 3%;
@@ -509,6 +586,7 @@
 
                     .report-content h3 a {
                         color: $text-red-cl;
+
                     }
                 }
 
@@ -524,21 +602,32 @@
                     padding-top: 32px;
 
                     p {
-                        text-transform: uppercase;
+                        text-transform: lowercase;
                         color: $text-gray-cl;
-                        font-family: 'GothicPro-Regular';
+                        font-family: 'Sackers Gothic Std Heavy';
                         font-weight: 400;
                         font-size: 12px;
-                        line-height: 24px;
-                        letter-spacing: 5%;
+                        line-height: 1;
+                        letter-spacing: 0.05em;
+                        padding-bottom: 16px;
                     }
+
+                    .date {
+                        color: #8A8A8A;
+                        margin-top: 8px;
+                        margin-bottom: 0;
+                        font-family: 'Zona-Pro';
+                        font-size: 14px;
+                        text-transform: capitalize;
+                    }
+
 
                     h3 {
                         color: $text-black-cl;
-                        font-family: 'happy-time-Regular';
+                        font-family: 'Zona-Pro';
                         font-weight: 400;
                         line-height: 1.4;
-                        font-size: 24px;
+                        font-size: 18px;
 
                         a {
                             &:hover {
@@ -553,6 +642,17 @@
                 }
             }
 
+        }
+
+        .report-slider-button {
+            @include mobile {
+                display: none;
+            }
+
+            margin-left: auto;
+            width: 100px;
+            @include d-flex();
+            @include justify-content(space-between);
         }
     }
 
@@ -571,7 +671,7 @@
 
         h3 {
             // font-family: 'happy-time-Regular';
-            text-transform: uppercase;
+            text-transform: lowercase;
             font-size: 80px;
             line-height: 72px;
             font-weight: 400;
@@ -583,7 +683,7 @@
 
         h4 {
             font-family: 'GothicPro-Bold';
-            text-transform: uppercase;
+            text-transform: lowercase;
             font-size: 20px;
             margin-bottom: 24px;
         }
@@ -641,7 +741,7 @@
 
                         .of-stat {
                             font-size: 14px;
-                            text-transform: uppercase;
+                            text-transform: lowercase;
                             font-family: 'GothicPro-Regular';
                             font-style: normal;
                             font-weight: 400;
@@ -668,7 +768,7 @@
         position: relative;
 
         p.main-title {
-            text-transform: uppercase;
+            text-transform: lowercase;
             font-size: 18px;
             line-height: 32px;
             font-family: 'GothicPro-Bold';
@@ -774,7 +874,7 @@
             font-weight: 700;
             font-size: 18px;
             line-height: 32px;
-            text-transform: uppercase;
+            text-transform: lowercase;
         }
 
         .home-team-content {
@@ -900,7 +1000,7 @@
 
         h3 {
             text-align: center;
-            text-transform: uppercase;
+            text-transform: lowercase;
             font-size: 18px;
             font-family: 'GothicPro-Bold';
             margin-bottom: 50px;
@@ -932,12 +1032,16 @@
         overflow: hidden;
         position: relative;
         width: 100%;
-        height: 180vh;
+        height: 1000px;
         display: block;
-        z-index: 999;
+        z-index: -1;
+        margin-top: -200px;
+
         @include mobile {
             height: 100vh;
+            // bottom: -3px;
         }
+
         // &::after {
         //     content: "";
         //     width: 100%;
@@ -951,16 +1055,43 @@
         // }
         .cta-content {
             @include mid;
+            top: unset;
+            bottom: 300px;
             text-align: center;
             max-width: 650px;
 
+            @include mobile {
+                bottom: 30vh;
+            }
+
             h4 {
-                @include text(40px, 'Sackers Gothic Std Medium', 64px, #fff, lowercase);
-                margin-bottom: 60px;
+                @include text(48px, 'Sackers Gothic Std Heavy', 64px, #fff, uppercase);
+                margin-bottom: 24px;
             }
 
             a {
-                @include text(16px, 'Sackers Gothic Std Medium', 16px, #fff, lowercase);
+                @include text(16px, 'Sackers Gothic Std Heavy', 16px, #fff, lowercase);
+                position: relative;
+
+                display: inline-block;
+                &::after {
+                    content: "";
+                    width: 0%;
+                    height: 1px;
+                    background-color: #B70004;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    @include transition(0.3s ease);
+                }
+
+                &:hover {
+                    color: $text-red-cl;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
             }
         }
 
@@ -971,9 +1102,21 @@
             z-index: -1;
             width: 100%;
 
+            &:before {
+                content: "";
+                @include fullpage();
+                height: 900px;
+                top: unset;
+                bottom: 0;
+                background: linear-gradient(180deg, rgba(22, 22, 22, 0) 40%, rgba(22, 22, 22, 0.7) 60%, #161616 100%);
+            }
+
             img {
                 width: 100%;
-                @include mobile {width: unset;}
+
+                @include mobile {
+                    width: unset;
+                }
             }
         }
     }

@@ -1,20 +1,20 @@
 section.our-team {
   .our-team-inner {
-    background: #000;
-    padding: 160px 0;
+    // background: #000;
+    padding: 240px 0 0;
 
     .row.heading {
-      margin-bottom: 130px;
+      margin-bottom: 80px;
 
       .text {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0);
 
         .emphasis {
           color: #fff;
         }
 
         @include mobile {
-          color: rgba(0, 0, 0, 0.5);
+          color: rgba(0, 0, 0);
           .emphasis {
             color: #000;
           }
@@ -32,17 +32,26 @@ section.our-team {
           margin-bottom: 30px;
         }
         .text-color-white {
-          color: #0F1C2D;
+          color: #161616;
         }
       }
     }
 
     .slider {
+      .button {
+        text-align: right;
+        @include mobile {
+          display: none;
+        }
 
+        a {
+          display: inline-block;
+        }
+      }
       // slider body {
       .slider-body {
         @include d-flex();
-        margin: 0 -10px 80px;
+        margin: 32px -10px 40px;
 
         @include tablet {
           margin: 0 -5px 30px;
@@ -98,11 +107,12 @@ section.our-team {
               @include transition(all .3s ease);
 
               @include mobile {
-                color: #0f1c2d;
+                color: #161616;
               }
             }
 
             .description {
+              font-size: 12px;
               @include mobile {
                 color: rgba(0, 0, 0, 0.5);
               }
@@ -115,31 +125,30 @@ section.our-team {
 
       // slider bottom
       .slider-bottom {
-        @include d-flex();
-        justify-content: space-between;
-        align-items: center;
-
+        text-align: right;
         @include mobile {
           .text-color-white {
-            color: #0F1C2D;
+            color: #161616;
           }
         }
 
         .arrows {
+          margin-left: auto;
+          display: inline-block;
+          width: 100px;
           button {
             background: transparent;
             outline: none;
             border: none;
-
             &.prev {
-              margin-right: 60px;
+              margin-right: 50px;
             }
 
-            // &:hover {
-              // path {
-                // fill: $text-red-cl;
-              // }
-            // }
+            &:hover {
+              path {
+                stroke: $text-red-cl;
+              }
+            }
 
             svg {
               width: 10px;

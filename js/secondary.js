@@ -2,10 +2,10 @@ $(function () {
     /**
      * load html into sections, for investor.html
      */
-    $("section.our-funds").load("/partials/our-funds.html");
-    $("section.pioneers").load("/partials/pioneers.html");
-    $(".full-screen-video").load("/partials/full-screen-video.html");
-    $(".our-team").load("/partials/our-team.html");
+    // $("section.our-funds").load("/partials/our-funds.html");
+    // $("section.pioneers").load("/partials/pioneers.html");
+    // $(".full-screen-video").load("/partials/full-screen-video.html");
+    // $(".our-team").load("/partials/our-team.html");
 
 
     // save all GSAP animations into one object
@@ -30,7 +30,9 @@ $(function () {
             start = typeof start !== "undefined" ? start : "top bottom";
             $this.attr('data-parallax-start', start);
 
-            gsap.set($this, {backgroundPosition: '50% 0px'});
+            gsap.set($this, {
+                backgroundPosition: '50% 0px'
+            });
             gsap.to($this, {
                 backgroundPosition: '50% ' + (-innerHeight / 2 * speed) + 'px',
                 ease: "none",
@@ -104,7 +106,9 @@ $(function () {
                     end: "bottom top",
                 }
             });
-            tl.from($this, {opacity: 0});
+            tl.from($this, {
+                opacity: 0
+            });
             tl.counter($this, {
                 end: settings.end,
                 increment: settings.increment,
@@ -124,10 +128,8 @@ $(function () {
                 settings = $.extend({
                     activeClass: 'magnetizing',
                     scale: 1,
-                    onEnter: function (data) {
-                    },
-                    onExit: function (data) {
-                    },
+                    onEnter: function (data) {},
+                    onExit: function (data) {},
                 }, options),
                 isEnter = false,
                 calculateDistance = function ($el, mouseX, mouseY) {
@@ -135,7 +137,8 @@ $(function () {
 
                 },
                 magnetize = function ($this, e) {
-                    let mX = e.pageX, mY = e.pageY;
+                    let mX = e.pageX,
+                        mY = e.pageY;
                     $this.each(function () {
                         let $this = $(this),
                             customDist = parseFloat($this.attr('data-magnetic')) * 20 || 100,
@@ -146,20 +149,38 @@ $(function () {
                             distance = calculateDistance($this, mX, mY);
 
                         if (distance < customDist) {
-                            gsap.to($this, 0.3, {y: deltaY, x: deltaX, scale: settings.scale});
+                            gsap.to($this, 0.3, {
+                                y: deltaY,
+                                x: deltaX,
+                                scale: settings.scale
+                            });
 
                             if (!isEnter) {
                                 isEnter = true;
                                 $this.addClass(settings.activeClass);
-                                settings.onEnter({target: $this, y: deltaY, x: deltaX, scale: settings.scale});
+                                settings.onEnter({
+                                    target: $this,
+                                    y: deltaY,
+                                    x: deltaX,
+                                    scale: settings.scale
+                                });
                             }
                         } else {
-                            gsap.to($this, 0.45, {y: 0, x: 0, scale: 1});
+                            gsap.to($this, 0.45, {
+                                y: 0,
+                                x: 0,
+                                scale: 1
+                            });
 
                             if (isEnter) {
                                 isEnter = false;
                                 $this.removeClass(settings.activeClass);
-                                settings.onExit({target: $this, y: deltaY, x: deltaX, scale: settings.scale});
+                                settings.onExit({
+                                    target: $this,
+                                    y: deltaY,
+                                    x: deltaX,
+                                    scale: settings.scale
+                                });
                             }
                         }
                     });
@@ -194,8 +215,14 @@ $(function () {
 
         if (!settings.target.length) return;
 
-        let childLines = new SplitText(settings.target, {type: "lines", linesClass: settings.lineChildClass}),
-            parentLines = new SplitText(settings.target, {type: "lines", linesClass: settings.lineParentClass}),
+        let childLines = new SplitText(settings.target, {
+                type: "lines",
+                linesClass: settings.lineChildClass
+            }),
+            parentLines = new SplitText(settings.target, {
+                type: "lines",
+                linesClass: settings.lineParentClass
+            }),
             tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: settings.trigger.length ? settings.trigger : settings.target,
@@ -205,12 +232,24 @@ $(function () {
                 }
             });
 
-        gsap.set(parentLines.lines, {overflow: 'hidden'});
-        gsap.set(childLines.lines, {transformOrigin: 'left top'});
+        gsap.set(parentLines.lines, {
+            overflow: 'hidden'
+        });
+        gsap.set(childLines.lines, {
+            transformOrigin: 'left top'
+        });
 
-        tl.staggerFromTo(childLines.lines, settings.duration,
-            {autoAlpha: 0, y: '100%', rotation: settings.rotation, ease: "power4.out"},
-            {autoAlpha: 1, y: 0, rotation: 0, ease: "power4.out"}, settings.stagger, 0);
+        tl.staggerFromTo(childLines.lines, settings.duration, {
+            autoAlpha: 0,
+            y: '100%',
+            rotation: settings.rotation,
+            ease: "power4.out"
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            rotation: 0,
+            ease: "power4.out"
+        }, settings.stagger, 0);
 
         return tl;
     };
@@ -234,10 +273,16 @@ $(function () {
                     start: 'top 90%',
                 }
             });
-            gsap.set($wrapper.find('.key-figures-item'), {overflow: 'hidden'});
-            tl.staggerFromTo($wrapper.find('.key-figures-item .inner'), .8,
-                {autoAlpha: 0, y: '70%'},
-                {autoAlpha: 1, y: 0}, .06, 0);
+            gsap.set($wrapper.find('.key-figures-item'), {
+                overflow: 'hidden'
+            });
+            tl.staggerFromTo($wrapper.find('.key-figures-item .inner'), .8, {
+                autoAlpha: 0,
+                y: '70%'
+            }, {
+                autoAlpha: 1,
+                y: 0
+            }, .06, 0);
         });
 
         // pioneers
@@ -274,11 +319,16 @@ $(function () {
                     start: 'top 90%',
                 }
             });
-            gsap.set($wrapper.find('.team-item'), {overflow: 'hidden'});
-            tl.staggerFromTo($wrapper.find('.team-item .team-inner'), 1,
-                {autoAlpha: 0},
-                {autoAlpha: 1}, .15, 0);
+            gsap.set($wrapper.find('.team-item'), {
+                overflow: 'hidden'
+            });
+            tl.staggerFromTo($wrapper.find('.team-item .team-inner'), 1, {
+                autoAlpha: 0
+            }, {
+                autoAlpha: 1
+            }, .3, 0);
         });
+
     };
 
 
@@ -286,60 +336,59 @@ $(function () {
      * init functions, setTimeOut to wait for html finish loading,
      * could be removed after merging step
      */
-    setTimeout(function () {
-        GSAP.parallaxBackground();
-        GSAP.counterEffect();
-        GSAP.magneticButton({
-            onEnter: function (data) {
-                data.target.find('button').addClass('active');
-            },
-            onExit: function (data) {
-                data.target.find('button').removeClass('active');
-            },
-        });
+    // setTimeout(function () {
+    GSAP.parallaxBackground();
+    GSAP.counterEffect();
+    GSAP.magneticButton({
+        onEnter: function (data) {
+            data.target.find('button').addClass('active');
+        },
+        onExit: function (data) {
+            data.target.find('button').removeClass('active');
+        },
+    });
 
-        GSAP.initAnimations();
+    GSAP.initAnimations();
 
-        // our team slider
-        $('section.our-team').each(function () {
-            let $wrapper = $(this),
-                $slider = $wrapper.find('.slider-body');
+    // our team slider
+    $('section.our-team').each(function () {
+        let $wrapper = $(this),
+            $slider = $wrapper.find('.slider-body');
 
-            $slider.slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                speed: 700,
-                arrows: true,
-                prevArrow: $wrapper.find('.prev'),
-                nextArrow: $wrapper.find('.next'),
-                dots: false,
-                infinite: true,
-                //autoplay: true,
-                //autoplaySpeed: 3000,
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 769,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 567,
-                        settings: {
-                            slidesToShow: 1,
-                            centerMode: true,
-                            centerPadding: '30px',
-                        }
+        $slider.slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            speed: 700,
+            arrows: true,
+            prevArrow: $wrapper.find('.prev'),
+            nextArrow: $wrapper.find('.next'),
+            dots: false,
+            infinite: true,
+            //autoplay: true,
+            //autoplaySpeed: 3000,
+            responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
                     }
-                ]
-            });
+                },
+                {
+                    breakpoint: 769,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: true,
+                        centerPadding: '30px',
+                    }
+                }
+            ]
         });
+    });
 
-    }, 300);
+    // }, 300);
 });

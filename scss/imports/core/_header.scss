@@ -115,7 +115,7 @@ header {
     z-index: 99;
     width: 100%;
     height: 80px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
     @include mobile {
         padding: 0 20px;
@@ -135,7 +135,7 @@ header {
 
     }
 
-   
+
 
     &.bloody-hat--On {
         border-bottom: none;
@@ -157,25 +157,31 @@ header {
         [title="MEKONG"] {
             margin-right: auto;
             margin-left: 100px;
+
             @include mobile {
                 margin: 0;
             }
         }
+
         .logo {
             width: 120px;
             height: auto;
             margin-left: -15px;
+
             @include mobile {
                 margin-left: 0;
             }
         }
+
         .right-side {
             @include d-flex;
             margin-right: 100px;
+
             @include mobile {
                 margin-left: auto;
                 margin-right: 0;
             }
+
             #lang {
                 padding-top: 8px;
                 align-items: center;
@@ -236,6 +242,20 @@ header {
     width: 60px;
     height: 60px;
 
+    * {
+        font-family: 'Sackers Gothic Std Heavy';
+    }
+
+    .tel-icon {
+        @include mid;
+        width: 24px;
+        height: 24px;
+
+        svg {
+            @include transform(scale(.85));
+        }
+    }
+
     // @include transform(translateX(-50%));
     // mix-blend-mode: difference;
     .contact-detail {
@@ -262,7 +282,7 @@ header {
             width: 200px;
         }
 
-        img {
+        .tel-icon {
             opacity: 0;
         }
 

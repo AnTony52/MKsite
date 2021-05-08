@@ -12,12 +12,18 @@ var reportSlide = (selector) => {
         prevNextButtons: false,
         pageDots: false,
         setGallerySize: false,
-        draggable: true,
+        draggable: 0,
         friction: 0.35,
         imagesLoaded: true,
         percentPosition: true,
         wrapAround: true,
         initialIndex: 0,
+    });
+    jQuery('.home-report .report-slider-button').on('click', '.prev', function () {
+        flkty.previous();
+    });
+    jQuery('.home-report .report-slider-button').on('click', '.next', function () {
+        flkty.next();
     });
 }
 var parallaxSlider = (selector, child, initialIndex = 0) => {
@@ -26,8 +32,8 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
         prevNextButtons: 0,
         pageDots: 0,
         setGallerySize: 0,
-        draggable: 1,
-        friction: 0.5,
+        draggable: 0,
+        friction: 0.4,
         imagesLoaded: 1,
         percentPosition: 1,
         wrapAround: 1,
@@ -87,8 +93,8 @@ var bannerSlider = () => {
             prevNextButtons: 0,
             pageDots: 0,
             setGallerySize: 0,
-            draggable: 1,
-            friction: 0.5,
+            draggable: 0,
+            friction: 0.65,
             imagesLoaded: 1,
             percentPosition: 1,
             wrapAround: 1,
@@ -100,7 +106,7 @@ var bannerSlider = () => {
                 change: (index) => {
                     jQuery('.banner-button').eq(index).addClass("active").siblings().removeClass("active");
                 },
-                
+
             }
         });
         window.onresize = function (event) {
@@ -258,13 +264,13 @@ jQuery(document).ready(function ($) {
                         })
                         .to(".m-c-center", 1, {
                             autoAlpha: 0,
-                            delay: 1,
+                            delay: 2,
                         })
                         .to(".main-copy", 1, {
                             autoAlpha: 0,
                         })
                         .to(".main-bg", 2, {
-                            scale: 1.3,
+                            scale: 1.5,
                         }, '-=1')
                         .from('.main-subjects h3, #panel', 1, {
                             autoAlpha: 0,
@@ -298,7 +304,7 @@ jQuery(document).ready(function ($) {
                     autoAlpha: 1,
                 });
                 gsap.timeline()
-                    .to("#loading", 1, {
+                    .to("#loading", 2, {
                         xPercent: 0,
                         ease: Power4.easeInOut,
                         onComplete: () => {
@@ -938,11 +944,11 @@ jQuery(document).ready(function ($) {
                     stagger: 0.1,
                     ease: Power4.easeInOut,
                 })
-                .to('.slider-item', 1, {
+                .to('.slider-item', .75, {
                     opacity: 1,
                     stagger: 0.2,
                     ease: Power4.easeInOut,
-                }, 0.5);
+                }, '-=1');
         })
         // .addIndicators({
         // name: "Report"

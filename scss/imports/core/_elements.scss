@@ -36,8 +36,11 @@ strong {
     top: -$cursor-radius/2;
     z-index: 999999;
     background-color: darkred;
-    // display: none;
 
+    // display: none;
+    @include mobile {
+        display: none;
+    }
 }
 
 .circle-cursor--outer {
@@ -45,6 +48,10 @@ strong {
     height: 30px;
     border: 2px solid #b70004;
     z-index: 999999;
+
+    @include mobile {
+        display: none;
+    }
 
     img {
         @include transform(translate(-50%, -50%));
@@ -84,6 +91,16 @@ strong {
     border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 5px;
+    @include transition(all 0.3s ease-in-out);
+
+}
+
+.cvb {
+    &:hover {
+        .arrow {
+            border-color: #b70004;
+        }
+    }
 }
 
 .right {
@@ -113,8 +130,9 @@ strong {
 }
 
 
-/* ------------ Triangles ----------- */ 
+/* ------------ Triangles ----------- */
 $triangle-size: 8px;
+
 .triangle-up {
     width: 0;
     height: 0;
@@ -151,3 +169,28 @@ $triangle-size: 8px;
     border-right: $triangle-size solid $primary;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.cloud {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    z-index: -1;
+
+    img {
+        width: 100vw;
+    }
+}
+
+.cloud-right {
+    position: absolute;
+    top: 0;
+    right: -30%;
+    z-index: -1;
+
+    img {
+        width: 100vw;
+    }
+}

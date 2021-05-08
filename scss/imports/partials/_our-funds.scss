@@ -1,10 +1,10 @@
 section.our-funds {
   .our-funds-inner {
-    padding: 200px 0 160px;
+    padding: 240px 0 0;
 
     // responsive
     @include desktop {
-      padding: 120px 0;
+      padding: 240px 0 0;
     }
     @include tablet {
       padding: 80px 0;
@@ -18,12 +18,12 @@ section.our-funds {
       }
 
       .text-color-white {
-        color: #0F1C2D;
+        color: #161616;
       }
     }
 
     &:before {
-      content: '';
+      // content: '';
       @include fullpage();
       background: #000;
       opacity: .4;
@@ -37,7 +37,7 @@ section.our-funds {
 
     // heading
     .heading {
-      margin-bottom: 120px;
+      margin-bottom: 80px;
       @include desktop {
         margin-bottom: 100px;
       }
@@ -154,8 +154,8 @@ section.our-funds {
               letter-spacing: -0.07em;
               text-transform: uppercase;
 
-              color: #0F1C2D;
-              margin-bottom: 30px;
+              color: #161616;
+              margin-bottom: 16px;
               @include transition(all .3s ease);
 
               @include desktop {
@@ -191,7 +191,7 @@ section.our-funds {
               svg {
 
                 width: 40px;
-                height: 30px;
+                height: 20px;
                 @include transition(all .3s ease);
 
                 &.before {
