@@ -219,6 +219,27 @@ $(function () {
      * Init lines effect for all sections
      */
     GSAP.initAnimations = function () {
+        // banner
+        /*$('#banner').each(function (){
+            GSAP.linesEffect({
+                target: $(this).find('.banner-content'),
+            });
+        });*/
+
+        // home stories
+        $('section.home-stories').each(function (){
+            GSAP.linesEffect({
+                target: $(this).find('.h-s-title h2, .h-s-title p'),
+            });
+        });
+
+        // home report
+        $('section.home-report').each(function (){
+            GSAP.linesEffect({
+                target: $(this).find('.home-report-title h3, .home-report-title h2'),
+            });
+        });
+
         // our fund
         $('section.our-funds').each(function () {
             let $wrapper = $(this);
