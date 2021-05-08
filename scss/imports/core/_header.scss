@@ -1,17 +1,13 @@
-html.page {
+html.page{
     header {
-        .logo-white {
+        .logo-white{
             display: none;
         }
-
-        .logo-black {
-            display: inline-block;
+        .logo-black{
+            display:inline-block;
         }
-
         &.bloody-hat--On {
-
-
-            &.scrolled-up {
+            &.scrolled-up{
                 .container {
                     .right-side {
                         #lang {
@@ -21,29 +17,23 @@ html.page {
                         }
                     }
                 }
-
-                .hamburger {
-                    .hamburger-inner {
-                        background: $white-cl;
-
-                        &:before,
-                        &:after {
-                            background: $white-cl;
+                .hamburger{
+                    .hamburger-inner{
+                        background: $white-cl; 
+                        &:before, &:after{
+                            background: $white-cl; 
                         }
                     }
                 }
-
-                .logo-white {
+                .logo-white{
                     display: inline-block;
                 }
-
-                .logo-black {
-                    display: none;
+                .logo-black{
+                    display:none;
                 }
 
             }
         }
-
         .container {
             @include d-flex;
             @include justify-content(space-between);
@@ -80,7 +70,6 @@ html.page {
                 }
             }
         }
-
         .hamburger {
             padding: 0;
 
@@ -91,7 +80,7 @@ html.page {
 
                 .hamburger-inner,
                 .hamburger-inner:after,
-                .hamburger-inner:before {
+                    .hamburger-inner:before {
                     background-color: #000000;
                     height: 2px;
                 }
@@ -106,7 +95,6 @@ html.page {
         }
     }
 }
-
 
 header {
     position: fixed;

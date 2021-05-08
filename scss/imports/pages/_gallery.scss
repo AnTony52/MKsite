@@ -7,6 +7,9 @@ html.page{
                         margin-bottom: 80px;
                     }
                     .container{
+                        .mb-4, .my-4{
+                            margin-bottom: 30px !important;
+                        }
                         .gallery-box{
                             overflow: hidden;
                             max-height: 392px;
