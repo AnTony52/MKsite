@@ -175,6 +175,114 @@ $(function () {
 
 
     /**
+     * Stagger lines effect using GSAP, SplitText and ScrollTrigger v1.0
+     * GSAP.linesEffect({target:jQuery element});
+     */
+    GSAP.linesEffect = function (options) {
+        let settings = $.extend({
+            target: '', // jQuery element
+            duration: 1.2,
+            lineChildClass: 'line-child',
+            lineParentClass: 'line-parent',
+            trigger: '', // jQuery element, leave empty to use target as trigger
+            triggerStart: 'top 80%',
+            triggerEnd: 'bottom top',
+            triggerMarkers: false,
+            stagger: .05,
+            rotation: '5deg',
+        }, options);
+
+        if (!settings.target.length) return;
+
+        let childLines = new SplitText(settings.target, {type: "lines", linesClass: settings.lineChildClass}),
+            parentLines = new SplitText(settings.target, {type: "lines", linesClass: settings.lineParentClass}),
+            tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: settings.trigger.length ? settings.trigger : settings.target,
+                    start: settings.triggerStart,
+                    end: settings.triggerEnd,
+                    markers: settings.triggerMarkers,
+                }
+            });
+
+        gsap.set(parentLines.lines, {overflow: 'hidden'});
+        gsap.set(childLines.lines, {transformOrigin: 'left top'});
+
+        tl.staggerFromTo(childLines.lines, settings.duration,
+            {autoAlpha: 0, y: '100%', rotation: settings.rotation, ease: "power4.out"},
+            {autoAlpha: 1, y: 0, rotation: 0, ease: "power4.out"}, settings.stagger, 0);
+
+        return tl;
+    };
+
+
+    /**
+     * Init lines effect for all sections
+     */
+    GSAP.initAnimations = function () {
+        // our fund
+        $('section.our-funds').each(function () {
+            let $wrapper = $(this);
+
+            GSAP.linesEffect({
+                target: $wrapper.find('.heading .sub-heading, .heading .heading_2'),
+            });
+
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: $wrapper.find('.key-figures-list'),
+                    start: 'top 90%',
+                }
+            });
+            gsap.set($wrapper.find('.key-figures-item'), {overflow: 'hidden'});
+            tl.staggerFromTo($wrapper.find('.key-figures-item .inner'), .8,
+                {autoAlpha: 0, y: '70%'},
+                {autoAlpha: 1, y: 0}, .06, 0);
+        });
+
+        // pioneers
+        $('section.pioneers').each(function () {
+            GSAP.linesEffect({
+                target: $(this).find('.heading .sub-heading, .content .heading_2, .content .text, .content .text + a'),
+                stagger: .08,
+            });
+        });
+
+        // full screen video
+        $('section.full-screen-video').each(function () {
+            GSAP.linesEffect({
+                target: $(this).find('.sub-heading'),
+                triggerStart: 'top 90%',
+            });
+        });
+
+        // our team
+        $('section.our-team').each(function () {
+            let $wrapper = $(this);
+
+            GSAP.linesEffect({
+                target: $wrapper.find('.heading .heading_2, .heading .text'),
+            });
+            GSAP.linesEffect({
+                target: $wrapper.find('.slider-bottom .button'),
+                triggerStart: 'top 90%',
+            });
+
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: $wrapper.find('.slider-body'),
+                    start: 'top 90%',
+                }
+            });
+            gsap.set($wrapper.find('.team-item'), {overflow: 'hidden'});
+            tl.staggerFromTo($wrapper.find('.team-item .team-inner'), 1,
+                {autoAlpha: 0},
+                {autoAlpha: 1}, .15, 0);
+        });
+    };
+
+
+    /**
      * init functions, setTimeOut to wait for html finish loading,
      * could be removed after merging step
      */
@@ -189,6 +297,8 @@ $(function () {
                 data.target.find('button').removeClass('active');
             },
         });
+
+        GSAP.initAnimations();
 
         // our team slider
         $('section.our-team').each(function () {
