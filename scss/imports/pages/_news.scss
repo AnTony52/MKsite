@@ -5,6 +5,9 @@ html.page{
     #header{
         background-color: $white-cl;
         border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        #lang{
+            display: none;
+        }
         .right-side{
             a:last-child{
                 opacity: 50%;
@@ -20,28 +23,34 @@ html.page{
                 padding-bottom: 160px;
                 /*padding-left: 40px;*/
                 h2{
-                    text-transform: lowercase;
+                    /*text-transform: lowercase;*/
+                    text-transform: uppercase;
                     color: $cl-title;
                     font-size: 72px;
                     line-height: 80px;
                     font-family: 'Sackers Gothic Std Heavy';
+                    font-family: 'Zona-Pro';
                     /*padding-bottom: 200px;*/
-                    letter-spacing: -2px;
+                    letter-spacing: -5%;
                     margin: 0 auto;
                 }
             }
         }
     }
     .page-content{
-        padding-bottom: 160px;
+        padding-bottom: 80px;
         .tab-page{
             width: 100%;
             border-bottom: 1px solid $text-black-50;
-            border-top: 1px solid $text-black-50;            
+            border-top: 1px solid $text-black-50;     
+            overflow: hidden;
             .container{
                 position: relative;
                 /*overflow: hidden;*/
             }
+            h3{
+                font-family: 'Zona-Pro';
+            }            
             @include transition(0.3s ease-in-out);
             &.tab-fixed-top{
                 @include transition(0.3s ease-in-out);
@@ -104,15 +113,15 @@ html.page{
                         left: 0;
                         z-index: 9;
                         border: 1px solid #000000;
-                        background: #ffffff;
-                        padding: 25px;
+                        background: #ffffff80;
+                        padding: 13px 24px;
                         min-width: 240px;
                         max-height: 190px;
                         overflow-y: auto;    
                         @include custom-scrollbar();
                         li{
                             display: block;
-                            line-height: 28px;
+                            line-height: 36px;
                             a{
                                 display: block;
                             }
@@ -176,7 +185,7 @@ html.page{
                     .container{
                         .row{
                             .col-md-4{
-                                margin-top: 100px;                                
+                                margin-top: 80px;                                
                                 .content-image{
                                     overflow: hidden;
                                     max-height: 360px;
@@ -185,7 +194,7 @@ html.page{
                                 &:hover{
                                     .thumbnail{
                                         filter: grayscale(0);
-                                        transform: scale(1.1);
+                                        /*transform: scale(1.1);*/
                                         transition: .8s all;
                                     }
                                     h3{
@@ -200,34 +209,48 @@ html.page{
                                     /*                                    height: 360px;*/
                                     object-fit: cover;
                                     filter: grayscale(1);
-                                    transform: scale(1);
+                                    /*transform: scale(1);*/
                                     transition:  .8s all;
                                     -webkit-transition:  .8s all;                                    
 
                                 }
+
+
+                                //fix
                                 .content-text{
                                     color: $text-gray-cl;
-                                    padding-top: 20px;
+                                    padding-top: 32px;
                                     p{
                                         text-transform: lowercase;
                                         color: $cl-catelory;
                                         font-family: 'Sackers Gothic Std Heavy';
                                         font-size: 12px;
-                                        line-height: 14px;
-                                        padding-bottom: 30px;
+                                        line-height: 12px;
+                                        padding-bottom: 16px;
                                     }
                                     h3{
-                                        font-family: 'Zona-Pro-ExtraLight';
+                                        font-family: 'Zona-Pro';
                                         line-height: 32px;
                                         font-size: 18px;
                                         font-weight: 400;
                                         a{
+                                            line-height: 24px;
                                             &:hover{
                                                 color: $text-red-cl;
                                             } 
                                         }
                                     }
+                                    .date{
+                                        color: #8A8A8A;
+                                        margin-top: 8px;
+                                        margin-bottom: 0;
+                                        font-family: 'Zona-Pro';
+                                        font-size: 14px;
+                                        text-transform: capitalize;
+                                    }
                                 }
+
+
                             }
                         }
                     }
@@ -238,7 +261,7 @@ html.page{
     .view-more{
         width: 100%;
         /*height: 300px;*/
-        margin-top: 130px;
+        margin-top: 66px;
         text-align: center;        
         clear: both;
         font-family: 'Sackers Gothic Std Light';
@@ -255,7 +278,62 @@ html.page{
 }  
 
 @include mobile {
+    html.page{
+        #main{
+            padding-top: 126px !important;
+        }
+        .page-news{
+            .page-content{
+                .container{
+                    .row{
+                        .col-md-4{
+                            &:first-child{
+                                .content-text{
+                                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                                    padding-bottom: 18px;
+                                }                                
+                            }
+                            &:nth-of-type(1) ~ .col-md-4{
+                                margin-top: 33px !important;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                                padding-bottom: 15px !important;
+                                margin-left: 15px;
+                                margin-right: 15px;
+                                padding-left: 0;
+                                padding-right: 0;
+                                .content-image{
+                                    max-width: 40%;
+                                    float: left;
+                                }
+                                .content-text{
+                                    max-width: calc(60% - 15px);
+                                    float: right;
+                                    padding-top: 0 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .page-block{
+        .page-title{  
+            padding-bottom: 50px !important;
+            h2{
+                font-size: 24px !important;
+                letter-spacing: -2px; 
+            }
+        }
+    }
     .page-content{
+        .tab-page{
+            ul{
+                li{
+                    letter-spacing: -2px;                    
+                }
+            }
+        }
         .container{
             .col-md-4, .col-md-3{
                 text-align: center;

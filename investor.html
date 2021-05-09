@@ -98,11 +98,12 @@
                         <a href="">English</a>
                         <a href="" class="cvb active">Tieng Viet</a>
                     </div>
-                    <button class="cvb hamburger hamburger--collapse" type="button">
+                    <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar" data-close-default="white">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>
                     </button>
+                    <div class="modal-menubar-content" data-modal-menubar></div>
                 </div>
             </div>
         </header>
@@ -714,20 +715,7 @@
 
 
     </div>
-    <div class="modal-popup">
-        <div class="modal-popup-content">
-            <a href="#" class="modal-close cvb" data-image="images/modal/close-black.png"
-                data-image-hover="images/modal/close-hover.png">
-                <img src="images/modal/close-black.png" alt="" />
-            </a>
-            <div class="modal-body">
-            </div>
-        </div>
-    </div>
-    <div class="circle-cursor circle-cursor--inner">
-    </div>
-    <div class="circle-cursor circle-cursor--outer">
-    </div>
+    <div id="blocks-modal"></div>
     <!-- JavaScript -->
 
     <script type="text/javascript" src="dest/jsmain.min.js"></script>
