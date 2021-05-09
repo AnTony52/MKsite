@@ -289,7 +289,7 @@ jQuery(document).ready(function ($) {
                                 autoAlpha: 0,
                             })
                             .to(".main-bg", 2, {
-                                scale: 1.3,
+                                scale: 1.5,
                             }, '-=1')
                             .from('.main-subjects h3, #panel', 1, {
                                 autoAlpha: 0,

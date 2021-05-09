@@ -628,16 +628,16 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
-  color: #2F2F2F;
+  color: #161616;
 }
 
 // headings
 .sub-heading {
-  @include text(16px, 'Sackers Gothic Std Medium', 18px, #0F1C2D, lowercase);
+  @include text(16px, 'Sackers Gothic Std Medium', 18px, #161616, lowercase);
   font-weight: 800;
 
   @include mobile {
-    @include text(14px, 'Sackers Gothic Std Medium', 16px, #0F1C2D, lowercase);
+    @include text(14px, 'Sackers Gothic Std Medium', 16px, #161616, lowercase);
   }
 }
 
@@ -649,6 +649,7 @@
   line-height: 1.17;
   letter-spacing: -0.05em;
   text-transform: uppercase;
+  color: #161616;
 
   @include desktop {
     font-size: 42px;
@@ -675,6 +676,7 @@
 // buttons
 .btn-underline {
   font-family: "Sackers Gothic Std Medium", sans-serif;
+  color: #161616;
   // font-style: normal;
   // font-weight: 800;
   font-size: 16px;

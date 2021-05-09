@@ -1,6 +1,5 @@
 section.our-team {
   .our-team-inner {
-    // background: #000;
     padding: 240px 0 0;
 
     .row.heading {
@@ -14,9 +13,9 @@ section.our-team {
         }
 
         @include mobile {
-          color: rgba(0, 0, 0, 1);
+          color: #161616;
           .emphasis {
-            color: #000;
+            color: #161616;
           }
         }
       }
