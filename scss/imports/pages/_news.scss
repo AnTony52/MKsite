@@ -3,7 +3,7 @@ html.page{
         max-width: $container-width;
     }
     #header{
-        background-color: $white-cl;
+        background-color: $text-red-cl;
         border-bottom: 1px solid rgba(0, 0, 0, 0.3);
         #lang{
             display: none;
@@ -16,7 +16,7 @@ html.page{
     }
     #main{
         margin-top: 0px;
-        padding-top: 240px;
+        padding-top: 235px;
         .page-block{
             .page-title{
                 padding-top: 0px;
@@ -26,12 +26,12 @@ html.page{
                     /*text-transform: lowercase;*/
                     text-transform: uppercase;
                     color: $cl-title;
-                    font-size: 72px;
+                    font-size: 48px;
                     line-height: 80px;
                     font-family: 'Sackers Gothic Std Heavy';
-                    font-family: 'Zona-Pro';
+                    /*font-family: 'Zona-Pro';*/
                     /*padding-bottom: 200px;*/
-                    letter-spacing: -5%;
+                    letter-spacing: -3px;
                     margin: 0 auto;
                 }
             }
@@ -46,7 +46,7 @@ html.page{
             overflow: hidden;
             .container{
                 position: relative;
-                /*overflow: hidden;*/
+                overflow: hidden;
             }
             h3{
                 font-family: 'Zona-Pro';

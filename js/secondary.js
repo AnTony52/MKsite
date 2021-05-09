@@ -229,7 +229,8 @@ $(function () {
                     start: settings.triggerStart,
                     end: settings.triggerEnd,
                     markers: settings.triggerMarkers,
-                }
+                },
+                onComplete: ()=>{childLines.revert()}
             });
 
         gsap.set(parentLines.lines, {

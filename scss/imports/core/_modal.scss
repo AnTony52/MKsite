@@ -197,7 +197,7 @@
                 height: 100vh;
                 color: #FFFFFF;
                 float: left;
-                background: url('../images/team/wall.png') ;
+                background: url('../images/modal/get-in-touch.png') ;
                 background-size: cover;
                 padding-top: 130px;
                 padding-left: 130px;
@@ -251,7 +251,7 @@
                 padding-top: 190px;
                 height: 100vh;
                 width: 50%;
-                background: url('../images/team/wall.png');
+                background: url('../images/modal/get-in-touch.png');
                 background-size: cover;
                 float: right;
 
@@ -445,7 +445,7 @@
                                 color: #FFFFFF;
                             }
                             &:nth-child(4){
-                                margin-top: 50px;
+                                margin-top: 250px;
                             }
                         }
                         .input-group{
@@ -454,6 +454,7 @@
                             border-bottom: 1px solid #FFFFFF;
                             .input-group-default{
                                 position: absolute;
+                                
                                 z-index: 999;
                                 top: 17px;                                
                                 font-family: 'Zona-Pro';
@@ -478,11 +479,12 @@
                                 border: none;
                             }
                             .input-left{
-                                position: absolute;
+                                /*position: relative;*/
+                                     position: absolute;
                                 left: 0;
                                 top: 60px;
                                 background: #fff;
-                                min-width: 230px;
+                                max-width: 230px;
                                 padding: 10px 0;
                                 z-index: 9999;
                                 display: none;
@@ -647,6 +649,9 @@
                             a {
                                 color: #FFFFFF;  
                                 opacity: 0;
+                                padding-left: 15px;
+                                position: relative;
+                                z-index: 10;
                                 &::before {
                                     /*counter-increment: section;*/
                                     /*content: counter(section) ".";*/

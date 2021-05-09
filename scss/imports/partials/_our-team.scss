@@ -7,14 +7,14 @@ section.our-team {
       margin-bottom: 80px;
 
       .text {
-        color: rgba(0, 0, 0);
+        color: rgba(0, 0, 0, 1);
 
         .emphasis {
           color: #fff;
         }
 
         @include mobile {
-          color: rgba(0, 0, 0);
+          color: rgba(0, 0, 0, 1);
           .emphasis {
             color: #000;
           }

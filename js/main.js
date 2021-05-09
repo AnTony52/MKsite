@@ -150,11 +150,11 @@ jQuery(document).ready(function ($) {
      * load html for elements
      */
 //    $("html.page header").load("/partials/header.html");
-    $('.block-logo').load("/partials/logo-header.html");
-    $("footer").load("/partials/footer.html");
-    $('#popup-contact').load("/partials/popup-contact.html");
-    $('#blocks-modal').load("/partials/modal.html");
-    $('.modal-menubar-content').load("/partials/menus.html");
+    $('.block-logo').load("partials/logo-header.html");
+    $("footer").load("partials/footer.html");
+    $('#popup-contact').load("partials/popup-contact.html");
+    $('#blocks-modal').load("partials/modal.html");
+    $('.modal-menubar-content').load("partials/menus.html");
 
     bannerSlider();
     var scrol_tab_page = 0;
@@ -927,6 +927,13 @@ var modalPopup = {
                 }
             }
 
+            if ($(this).data('modal') == "popup-get-in-touch") {
+                gsap.set('.getintouch-contact h3', {opacity: 0});
+                gsap.set('.getintouch-contact .getintouch-item', {opacity: 0});
+                gsap.set('.modal-gitintouch-right form input', {opacity: 0});
+                gsap.set('.modal-gitintouch-right form  button', {opacity: 0});
+            }
+
             $('.modal-popup').attr('modal-type', $(this).data('modal'));
             if ($(this).data('modal') == "popup-gallery") {
                 modalPopup.init_popup_gallery($(this));
@@ -951,6 +958,63 @@ var modalPopup = {
 //                                $('html').css('overflow', 'hidden');
 //                                cursorCustomize.initHovers();
 //                            }});
+            if ($(this).data('modal') == "popup-get-in-touch") {
+                gsap.fromTo('.modal-gitintouch-right form input',
+                        {y: 20, opacity: 0},
+                        {
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.2,
+                            duration: 2.5,
+                            onComplete: function () {
+                                gsap.fromTo('.modal-gitintouch-right form button',
+                                        {y: 20, opacity: 0},
+                                        {
+                                            y: 0,
+                                            opacity: 1,
+                                            stagger: 0.2,
+                                            duration: 1,
+                                            onComplete: function () {
+                                                //                                        $('html').css('overflow', 'hidden');
+                                                //                                        const cursorCustomize = new Cursor();
+                                            }
+                                        }
+                                );
+                            }
+                        }
+                );
+
+                gsap.fromTo('.getintouch-contact h3',
+                        {y: 20, opacity: 0},
+                        {
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.2,
+                            duration: 2.5,
+                            onComplete: function () {
+//                                        $('html').css('overflow', 'hidden');
+//                                        const cursorCustomize = new Cursor();
+                            }
+                        }
+                );
+
+                gsap.fromTo('.getintouch-contact .getintouch-item',
+                        {y: 20, opacity: 0},
+                        {
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.3,
+                            duration: 2.5,
+                            onComplete: function () {
+//                                        $('html').css('overflow', 'hidden');
+                                const cursorCustomize = new Cursor();
+                            }
+                        }
+                );
+
+                $('html').css('overflow', 'hidden');
+            }
+
 
             if ($(this).data('modal') == "popup-menubar" || $(this).data('modal') == "popup-contact") {
                 $('.menu-overlay').show(function () {
@@ -988,6 +1052,18 @@ var modalPopup = {
                             }, {
                                 x: 0, opacity: 1
                             });
+                            
+                            gsap.fromTo($(this).find('.-word'), {
+                                x: 0, opacity: 1,
+                            }, {
+                                x: 0, opacity: 0
+                            });                            
+                            
+                            gsap.fromTo($(this).find('a'), {
+                                x: 0, opacity: 0,
+                            }, {
+                                x: 0, opacity: 1
+                            });                                  
                         }).on('mouseleave', function () {
                             $(this).find('.-word').removeClass('grayed');
                             gsap.fromTo($(this).find('.numbering'), {
@@ -995,6 +1071,18 @@ var modalPopup = {
                             }, {
                                 x: 20, opacity: 0
                             });
+                            
+                            gsap.fromTo($(this).find('.-word'), {
+                                x: 0, opacity: 0,
+                            }, {
+                                x: 0, opacity: 1
+                            });                            
+                            
+                            gsap.fromTo($(this).find('a'), {
+                                x: 0, opacity: 1,
+                            }, {
+                                x: 0, opacity: 0
+                            });                                  
                         });
                     } else {
                         gsap.fromTo('.modal-contact-right .contact-form .input-form',
@@ -1267,6 +1355,7 @@ var modalPopup = {
                     }
                 });
             }
+            $('html').css('overflow', 'inherit');
         })
     },
     supportKey: function () {
@@ -1441,18 +1530,47 @@ jQuery(window).load(function () {
         }
     })
     
-    jQuery('#main .tab-page ul').on("swipe move",function(){
-      console.log('sdjsgdfjhgsh');
-    });
+    var tab_width = 0;
     
-    jQuery('.modal-popup').on('click', '.input-group .input-group-default .arrow', function (e) {                                           
+    jQuery('#main .tab-page ul > li').each(function () {
+        tab_width += $(this).width();
+    });
+    tab_width = - parseInt(tab_width - jQuery('body').width());
+    
+    console.log(tab_width);
+
+    jQuery('#main .tab-page ul').draggable({
+        axis: "x",
+        start: function(event, ui) {
+            start = ui.position.left;
+        },
+        drag: function(event, ui) {             
+            var stop = ui.position.left;
+            var direction = ((start < stop) ? 'rigth':'left');
+            if(direction == 'left'){
+                if(stop <= tab_width){
+                    return false;
+                }
+            }else{
+                if(stop >= 0){
+                    return false;
+                }  
+            }
+        },
+        stop: function(event, ui) {
+//            console.log(ui.position.left);
+        }
+    });
+
+    jQuery('.modal-popup').on('click', '.input-group .input-group-default .arrow', function (e) {
         e.preventDefault();
         var obj_flag = jQuery(this).parent().next();
-        if(obj_flag.css('display') == 'none'){
+        if (obj_flag.css('display') == 'none') {
             obj_flag.slideDown();
-        }else{
+            obj_flag.parent().next().css('transform','inherit');
+        } else {
             obj_flag.slideUp();
-        }                                            
+        }
         console.log(jQuery(this).parent().next());
         return false;
     }).on('click', '.input-group .input-left li', function () {
@@ -1461,5 +1579,5 @@ jQuery(window).load(function () {
         jQuery('.input-group .input-group-default .check-flag').attr('src', src);
 //        jQuery('.input-group .input-group-default i').text(text);
         jQuery('.input-group .input-left').toggle();
-    });    
+    });
 })
