@@ -153,6 +153,7 @@ jQuery(document).ready(function ($) {
     $('.block-logo').load("partials/logo-header.html");
     $("footer").load("partials/footer.html");
     $('#popup-contact').load("partials/popup-contact.html");
+    $('.popup-get-in-touch').load("partials/get-in-touch.html");
     $('#blocks-modal').load("partials/modal.html");
     $('.modal-menubar-content').load("partials/menus.html");
 
@@ -930,7 +931,7 @@ var modalPopup = {
             if ($(this).data('modal') == "popup-get-in-touch") {
                 gsap.set('.getintouch-contact h3', {opacity: 0});
                 gsap.set('.getintouch-contact .getintouch-item', {opacity: 0});
-                gsap.set('.modal-gitintouch-right form input', {opacity: 0});
+                gsap.set('.modal-gitintouch-right form .input-form', {opacity: 0});
                 gsap.set('.modal-gitintouch-right form  button', {opacity: 0});
             }
 
@@ -959,7 +960,7 @@ var modalPopup = {
 //                                cursorCustomize.initHovers();
 //                            }});
             if ($(this).data('modal') == "popup-get-in-touch") {
-                gsap.fromTo('.modal-gitintouch-right form input',
+                gsap.fromTo('.modal-gitintouch-right form .input-form',
                         {y: 20, opacity: 0},
                         {
                             y: 0,

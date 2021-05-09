@@ -502,6 +502,7 @@ table {
           line-height: 25px;
           text-transform: uppercase; }
         .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-left .getintouch-contact .getintouch-item p {
+          font-family: 'Zona-Pro';
           font-style: normal;
           font-size: 14px;
           line-height: 19px;
@@ -526,7 +527,7 @@ table {
           font-weight: normal;
           font-size: 14px;
           line-height: 24px;
-          font-family: 'GothicPro-Regular';
+          font-family: 'Zona-Pro';
           border: 1px solid #FFFFFF;
           width: 100%;
           height: 50px;
@@ -540,6 +541,54 @@ table {
             color: #FFFFFF; }
           .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form input:nth-child(4) {
             margin-top: 50px; }
+        .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group {
+          position: relative;
+          min-height: 53px;
+          border-bottom: 1px solid #FFFFFF; }
+          .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-group-default {
+            position: absolute;
+            z-index: 999;
+            top: 17px;
+            font-family: 'Zona-Pro';
+            font-size: 14px;
+            padding-bottom: 8px;
+            padding-right: 20px;
+            min-width: 85px; }
+            .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-group-default i {
+              vertical-align: top;
+              line-height: 25px; }
+            .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-group-default .arrow {
+              position: absolute;
+              z-index: 9999;
+              top: 4px;
+              cursor: pointer;
+              border: none; }
+          .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group input {
+            width: calc(100% - 80px);
+            float: right;
+            border: none; }
+          .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left {
+            /*position: relative;*/
+            position: absolute;
+            left: 0;
+            top: 60px;
+            background: #fff;
+            max-width: 230px;
+            padding: 10px 0;
+            z-index: 9999;
+            display: none; }
+            .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left li {
+              padding: 5px 24px; }
+              .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left li span {
+                display: inline-block;
+                font-family: 'Zona-Pro';
+                vertical-align: top; }
+                .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left li span:last-child {
+                  float: right; }
+              .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left li:hover {
+                background: #E9E9E9; }
+                .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form .input-group .input-left li:hover a {
+                  /*color: #fff;*/ }
         .modal-popup[modal-type="popup-get-in-touch"] .modal-popup-content .modal-body .modal-gitintouch-right form button {
           background: none;
           border-left: none;
@@ -651,6 +700,7 @@ table {
             line-height: 25px;
             text-transform: uppercase; }
           .modal-popup[modal-type="popup-contact"] .modal-popup-content .modal-body .modal-contact-left .getintouch-contact .getintouch-item p {
+            font-family: 'Zona-Pro';
             font-style: normal;
             font-size: 14px;
             line-height: 19px;
