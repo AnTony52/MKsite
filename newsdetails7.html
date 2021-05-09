@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                ont-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 35px;
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">“Are you fulfilled? IKIGAI.”</h1>
+
+                            
+                            <p class="p-sub">by Max-Ferdinand Scheichenost, Director of Digital Transformation, Mekong Capital
+                                24 December 2020</p>
+
+                                <div class="image">
+                                    <img class="image-minhkhue" src="./images/newsdetails/glass.jpeg" alt="">
+                                    <div class="third-image-p">
+                                        <p>Khue visited Red Wok Central Kitchen, empowering Red Wok team about Sustainability
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mt-5 mb-5">
+                                    <div class=" col-md-2">
+                                        <p class="p-red">
+                                            <span class="pi">&#8216;&#8216;</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8 blockquota">
+                                        — “Iki-What?”
+                                    </div>
+                                </div>    
+
+                            <p class="p-first">This has been the first reaction to anyone who had heard my answer for whether I am “happy” or “fulfilled” at Mekong Capital.<br><br>
+                            </p>
+
+                            I came across the concept of Ikigai a couple of years ago, when I was going through a deep discovery phase. Operating in a state of Ikigai (or a “reason for being”) is the moment these four driving forces are in balance: Profession, Vocation, Passion, and Mission.<br><br>
+                            </p>
+
+                            <div class="image">
+                                <img class="image-minhkhue" src="./images/newsdetails/ikainai.jpg" alt="">
+                                <div class="third-image-p">
+                                    <p>Image: Toronto Star
+                                    </p>
+                                </div>
+                            </div>
+                            
+
+                            <p class="p-seccond">
+                                Though you may not be familiar with the term Ikigai (yet), I believe that you will find that it has much significance and value for you. And I invite you to discover your own Ikigai by sharing my story and how I arrived at this state of BEING at Mekong Capital.
+
+<br>
+                                <br>
+                                My excursion for Ikigai<br>
+                                <br>
+                                I have been working as an Entrepreneur since (actually during) my university times and was never really “choosing” what I would do next but rather saw an opportunity that I wanted to capture. I literally worked day & night for a decade always chasing for the next opportunity.<br>
+                                <br>
+                                These opportunities made me start a business with little knowledge nor experience on how to run a business. They made me jump on a plane end of 2011 to manage a portfolio of eCommerce businesses without knowing where all of these countries are actually located on the world map (seriously!); or even start a health tech business in Singapore without ever working in Singapore nor in Healthcare. These opportunities were often driven out of Profession or out of my Vocation — but it never fully satisfied me. Yes, I had some of my greatest (perceived) moments but deeply I was never fulfilled. <br>
+                                <br>
+
+                                People came often to me and said “Wow, you achieved this or that” or “You have done this or that — that’s crazy” but I barely felt proud of these accolades. In fact, I felt uncomfortable as any outside success has been accompanied by a lot of sacrifices. And only I knew myself that I didn’t feel complete (or fulfilled). I had known about the Ikigai concept for years but I have never BEEN in the space of Ikigai. I was checking all the boxes for “What I am good at”, “What I can be paid for” and “What the world needs”. But something was missing.<br>
+                                <br>
+
+                                I have also seen my friends working for either top consulting or law firms, are investment bankers or “hired guns” aka CEOs or operating in other leadership positions. The common denominator I observe: all of them are really good at what they do, they are paid (very) well for what they are doing and there is an occurrence that the world needs their talent. The crux: most — if not all of them — hate their job.<br>
+                                <br>
+
+                                Some of them get drunk very often, some have fundamental problems in their private life, some convert their problems into being a workaholic with some serious long-term effects in both their relationships and personal health. They are chasing for something bigger. There is the occurrence that there is always more. More opportunities, more money, more to be achieved. But deeply — as I had it as well for a number of years — they are not fulfilled. They, and I, have not yet found our Ikigai.<br>
+                                <br>
+
+                                Not until I was awakened to realize that what I deeply care about, “What I love”, is the key to unlock my Ikigai. It was when I become a father. BEING a father has been one of my biggest personal transformations. It added a new dimension to my life and gave me a much deeper purpose and helped me to realize that there is much more than “just work”.<br>
+                                <br>
+
+                                It was the first time that I choose to be an active father — and not just a weekend Dad. It was the first time that I decided to move to a new country (=Vietnam), not because of a business opportunity but because I wanted to be a loving and caring partner & father. It was the first time that I choose to go to a new place without a plan. There were so many firsts. And these firsts led me to start working with Mekong Capital and the wonderful team here.<br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    It has been the first time that I can say that I am in my space of Ikigai.
+                                </div>
+                            </div>
+
+                            <p class="p-third">
+                                I have a passion for Digital Transformation. I LOVE what I am doing. I am present both at work and at home. I can see my boy every morning and nearly every evening.<br>
+                                <br>
+
+                                I have a mission to reinvent Private Equity and generate breakthrough results while being a loving father & partner. <br><br>
+
+                                I am (hopefully) a more centered person (at least that is the feedback I have received over the last couple of months). My colleagues and investee teammates acknowledge me for my contribution.<br>
+                                <br>
+                            </p>
+
+                            
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/sticker.jpeg" alt="">
+                                <div class="image-p">
+                                    <p>Max leading one of Mekong Capital’s coaching sessions</p>
+                                </div>
+                            </div>
+
+
+
+
+
+                            
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+
+                                
+                            </style>
+
+                            <p class="p-four">
+                                I experience growing in my profession from BEING a CEO/Founder to BEING a coach and causing (instead of ‘just’ producing) results, helping others grow in their profession and work — and the best of it: I am getting paid for it (Profession & Vocation).<br>
+                                <br>
+
+                                Operating in the state of Ikigai<br>
+                                <br>
+                                
+                            </p>     
+                            
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    — “How much are you paid for at Mekong Capital?”.
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                Some of my lovely friends have asked me (and believe you do wonder as well) if I get enough to balance the four forces. This is the “moment of truth” to hold my ego back and remind myself that I found my Ikigai and that it’s not about “What you can be paid for”.<br>
+                                <br>
+
+                                There are more equally important dimensions to operate in the space of Ikigai. I am in THE place where there is a deep connection between my personal vision & purpose and Mekong Capital’s vision & purpose. The purpose of Mekong Capital is to re-invent Private Equity, generating breakthroughs, wealth, and fulfillment. Especially the last word (“fulfillment”) is difficult for most people to define. But for me, fulfillment is being in a state of Ikigai.<br>
+                                <br>
+
+                                And now I am happy. I am fulfilled. I am right at my Ikigai — the intersection of these four forces! What else is there “more” to have?<br>
+                                <br>
+
+                                It was fascinating to find out that my life was driven by the thoughts I had about myself without being aware of their presence.:<br>
+                                <br>
+
+                                Thus, I remind myself regularly that I am happy to operate in a space of Ikigai. That there is nothing “more” I can ask for. That I am grateful for what I can do, with the people I want to work with, for the fact that I am adding value to Vietnam (and thereby to the world) and that I am getting paid for it — all while fulfilling Mekong Capital’s (and my personal) vision & purpose.<br>
+                                <br>
+
+                                2020 has been a special year for all of us. So as we are coming close to the end, let’s reflect ourselves to embrace the larger picture:<br>
+                                <br>
+                                
+                            </p>    
+
+                                   
+
+                    
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    finding our Ikigai — the reason for BEING.
+
+
+                                </div>
+                            </div>
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

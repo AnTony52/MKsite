@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                ont-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">At the pit bottom of the well..</h1>
+                            <p class="p-sub">by Nguyen Minh Phuong, Senior Associate, Mekong Capital, 
+                                18 March 2021</p>
+                            <p class="p-first">We use past experience as a shield to protect us from the unknown future. In my case, I recently discovered that many of my adult decisions have been dictated by the experiences of a five-year-old girl. <br><br>
+                                I grew up in a slump area in Hanoi where a lot of drug addicts live. I often woke up in the middle of the night, hearing shouting and police car sirens. Wanting to keep me safe, my parents forbade me to go outside and play in the neighborhood. I felt like I was living in the middle of a minefield and that if I took one wrong step, I would explode. <br><br>
+                                When I was 5, my mother decided to go to work and started her career again. And that came with a decision for me to stay at home alone within locked doors every following summer until I was 10. <br><br>
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    I was lonely and scared, and small.
+                                </div>
+                            </div>
+
+                            
+
+                            <p class="p-seccond">
+                                In 2011, as I was studying, I immediately was recruited by one of the biggest retail banks in Australia. It was a dream come true for so many of my friends at that time. And it was huge pride for my parents. So I tried to linger on and consoled myself that, as long as I never crossed the line, I would be safe and secure in my job.  <br>
+                                <br>
+                                But no. <br>
+                                <br>
+                                Reality hit in 2019 when the bank closed its door and its investment strategy in Vietnam. I lost my job. <br>
+                                <br>
+                                Apparently, following rules and standards did not make me safe. I suddenly questioned why I always chose ‘safety’. I was never able to answer that question until … <br>
+                                <br>
+                                6 months after joining Mekong Capital, my mentor and deal leader discovered the pattern that he had in his life from his childhood story. It opened up a space for me to think of my lifelong pattern:“I am locked inside until somebody comes to release me”. I shared with Rachel my life timeline, and she shouted with cheer: “You have not released the fear of your five-year-old. If you would have it any way you want, would you choose safety or happiness?”<br>
+                                <br>
+                                I suddenly realized that I never wanted safety. Safety was something that was forced on me as a child and since I didn’t know there was any other way. I was stuck in an unconscious choice — the exact choice I made for my entire life: I can be boring and disconnected, as long as I can also be safe and protected. <br>
+                                <br>
+                                This transformation not only carried me through the APES class and changed my grade from C
+                                to A but also reformed who I am, what I truly care about in life. Now, I believe that for my
+                                future, my children’s future, my grandchildren’s future, and 10 more generation’s future to
+                                be beautiful, I have to act consciously about the fact that nature and humans are always
+                                together sharing the same picture.
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    I was like a frog at the pit bottom of the well.
+                                </div>
+                            </div>
+
+                            <p class="p-third">
+                                While he looked up at the sky and saw the sky just like a circle, I was also looking at life with the eyes of the five-year-old girl stuck safely at home with no one, and no one would come to unlock my door. I chose safety and at the same time, I chose to let go of what excites me. And then came Rachel, she was there at the top of the well, sharing with me all the possibilities for me outside the well: “The sky is limitless, the flowers are blossoming and the colors are vivid and the lights are warm.” I took the courage… I closed my eyes .. I saw a five-year-old little girl opening the locked doors herself, stepping outside.<br>
+                                <br>
+
+                                Since then, I choose to live with what the little girl inside of me really wanted. I feel the warmth of sunlight and the fun of being surrounded by laughter and friends. I may not be as physically safe, but now I am really alive, living my life. I am ready to throw myself into the unknown and discover the adventure I want to write about in my own book.…and ..
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    I feel so happy!
+                                </div>
+                            </div>
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+                            </style>
+
+                                   
+
+                           
+
+                            <p class="p-four">
+                                So yeah, every day now, I am writing and living my own story of a Vision Fulfiller where I can shower the world easily and effortlessly with love, compassion, and joy, from which dreams sprout and grow into reality.<br>
+                                <br>
+                                
+                            </p>
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/bike.png" alt="">
+                            </div>
+
+                                      
+
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

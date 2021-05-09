@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                ont-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">Are you struggling with understanding what is E&S/Sustainability?</h1>
+                            <p class="p-sub">by Ngo Minh Khue, Sustainability Officer, 31 March 2021</p>
+                            <p class="p-first">You are not the only one. <br>
+                                You probably remember me from a recent (Environmental and Social) E&S audit, starting with a
+                                long email asking you to fill out a long list of questions and providing a bunch of
+                                supporting documents. Maybe you don’t even know what E&S audit is really about and you tried
+                                to quickly power through the audit just to get it done because it is part of the job. Maybe
+                                when you hear “E&S”, you immediately think boring compliance stuff with a bunch of legal
+                                jargon that you don’t really understand. <br>
+                                <br>
+
+                                When I say that E&S is surely not that complicated, you might not believe — not yet. But let
+                                me tell you a story, because, well, you are not the only one. <br>
+                                <br>
+
+                                I came to the US when I was 17 to experience the American culture as a high school student,
+                                to perform well academically, and give myself a good start to attend a good American
+                                college. <br>
+                                <br>
+
+                                A part of that experience was to work with my academic counselor to take 7 classes that
+                                fulfill all needed credits for me to graduate. One of those 7 classes was Advanced Placement
+                                Environmental Science (APES).
+                            </p>
+                            <div class="image">
+                                <img class="image-minhkhue" src="./images/newsdetails/minh khue.jpeg" alt="">
+                                <div class="image-p">
+                                    <p>Minh Khue (middle) with her friends in the US</p>
+                                </div>
+                            </div>
+
+                            <p class="p-seccond">
+                                Even in the first week of school, I had trouble with this class. Everything was new to me
+                                from the language I did not grow up speaking, to new concepts I had never known about. Along
+                                with that were continuous assignments: to read 1 new chapter introducing a new topic of
+                                Environmental Science (90 pages of a textbook) every week. Weekly tests were the ones that
+                                gave me the most anxiety (because I knew I would be tested on things I couldn’t understand).
+                                Compared to my classmates, I was very slow. Not knowing what actually was going on in class,
+                                I was simply lost. Most of the time, I was just copying what others around me wrote or said
+                                and hiding in a corner. <br>
+                                <br>
+                                Thus, unsurprisingly, I got very bad grades on my tests (to me a C was a bad grade). The
+                                sadder part was that my teacher didn’t think it was a big deal (apparently, it is normal
+                                there). For an A-student, overachiever like me at that time, that was not acceptable. I felt
+                                frustrated with reading books I didn’t understand, lonely in group activities I couldn’t
+                                figure out how to participate in and worried every time going into test sessions. <br>
+                                <br>
+                                A week before the deadline to add or drop classes, I asked my counselor to see if there are
+                                other classes I can switch to. At that time, other similar level classes are filled up. I
+                                wouldn’t be able to fulfill all the needed credits if I decided to drop the class. But I
+                                don’t want to end up with a big C because I just… can’t. He told me to give APES another try
+                                for another week. <br>
+                                <br>
+                                A week later, not only was I still struggling by myself, but my grade also went downhill to
+                                a concerning point. The class and my classmates kept going to do fun activities, having
+                                great debates about environmental topics — all, of course, without me. Feeling so lonely,
+                                angry, and frustrated, I was disappointed to the point that I wanted to give up. I wanted to
+                                skip class every time the bell rang for the 6th period. Friday, I told my teacher that I
+                                want to drop APES, knowing that I won’t be able to graduate at all since I don’t have enough
+                                credits. <br>
+                                <br>
+                                Shocked by my statement, my teacher finally realized what I went through. She was so
+                                empathetic. She said: it is only normal for international students to struggle with the
+                                class, the new language, the studying style. She supported me by going slower in class and
+                                ensuring that I understood the main idea of each chapter back to the very beginning. She
+                                taught me to realize the patterns, to connect the dots of what I observe every day in life
+                                to what is going on in my APES textbooks. <br>
+                                <br>
+                                That significantly changed my view of APES. Yes, I still didn’t speak English as my
+                                first-born language. However, I always knew about how rain forms, how water flows from
+                                highlands through rivers to oceans, I always knew about how humans get our food from
+                                agriculture and raising cows and chickens. That opened my eyes to a whole new world. As I
+                                saw the lessons beyond textbook chapters in a new language to read, I join more group
+                                activities. When I could make the connections between what I already know and what the class
+                                was introducing, I started to care and became eager to learn more about the cause of climate
+                                change and why preserving nature is so important for humanity. <br>
+                                <br>
+                                This transformation not only carried me through the APES class and changed my grade from C
+                                to A but also reformed who I am, what I truly care about in life. Now, I believe that for my
+                                future, my children’s future, my grandchildren’s future, and 10 more generation’s future to
+                                be beautiful, I have to act consciously about the fact that nature and humans are always
+                                together sharing the same picture.
+                            </p>
+
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/1_6qn9PHEhvovIhsQjvfXIrg.png" alt="">
+                            </div>
+
+                            <p class="p-third">
+                                The E&S world might feel like a new class/subject for you, with boring homework (long
+                                questionnaires), in a totally new language (full of legal jargon). It might frustrate you
+                                because you have to be compliant with the regulations and standards. Thus, you might not
+                                want to even bother changing the context of how E&S occurs to you. You might fill out the
+                                reports/questionnaire with the mindset of JUST GET IT DONE.<br>
+                                <br>
+
+                                However, like any new language, it takes some time. I want to invite you to slow down on
+                                reading your long audit questions and start any E&S projects by asking “What is the
+                                intention of this?” Then try to connect the things you already know from your everyday work
+                                that might already exist (Internal Labor Rules, your Firefight, and emergency response, save
+                                electricity, resources, custom er protection) to the E&S standards. You might just find that
+                                you will experience a different relationship with E&S. E&S lives in you and your business,
+                                one way or another.
+                            </p>
+
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+                            </style>
+
+                            <div class="row mt-5 mb-5">
+                                    
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    Estands for Environment — the land you operate your business on, the water you consume, the air you breathe, the resources that create energy powering your machines. S stands for Social — the people work for you, your customers, your clients, your suppliers
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                The main concept of this is simple: mitigate the unwanted risks and negative impacts, and
+                                initiate positive impacts to the environment and people around you and your business.
+                                Simple. It makes sense. And it connects to everybody’s everyday real lives. <br>
+                                <br>
+                                Do you want to stand for a better understanding of E&S? I’m here and I can help. Let’s have
+                                a conversation so I can listen to what you already know and have experienced in the past,
+                                and what you want for your future. Then you can choose what you do in the present. Let’s
+                                start from there and go through the journey together. E&S may feel like a new class in a new
+                                language, but I am here to let you know that you are not alone like I was in my APES class.
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    Together, we can reform who we are and how we impact our future, our children’s future, our
+                                    grandchildren’s future, and 10 more generation’s future!
+                                </div>
+                            </div>                            
+
+                            <div class="third-image">
+                                <img class="image-threegirl" src="./images/newsdetails/hình cắt.jpg" alt="">
+                                <div class="third-image-p">
+                                    <p>Khue visited Red Wok Central Kitchen, empowering Red Wok team about Sustainability
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <div>
+                                <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                            </div>
+
+                            
+                        <div class="col-md-2 offset-md-5">
+                            <h1 class="container2-title"> 
+                                RECENT POST
+                            </h1>
+                        </div>
+                        </div>
+
+                        
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

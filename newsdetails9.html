@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                ont-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 35px;
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">I am all in for YOLA’s future.</h1>
+
+                            
+                            <p class="p-sub">by Minh Thuy, Investment Analyst, Mekong Capital
+                                11 December 2020 </p>
+
+                                <div class="image">
+                                    <img class="image-minhkhue" src="./images/newsdetails/minh thuy.jpeg" alt="">
+                                    <div class="image-p">
+                                        <p>Minh Thuy, Investment Analyst, Mekong Capital</p>
+                                    </div>
+                                </div>
+
+                    
+                            <p class="p-seccond">
+                                Thuy, I would like to invite you to be the Deal Support for YOLA.” Sjoerd, the Deal Leader, suddenly offered me this opportunity.<br>
+                                <br>
+                                After a few seconds of thought, I replied reluctantly: “Yes.” <br>
+                                <br>
+                            
+                                Sensing my hesitancy, Sjoerd smiled gently and said: “Thuy, it doesn’t sound like an exciting “Yes”. You know that you can always say no, right?”<br>
+                                <br>
+
+                                It has been 5 months since I joined the Investment team. I have not been in any deals yet. This was a perfect chance, so I asserted:<br>
+                                <br>
+
+                                How could all the newcomers powerfully choose to BE a Mekonger at the end of their first 3 months, unless they had actually experienced BEING them (not to mention the breakthroughs they would go through to fully experience BEING each one)?<br>
+                                <br>
+
+                                Sitting at my desk, I stared at YOLA’s Vision: “Everyone is empowered to unlock their full potential…”. Deep down, I am personally inspired by education’s power and how it changes people’s lives. But… English… “Well, how come such a huge impact promised in YOLA’s Vision can be realized via teaching English?”. I doubted. It seemed like something was missing.<br>
+                                <br>
+
+                                While I was still struggling to get connected with YOLA’s Vision, Sjoerd suddenly invited me to a meeting with Khoa — founder and CEO of YOLA and Chris — our “Big boss.” He told me:<br>
+                                <br>
+
+                                “You should really look at the Vision and see if you can be the champion for it. And if you are not, you have the choice to work with other Deals.”
+
+                                <br>
+                                <br>
+
+                                Now, this is serious. It was the second time that Sjoerd questioned my choice. I pondered, “I am the new Deal Support. How can I quickly connect with YOLA and be their champion like him?”. The meeting with Khoa came in just like an entrance exam that I need to pass. And… guess what? Our “Big Boss” will be there as well. If I am not performing well, I would be in trouble!!!<br>
+                                <br>
+
+                                Just before the meeting, I spent hours staring at YOLA’s vision again, trying to remember and interpret it in my words. On the way to YOLA’s office, Chris gave me a friendly reminder:<br>
+                                <br>
+
+                                “You should ask Khoa a lot of questions to have a clear picture of YOLA’s Vision.”<br>
+                                <br>
+
+                                Oops! It was about 10 minutes away from YOLA’s office — 10 minutes before the exam, and the examiner threw at me an extra topic: “Being Inquisity.” Inquisity has always been one of our values at Mekong Capital. I should have been Inquisity to prepare for the meeting instead of waiting for Chris to ask. I was so sweating. My brain was completely empty.<br>
+                                <br>
+
+                                Finally came the meeting. As Chris and Sjoerd asked Khoa about the big picture of YOLA Vision, I started to see how important it was to be Inquisity. Questions after questions, I could see that Khoa was getting more excited and kept on sharing enthusiastically. He was so light and free like a cloud in the sky. And right under the sky, there was a volcano ready to erupt. It was me, sitting still and trying to speak up with one of those questions I tried to prepare a couple of minutes ago. In a moment, like a rain cooling down that volcano, Khoa brought up his personal story:<br>
+                                <br>
+
+                                “Being an overseas student was like a dream. Without this scholarship, my family could not have afforded to send me abroad to study … I started YOLA to offer more opportunities to students and support them to have better access to foreign education ….”<br>
+                                <br>
+
+                                His authenticity really touched me. I almost cried when seeing myself in his story. My mind flashed back to the day I received the congratulations email on winning a fully-funded Master’s scholarship in New Zealand two years ago. I never thought I would have the chance to study abroad. I recalled how excited I was and how busy I was sharing such good news with my parents and relatives. Most of them had not even been to a foreign country before. Those happy moments had shaped my commitment to education as a way to empower younger generations’ future.<br>
+                                <br>
+
+                                In a moment, I realized that my prepared questions had nothing to do with being Inquisity. Chris and Sjoerd were relentlessly pulling for the big picture. They asked wholeheartedly from their commitments and their desires to understand Khoa and emerged themselves into YOLA vision. And I asked myself, “Am I 100% excited with YOLA Vision now? What other insights that I need from Khoa?”. A question then naturally came to my mind. I asked Khoa:<br>
+                                <br>
+
+                                “Why did you choose English education but not something else, like maths, etc.?<br>
+                                <br>
+
+                                “For me, Education wasn’t solely about teaching. My experience with English & Test preparation education was a pathway for me to maximize my potential. Thus, I want to leverage on what I do best and pass on my values and experiences to thousands of students in Vietnam”. — Khoa calmly replied.<br>
+                                <br>
+                                I was touched. I couldn’t help but speak up about my stand for Khoa and YOLA:<br>
+                                <br>
+
+                                “I was also lucky to earn a scholarship that my family would never have afforded. Before coming to the meeting, I was trying to memorize the visions, the number of enrollments. But when you shared your stories and your commitment, I got that you see education as creating a multiplier effect through different layers of society, from helping students unlock their potential, get a better job, take care of their families and give back to society in many other ways. I could also see myself in that future, making impacts on Vietnamese children with English education. It is very inspiring. Thank you!”<br>
+                                <br>
+
+                                From that moment, I have transformed my understanding of what I thought YOLA’s Vision was about. I no longer had any doubts about my commitment to YOLA’s Vision. And now, I am going “All-in” in a poker game with the rest of my chips, and I knew that I was the champion for YOLA’s Vision. That is the true power of being Inquisity:<br>
+                                <br>
+                              
+
+                                </p>
+
+                                <div class="row mt-5 mb-5">
+                                    <div class=" col-md-2">
+                                        <p class="p-red">
+                                            <span class="pi">&#8216;&#8216;</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8 blockquota">
+                                        “Relentlessly pulling for the big picture or vision, intentions, root causes, and key drivers. Generating penetrating insights which continuously transform our understanding of what we thought we were dealing with.”
+                                    </div>
+                                </div>
+
+                            
+                           
+                            
+
+                        
+
+
+
+
+
+                            
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+
+                                
+                            </style>
+
+                           
+                            
+                                      
+
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

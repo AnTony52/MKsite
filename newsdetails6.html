@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                ont-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 35px;
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">The trap of ‘Who-I think-I-am’ vs. ‘Self-love’</h1>
+
+                            
+                            <p class="p-sub">by Ngo Dinh Thao Phuong, VDI Champion, Mekong Capital
+                                9 January 2021</p>
+
+                                <div class="image">
+                                    <img class="image-minhkhue" src="./images/newsdetails/họp.jpeg" alt="">
+                                
+                                </div>
+
+                            <p class="p-first">In 2019, I joined one of Mekong Capital’s internal coaching sessions to have breakthroughs in my being core values.<br><br>
+                            </p>
+
+                            In one of the very last sessions, the coaches asked us to note down, “How you occur for yourself?”.<br><br>
+                            </p>
+
+                            “Ha! This is easy”, I thought. I immediately wrote three statements:<br><br>
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    “I am confident. I am strong. I am reliable”.
+                                </div>
+                            </div>
+
+                            
+
+                            <p class="p-seccond">
+                                But the coaches wouldn’t let me stop there.<br>
+                                <br>
+                                The coaches insisted that each of us needed to dig as deep as possible to see the ‘labels’ we had on ourselves: <br>
+                                <br>
+                                “What makes those statements important to you? What makes you think you are those statements? How do you feel about yourself not being confident, strong, or reliable?” .<br>
+                                <br>
+                                Following the questions, I looked within myself. A whole new world opened up for me when I found out what were hiding in those statements: my two points of views:, <br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    (1) “I am insecure and vulnerable”
+                                </div>
+                            </div>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    (2) “I hate whoever not being responsible”
+                                </div>
+                            </div>
+
+                            <p class="p-third">
+                                That’s why I chose to act confidently, to be strong, and to be responsible. But I still felt like there was something else hiding underneath those points of view. They were more like the effect rather than the root cause. “I need to keep looking inside me” — I told myself. So I kept questioning:.<br>
+                                <br>
+
+                                <b>“Why do I need to hide those views?”</b> <br><br>
+
+                                The answer struck me: I felt insecure because I didn’t believe that I deserved to get something from others and I was not sure why they needed to treat me in certain ways.<br>
+                                <br>
+                            </p>
+
+                            
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/chíu.png" alt="">
+        
+                            </div>
+
+
+
+
+
+                            
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+
+                                
+                            </style>
+
+                            <p class="p-four">
+                                Then in the darkest corner, my finger touched the harshest context that I had about myself. After a long time pressing it deep down, covering with the seem-to-be-nice beings of confident, strong, and reliable, I finally had the courage to pull it out — the ugly and naked truth:<br>
+                                <br>
+                                
+                            </p>     
+                            
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    I am unlovable. I am not valuable. I am unwanted.
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                I was speechless and just sat there being frozen. I didn’t know what to do next.<br>
+                                <br>
+
+                                I looked at those words like a box of dirty dishes stashed in my room for 30 years. They smelled like hell. But for so long, all I saw was a beautifully wrapped box and with alluring perfume. And by some magic, this wrapped box had helped me survive until now.<br>
+                                <br>
+
+                                The next day, I decided to look back at whatever happened in my life that led to that ugly truth.<br>
+                                <br>
+
+                                It was fascinating to find out that my life was driven by the thoughts I had about myself without being aware of their presence.:<br>
+                                <br>
+
+                                The biggest realization was how much and how many times I had been hurt while trying to be ‘confident, strong, and reliable’. It never felt like pure peace and happiness. Most of those times, I found myself being tolerating and incomplete. I felt there was something missing, something wrong about everything including me. That was when I found out the box was definitely NOT a savior but a DESTROYER of my life: A silent destroyer within me acting like a hero. I was imprisoned in my own life.<br>
+                                <br>
+
+                                Like a wave underneath the tsunami ready to come up, I strongly desired to put an end to all of this. Thus, I chose to stop living my life being run by any thoughts. I chose to create a world that I love to live in. I chose to be the creator of my life. I chose to put “self-love” into my purpose of life to cause a breakthrough in me experiencing my life authentically. Self-love to me meanS taking a stand for myself to experience being whole and complete at all times, including:<br>
+                                <br>
+                                
+                            </p>    
+
+                                   
+
+                           
+
+                            <p class="p-four">
+                                Fast forward to 2017, I joined the Mekong team in a 3-day exercise to co-create a new vision, Mekong Capital 2025. I clearly felt inspired. With my experience, I clearly knew what we needed to do in order to realize it. I was clearly ready.<br>
+                                <br>
+
+                                I continued to lead my team from what we had done so far: recruiting people, organizing training activities, facilitating some distinction sessions with the same way of being of waiting for the instructions, and avoiding the breakdowns by repeating something we did in the past that we thought it worked. I was pleased with my results..<br>
+                                <br>
+
+                                One year later, I attended another coaching session and discovered that I was moving toward Mekong Capital 2025 but instead of looking from there — from the future — to create my new being and new actions, on the contrary, I chose to continue being the same old me. Painfully speaking, the word ‘ENOUGH’ was a second shadow that was pulling me back.<br>
+                                <br>
+
+                                Leaving the session and thinking about this, I wanted to transform myself. I chose to be a different person. I dropped the word ‘ENOUGH’ and stood from the vision without any boundaries. I requested and sat down with my team members to co-create again the vision for our department. It took us one-hour debating “In 2025, what does our team look like?” Finally, the team excitedly declared the future that our team could contribute to realizing Mekong Capital vision:<br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    1. Being authentic to myself, respect all of my experiences-encourage myself to experience them the same and equally;
+
+
+                                </div>
+                            </div>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    2. Freedom and choices;
+
+
+                                </div>
+                            </div>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    3. I am my worth — Jeromosity to myself to hold me up to the future I declared;
+
+
+                                </div>
+                            </div>
+
+
+                            
+                          
+                            <p class="p-four">
+                                Beginning that very day, I started to pay attention to how I experience.<br>
+                                <br>
+
+                                I acknowledged whatever thoughts I had about myself.
+                                <br>
+
+                                I acknowledged what is going on within me and treat these experiences equally.
+                                <br>
+
+                                I gave myself space to just be with those experiences.<br>
+                                <br>
+
+                                Day by day, I can listen to myself and be aware of what is happening within me. I choose to not deny or chase them away but rather let them in and experience them fully. Then by magic, they just go away. <br><br>
+
+                                By doing this, I feel that I am living my life without being attached to any thoughts. I feel the fulfillment of me being whole and complete. I feel joy created within myself. The experience is just so full and complete.<br><br>
+
+                                
+                            </p>
+
+                            
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/ôm mặt.jpeg" alt="">
+                                <div class="image-p">
+                                    <p>Ngo Dinh Thao Phuong, VDI Champion, Mekong Capital</p>
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                Thus, I invite you to discover the trap of ‘Who-I-think-I-am’ which is made up of all of the vicious contexts or points of view that you have had about yourself. Then, once you break free from your prettily-wrapped prison box, you will be able to experience and listen to whatever your body and mind are telling you.<br>
+                                <br>
+
+                                You will discover the magic inside you. You will feel whole and complete. Experience the Power of Jeromosity within yourself, i.e, self-love, and let it blossom within you.
+
+
+                    
+                                
+                            </p>
+
+                            
+
+                                      
+
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

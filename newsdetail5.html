@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 35px;
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">My journey being a vision driven leader</h1>
+                            <p class="p-sub">by Chad Ovel, Partner, Mekong Capital
+                                28 January 2021
+                                
+                                </p>
+
+                                <div class="image">
+                                    <img class="image-minhkhue" src="./images/newsdetails/yellow hair.png" alt="">
+                                    <div class="image-p">
+                                        <p>Chad Ovel, Partner, Mekong Capital</p>
+                                    </div>
+                                </div>
+                            <p class="p-first">While the pandemic stops most of our journeys to the outside world, it also created a possibility for us to embark on one of the most remarkable journeys of all — a journey to our inner self. These journeys won’t capture the usual frivolous landscapes or exotic itineraries. Instead, these are the trips into our mind, to seek from our beautiful memories a mission of who we are and what we stand for.<br><br>
+
+                                Let me share mine with you. <br><br>
+
+                                I had always felt compelled to step in and provide leadership from a young age.<br><br>
+
+                                At age 10, I stepped in to be the Senior Patrol Leader of my Boy Scout Troop in Cedar Rapids, Iowa (USA) where I led my friends to recite the Scout Oath and Motto each Thursday night at the Patrol meetings.<br><br>
+
+                                At age 16, I stepped into being the Captain of my High School Cross Country Running Team where I helped the coach give the team pep talks before races and to ensure my teammates stayed true to their commitments during the longest and most painful practices of 20km or more (not taking shortcuts or hitching rides from generous friends).<br><br>
+
+                                At age 18, I felt compelled to run for Student Government at Carleton College and become an active Senator, where I caused time-efficient decision making in the student Senate by becoming masterful at Robert’s Rules of Order.<br>
+
+                                But not until I joined the World Wide Fund for Nature (WWF) Indochina Program in Hanoi, at the age of 22, did I discover that all this previous <b>“leadership”</b> was done in order to implement the design of others. Baden Powell had written the Boy Scout Handbook. The Iowa High School Athletic Association had fixed the calendar of cross-country running meets. Henry Robert had written Robert’s Rules of Order.<br>
+
+                                While at WWF, I learned that a true act of leadership requires declaring a possibility in the face of great uncertainty and resistance.<br>
+
+                                For instance, in 1997, I took a stand for the future of the highly biodiverse Phong Nha Ke Bang karst limestone forest ecosystem in Quang Binh Province of central Vietnam. Despite this forest system being relatively unknown, except to a few conversation scientists and the local Government officials, I successfully led an effort to expand the size of the National Park by 3x from 41,000 hectares to 123,000 hectares which, together with the adjacent Hin Namno National Park in Laos PDR, created a 400,000 hectare supersize transboundary protected area. To accomplish this goal, I had to inspire and enroll many different stakeholders including my own WWF colleagues, local and national level Government officials in both Vietnam and Laos, research scientists, foreign donors, and UNESCO who ultimately awarded World Heritage Status for the Park in 2003.<br>
+
+                                In 2000, I wanted to leverage my leadership at a larger scale and joined ScanCom, the world’s largest hardwood garden furniture company which worked in partnership with over 50 Vietnamese factories in Binh Duong, Quy Nhon, Da Nang, and Pleiku. With the support ScanCom’s visionary Danish Founder, Mr. Boje Bendzten, I declared the possibility to convert ScanCom’s wood supply chain to 100% sustainably sourced FSC-certified wood material with no increase in price to the customers. At the time, this seemed an impossible task to everyone in the industry including ScanCom’s clients, ScanCom’s partner factories in central Vietnam, and even ScanCom’s employees.<br>
+
+                                But after having achieved this audacious goal with just 24 months of relentless belief in the goal, customers from around the world acknowledged the feat and rewarded the company with a skyrocketing order book. ScanCom’s revenues grew over 10x in the years that followed, not only due to the great product design and competitive prices but also from this act of leadership to reinvent the garden furniture industry by delivering an environmentally and socially responsible product to the market.<br>
+
+                                I was then invited, in 2006, to take on the challenge to grow a well-respected Vietnamese interior fit-out and construction firm: AA Corporation. I started by declaring the possibility of growing the monthly revenue of the factory by 6x with no CAPEX and no hiring of new labor. Despite a large and disparate body of naysayers and doubtful production managers, the result was achieved in just six months. I then declared the possibility of not just winning contracts to fit-out the interiors of a single hotel ballroom or a single hotel lobby but to win contracts to fit-out the entire 5-star hotel from top to bottom. Achieving this result, AA Corporation’s revenues subsequently grew by over 10x during my years as CEO.<br><br>
+                                
+                            </p>
+                            <div class="image">
+                                <img class="image-minhkhue" src="./images/newsdetails/mic.jpeg" alt="">
+                            
+                            </div>
+
+                            <p class="p-four">
+                                In 2013, when I accepted Chris Freund’s invitation to join Mekong Capital, I had no idea that I would have to again completely reinvent my relationship with leadership. Within just a few weeks of joining Mekong Capital, I had an immediate and rude wake-up call that what had worked for me over the previous 15 years as Project Director (WWF), Managing Director (ScanCom), or CEO (AA Corporation) was not going to work in my new role at Mekong Capital. For the previous 15 years, I woke up each day, switched on my mobile phone, and marched my teams forward, like an American football quarterback marching my team down the field, through the use of directives, rapid decision-making, and getting my team organized around big crazy goals.<br>
+                                <br>
+
+                                But at Mekong Capital, I realized that I needed to be the coach, not the quarterback. I realized I now have to lead more through listening rather than through speaking. I learned that supporting others to evolve and grow their own leadership, in order to fulfill their own goals and visions, was far more challenging than just rolling up my sleeves and executing the work myself.<br>
+                                <br>
+
+                                Amazingly, this broke down our preconceived notions, showing us many things that we could do better: (1) digitalizing the NPS form survey, (2) proactively reinvented new ways to approach the candidates, (3) fully responsible for each individual’s accountabilities, (4) de-bottleneck as much as possible and many more.<br>
+                                <br>
+
+                                To this day, I remain on this journey of constantly finding new ways and approaches to being a better and more effective leadership coach for the Founders and management teams of our investee companies.<br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="image">
+                                <img class="image-minhkhue" src="./images/newsdetails/sitting.jpeg" alt="">
+                            
+                            </div>
+
+
+
+                            
+                                   
+
+                           
+
+                                      
+
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

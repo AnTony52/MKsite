@@ -28,7 +28,7 @@ html.page{
 
                             .content-image{
                                 overflow: hidden;
-                                max-height: 376px;  
+                                max-height: 366px;  
 
                             }   
 
@@ -56,13 +56,13 @@ html.page{
                             &:hover{
                                 .thumbnail{
                                     filter: grayscale(0);
-                                    transform: scale(1.1);
+                                    /*transform: scale(1.1);*/
                                     transition: .8s all;                                                                      
                                 }    
                                 .report-content{
                                     h3{
                                         a{
-                                            line-height: 16px;
+                                            /*line-height: 16px;*/
                                             color: $text-red-cl;                                            
                                         }
                                     }
@@ -70,9 +70,10 @@ html.page{
                             }
                             .thumbnail{
                                 filter: grayscale(1);
-                                transform: scale(1);
+                                /*transform: scale(1);*/
                                 transition:  .8s all;
-                                -webkit-transition:  .8s all;                                                            
+                                -webkit-transition:  .8s all;     
+                                max-width: 100%;
                             }                          
                             .content-text{
                                 display: none;
@@ -104,11 +105,28 @@ html.page{
                     }
                 }
             }
-            
+
             .view-more{
                 margin-top: -6px;
                 text-transform: lowercase;
             }
         }//fix-end
+    }
+}
+
+@include mobile {
+    .page-our-team{
+        #main{
+            .page-content{
+                .tab-page{
+                    margin-bottom: 24px !important;
+                }                
+                .list-team{
+                    .item-team{
+                        margin-bottom: 50px !important;
+                    }
+                }                
+            }
+        }
     }
 }

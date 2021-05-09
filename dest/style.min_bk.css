@@ -1,0 +1,56 @@
+/*
+Error: File to import not found or unreadable: imports/core/modal.
+        on line 6 of scss/style.scss
+
+1: /* Core variables and mixins*\/
+2: @import "imports/core/reset";
+3: @import "imports/core/variables";
+4: @import "imports/core/mixins";
+5: @import "imports/core/fonts";
+6: @import "imports/core/modal";
+7: @import "imports/core/layouts";
+8: @import "imports/core/elements";
+9: @import "imports/core/bootstrap_mini";
+10: @import "imports/core/libs";
+11: 
+
+Backtrace:
+scss/style.scss:6
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Users/dk/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/Users/dk/.rbenv/versions/3.0.0/bin/sass:23:in `load'
+/Users/dk/.rbenv/versions/3.0.0/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: imports/core/modal.\A         on line 6 of scss/style.scss\A \A 1: /* Core variables and mixins*/\A 2: @import \"imports/core/reset\";\A 3: @import \"imports/core/variables\";\A 4: @import \"imports/core/mixins\";\A 5: @import \"imports/core/fonts\";\A 6: @import \"imports/core/modal\";\A 7: @import \"imports/core/layouts\";\A 8: @import \"imports/core/elements\";\A 9: @import \"imports/core/bootstrap_mini\";\A 10: @import \"imports/core/libs\";\A 11: "; }

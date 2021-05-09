@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="page">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>NEWS</title>
+        <meta name="title" content="" />
+        <meta name="description" content="" />
+        <meta property="og:locale" content="vi" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Trang chủ" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:image" content="" />
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="./scss/imports/pages/_newsdetail.scss"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="dest/stylelibs.min.css">
+        <link rel="stylesheet" href="dest/style.min.css">
+        <link rel="stylesheet" href="dest/fonts.css">
+        <link href="https://www.mekongcapital.com/themes/mekongcapital/assets/custom/img/favicon.ico" rel="shortcut icon"
+              type="image/x-icon">
+        <style>
+            .container h1 {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 56px;
+                /* or 117% */
+                text-align: center;
+                text-transform: capitalize;
+                color: #000000;
+                transform: translateY(-92px);
+            }
+
+            .p-sub {
+
+
+                /* Body 14 */
+                transform: translateY(-57px);
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .p-first {
+                /* Body 14 */
+
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 0px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-seccond {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+                margin-top: 30px;
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .p-third {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 171% */
+
+                text-align: justify;
+                margin-top: 40px;
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+
+            .image {
+                text-align: center;
+
+
+                font-family: 'Zona-Pro';
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* identical to box height, or 200% */
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .image-minhkhue {
+                width: 100%;
+                margin-top: 34px;
+            }
+
+            .image-girl {
+                width: 100%;
+                margin-top: 49px;
+            }
+
+            .third-image {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 24px;
+                /* or 200% */
+                margin-top: 77px;
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.6);
+
+
+            }
+
+            .image-threegirl {
+                width: 100%;
+            }
+
+            .p-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                color: #720002;
+                text-align: right;
+            }
+
+            .p-four {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 35px;
+
+                text-align: justify;
+
+                color: #000000;
+
+                transform: rotate(0.01deg);
+            }
+            .blockquota{
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                color: #720002;
+                color: #720002;             
+            }
+            .p-red-red {
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 28px;
+                /* or 140% */
+                padding-left: 104px;
+                padding-right: 125px;
+                color: #720002;
+                margin-top: 101px;
+            }
+
+            .tag {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                margin-top: 87px;
+                color: #000000;
+                padding: 0px;
+                margin-bottom: 92px;
+
+
+            }
+
+            .reply {
+                font-family: var();
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 34px;
+                /* identical to box height, or 171% */
+
+                color: #000000;
+            }
+
+            .textbox {
+                font-family: 'Zona-Pro';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                margin-top: 10px;
+                color: #000000;
+            }
+
+            /* --------------------------------------------------story----------------------------------- */
+            .thumbnail {
+                width: 100%;
+
+            }
+        </style>
+
+    </head>
+
+    <body class="page-news">
+        <div class="mainwrapper">
+
+            <header id="header">
+                <div class="container ">
+                    <div class="block-logo">
+                        
+                    </div>
+                    <div class="right-side">
+                        <div class="" id="lang">
+                            <a href="">English</a>
+                            <a href="" class="cvb">Tieng Viet</a>
+                        </div>
+                        <button class="cvb hamburger hamburger--collapse" type="button" data-modal="popup-menubar"
+                                data-close-default="white">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                        <div class="modal-menubar-content" data-modal-menubar></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="" id="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="container-title">The Ugly Duckling</h1>
+                            <p class="p-sub">by Minh Giang, Partner of Talent and Culture, Mekong Capital
+                                28 February 2021</p>
+                            <p class="p-first">I grew up in a small town — Quang Ngai — in the Central of Vietnam. There was nothing special about family or myself except for ‘dramas’ and a lot of other opinions on the way I was raised and the way I experienced life.<br><br>
+                                Therefore, I chose to grow up headstrong and I wanted to prove myself to everyone. It immediately hit me when someone commented that “I am not good”. I reacted strongly when someone criticized my family background or my education. I always tried to be strong, even to my parents. I remembered one time when I was in an accident, covered with injuries, but I still insisted loudly that “I’m fine” with my parents. I was so afraid that others would find me weak and I didn’t want people to pity me because of that.<br><br>
+                                For a long time, I used all of that fake pretending to protect myself. I didn’t want anybody to know about, that “I am not good enough”. I didn’t want people to see that I was insecure about myself.<br><br>
+                                In 2010, I got to know about Mekong Capital and I decided to join because of one simple reason: Good company, good salary. I still remembered the day I received the offer letter. I screamed and shouted because I thought my life would definitely change to another chapter — a better one.<br><br>
+                            </p>
+
+                            <div class="image">
+                                <img class="image-minhkhue" src="./images/newsdetails/cay thong.jpg" alt="">
+                                <div class="image-p">
+                                    <p>Minh Giang at Mekong Capital in 2010</p>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                            <p class="p-seccond">
+                                But every day, I had to continuously face my fear. One day it was about my English was inefficient and everybody else had studied abroad. The other day was when I was still trying to understand what other people were saying in meetings, my colleagues were already giving sharp discussions. I felt so belittled. Many times, I questioned myself if could ‘survive’’ in this environment. I felt as if I was the ‘ugly duckling’ in the kingdom of swans.<br>
+                                <br>
+                                But years of trying to be ‘good enough’ had saved me. I told myself, “I’m still lucky enough to have a job, a nice boss, good salary. I’m fine. Let’s continue working for a few years, and then we’ll see”. <br>
+                                <br>
+                                With that in mind, I took advantage of every chance I get. Whatever people taught, whatever I learned, I did not hesitate to try it all on myself. I tried to hold on as I knew that it was not only for the sake of my study but also for the sake of getting paid to learn. <br>
+                                <br>
+                                That led me to the first Transformation Coaching Program in my life. Thanks to it, I realized that what had helped me survive was also the shadow that was slowly killing me called, <br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    “I am not good enough”.
+                                </div>
+                            </div>
+
+                            <p class="p-third">
+                                I was bounded by: ‘Growing up in the countryside, or ‘Not enough experience’ and so on. I also discovered and faced, for the first time, ‘what I am committed to’. I could see who I am clearly, and what was stopping me from living passionately and living as myself. The weird thing was, the more I discovered and the more I experienced, the lighter I felt. I dared to live more truthfully with myself, and more honest with people around me.<br>
+                                <br>
+
+                                I learned that comparing myself with people over at the investment team was a foolish thing to do. Everyone has their own strengths and every job is different. I was not good with numbers, but I believed I could easily get connected with anyone I wished to. <br><br>
+                                As such, in the first 3 years, I officially resigned myself from the word ‘NOT’ in “I am not good enough”. I continued to take on various accountability and was promoted to be at the senior level in the HR Department and then the Director of my HR team. I felt like the ugly duckling had finally found herself a beautiful swan spreads with the gorgeous large wings, entering the water with her family, Mekong Capital. <br><br>
+                            </p>
+
+                            
+                            <style type="text/css">
+                                .p-red .pi {
+                                    font-size: 80px;
+                                    font-family: 'Libre Baskerville', serif;
+                                    position: relative;
+                                    color: #720002;
+                                }
+
+                                
+                            </style>
+
+                                            <div class="seccond-image">
+                                        <img class="image-girl" src="./images/newsdetails/sing.jpg" alt="">
+                                        <div class="image-p">
+                                            <p>Minh Giang performing ‘Hello Vietnam’ in Mekong Capital’s 14th anniversary</p>
+                                        </div>
+                                    </div>
+
+                                   
+
+                           
+
+                            <p class="p-four">
+                                Fast forward to 2017, I joined the Mekong team in a 3-day exercise to co-create a new vision, Mekong Capital 2025. I clearly felt inspired. With my experience, I clearly knew what we needed to do in order to realize it. I was clearly ready.<br>
+                                <br>
+
+                                I continued to lead my team from what we had done so far: recruiting people, organizing training activities, facilitating some distinction sessions with the same way of being of waiting for the instructions, and avoiding the breakdowns by repeating something we did in the past that we thought it worked. I was pleased with my results..<br>
+                                <br>
+
+                                One year later, I attended another coaching session and discovered that I was moving toward Mekong Capital 2025 but instead of looking from there — from the future — to create my new being and new actions, on the contrary, I chose to continue being the same old me. Painfully speaking, the word ‘ENOUGH’ was a second shadow that was pulling me back.<br>
+                                <br>
+
+                                Leaving the session and thinking about this, I wanted to transform myself. I chose to be a different person. I dropped the word ‘ENOUGH’ and stood from the vision without any boundaries. I requested and sat down with my team members to co-create again the vision for our department. It took us one-hour debating “In 2025, what does our team look like?” Finally, the team excitedly declared the future that our team could contribute to realizing Mekong Capital vision:<br>
+                                <br>
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    “We reinvent human resources management, successfully build elite teams, and transform corporate culture.”
+
+
+                                </div>
+                            </div>
+                          
+                          
+
+                            
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/team.png" alt="">
+                                <div class="image-p">
+                                    <p>Minh Giang and her Wonderland Team of Talent Culture, Corporate Communications, VDI Champion, and Executive Assistants</p>
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                Personally, I found the excitement again with the new game and the new possibilities that I did not recognize before. My identity grew so much more than just being a GOOD person for my kingdom. I could also be someone who can empower others on their transformation journeys both inside and outside Mekong Capital. I took on being a coach to work closely with our investee companies to unlock their potential for Corporate Culture Transformation.<br>
+                                <br>
+
+                                Ten years have gone by since the ugly duckling first landed in Mekong Capital, she is now Mekong Capital’s first Partner of Talent and Culture. I found myself leading a flock of beautiful swans gliding and dipping through the sky to conquer new challenges and fulfilling dreams for Vietnam.
+
+<br>
+                                <br>
+
+                                From time to time, I came to face the last shadow that lingered for such a long time — being GOOD. For the first time, I took all the courage, to drop that burden.
+                                
+                            </p>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    I became ‘I am___!
+
+
+                                </div>
+                            </div>
+
+                            <div class="row mt-5 mb-5">
+                                <div class=" col-md-2">
+                                    <p class="p-red">
+                                        <span class="pi">&#8216;&#8216;</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 blockquota">
+                                    Yes, I am NOTHING to experience EVERYTHING.
+
+
+                                </div>
+                            </div>
+
+                            <p class="p-four">
+                                I reconnected with myself, whom I thought I had to lose to be the best staff possible: A child from Quang Ngai with grit and infinite optimism. I now feel true freedom and I am free to be myself with full self-expression in front of anyone. It is who I am today, both in work and life.<br>
+                                <br>
+
+                                No tiring duckling here. And even, no trying to be a swan here. I rekindle my confidence to BE myself. I am freely gliding through the sky and experience every moment to the fullest. I am whoever I want to be. Just that!
+                                
+                            </p>
+
+                            <div class="seccond-image">
+                                <img class="image-girl" src="./images/newsdetails/look in the sun.jpg" alt="">
+                            </div>
+
+                            <p class="p-four">
+                                I reconnected with myself, whom I thought I had to lose to be the best staff possible: A child from Quang Ngai with grit and infinite optimism. I now feel true freedom and I am free to be myself with full self-expression in front of anyone. It is who I am today, both in work and life.<br>
+                                <br>
+
+                                No tiring duckling here. And even, no trying to be a swan here. I rekindle my confidence to BE myself. I am freely gliding through the sky and experience every moment to the fullest. I am whoever I want to be. Just that!
+                                
+                            </p>
+
+                                      
+
+
+                            <p class="tag"><b>Tags:</b> MEKONG CAPITAL, ONTOLOGY, REINVENT PRIVATE EQUITY, SUSTAINABILITY</p>
+
+                            <p class="reply">Leave a Reply</p>
+
+                            <textarea class="textbox" rows="1" cols="50" name="comment" form="usrform">Enter your comment here...</textarea>
+                        </div>
+
+                        <div class="col-md-2 offset-md-5">
+                            <p class="title3"> 
+                                RECENT POST
+                            </p>
+                        </div>
+
+
+                        <Style>
+                            
+                            .container2-title{
+                                transform: translateY(100px);
+                                width: 100%;
+                                opacity: 0;
+
+                            }
+
+                          .title3{
+                                font-family: 'Sackers Gothic Std';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 17px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    margin-top: 60px;
+                            }
+
+
+                        </Style>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-7.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Max-Ferdinand Scheichenost</p>
+                                    <h3><a class="cvb" href="#" title="“Are you fulfilled? IKIGAI.”">“Are you fulfilled?
+                                            IKIGAI.”</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-8.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Rachel Davis</p>
+                                    <h3><a class="cvb" href="#" title="To BE or not to BE a Mekonger">To BE or not to BE a
+                                            Mekonger</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="content-image">
+                                    <a class="cvb" href="#"><img class="thumbnail"
+                                                                 src="images/news-stories-tab/stories-9.jpg" alt="" /></a>
+                                </div>
+                                <div class="content-text">
+                                    <p>Thao Phuong</p>
+                                    <h3><a class="cvb" href="#" title="I am all in for YOLA’s future.">I am all in for
+                                            YOLA’s future.</a></h3>
+                                    <p class="date">31 March 2021</p>
+                                </div>
+                            </div>
+
+                            <style>
+                                .col-md-12 {
+                                    display: flex;
+                                    margin-top: 80px;
+                                }
+
+                                .recent-post {
+                                    font-family: 'Sackers Gothic Std Medium';
+                                    font-style: normal;
+                                    font-weight: 800;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                    /* identical to box height, or 100% */
+
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    margin-bottom: 40px;
+
+
+                                    color: #000000;
+                                }
+
+                                .container {
+                                    margin-bottom: 100px;
+                                }
+                            </style>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+        <div id="blocks-modal"></div>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>

@@ -12,18 +12,12 @@ var reportSlide = (selector) => {
         prevNextButtons: false,
         pageDots: false,
         setGallerySize: false,
-        draggable: 0,
+        draggable: true,
         friction: 0.35,
         imagesLoaded: true,
         percentPosition: true,
         wrapAround: true,
         initialIndex: 0,
-    });
-    jQuery('.home-report .report-slider-button').on('click', '.prev', function () {
-        flkty.previous();
-    });
-    jQuery('.home-report .report-slider-button').on('click', '.next', function () {
-        flkty.next();
     });
 }
 var parallaxSlider = (selector, child, initialIndex = 0) => {
@@ -32,8 +26,8 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
         prevNextButtons: 0,
         pageDots: 0,
         setGallerySize: 0,
-        draggable: 0,
-        friction: 0.4,
+        draggable: 1,
+        friction: 0.5,
         imagesLoaded: 1,
         percentPosition: 1,
         wrapAround: 1,
@@ -93,8 +87,8 @@ var bannerSlider = () => {
             prevNextButtons: 0,
             pageDots: 0,
             setGallerySize: 0,
-            draggable: 0,
-            friction: 0.65,
+            draggable: 1,
+            friction: 0.5,
             imagesLoaded: 1,
             percentPosition: 1,
             wrapAround: 1,
@@ -155,6 +149,8 @@ jQuery(document).ready(function ($) {
     /**
      * load html for elements
      */
+//    $("html.page header").load("/partials/header.html");
+    $('.block-logo').load("/partials/logo-header.html");
     $("footer").load("/partials/footer.html");
     $('#popup-contact').load("/partials/popup-contact.html");
     $('#blocks-modal').load("/partials/modal.html");
@@ -311,13 +307,13 @@ jQuery(document).ready(function ($) {
                     autoAlpha: 1,
                 });
                 gsap.timeline()
-                    .to("#loading", 2, {
-                        xPercent: 0,
-                        ease: Power4.easeInOut,
-                        onComplete: () => {
-                            window.location = target.getAttribute("href")
-                        },
-                    });
+                        .to("#loading", 1, {
+                            xPercent: 0,
+                            ease: Power4.easeInOut,
+                            onComplete: () => {
+                                window.location = target.getAttribute("href")
+                            },
+                        });
             });
         });
     }
@@ -495,29 +491,29 @@ jQuery(document).ready(function ($) {
         var heightReport = document.querySelector(".home-report").offsetHeight;
     }
     var homeReport = new ScrollMagic.Scene({
-            triggerElement: ".home-report",
-            duration: "200%",
-            offset: 100,
-        })
-        .on("enter", function () {
-            gsap.timeline()
-                .to('.home-report-title h3 .word', 1, {
-                    // yPercent: 0,
-                    y: 0,
-                    opacity: 1,
-                    stagger: 0.1,
-                    ease: Power4.easeInOut,
-                })
-                .to('.slider-item', .75, {
-                    opacity: 1,
-                    stagger: 0.2,
-                    ease: Power4.easeInOut,
-                }, '-=1');
-        })
-        // .addIndicators({
-        // name: "Report"
-        // }) // add indicators (requires plugin)
-        .addTo(controller);
+        triggerElement: ".home-report",
+        duration: "200%",
+        offset: 100,
+    })
+            .on("enter", function () {
+                gsap.timeline()
+                        .to('.home-report-title h3 .word', 1, {
+                            // yPercent: 0,
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.1,
+                            ease: Power4.easeInOut,
+                        })
+                        .to('.slider-item', 1, {
+                            opacity: 1,
+                            stagger: 0.2,
+                            ease: Power4.easeInOut,
+                        }, 0.5);
+            })
+            // .addIndicators({
+            // name: "Report"
+            // }) // add indicators (requires plugin)
+            .addTo(controller);
     // ========================================
     // Our Funds
     // ========================================
@@ -920,14 +916,14 @@ var modalPopup = {
             } else {
                 $('.modal-popup').css({'z-index': 99999, 'transform': 'inherit'});
                 $('.menu-overlay').css('transform', 'translate(0%, 0%)');
-                if($(this).data('modal') == "popup-menubar"){
+                if ($(this).data('modal') == "popup-menubar") {
                     gsap.set('.modal-contact-right .footer-menu ul > li', {opacity: 0});
-                }else{
+                } else {
                     gsap.set('.getintouch-contact h3', {opacity: 0});
                     gsap.set('.getintouch-contact .getintouch-item', {opacity: 0});
-                    gsap.set('.modal-contact-right .contact-form input', {opacity: 0});
+                    gsap.set('.modal-contact-right .contact-form .input-form', {opacity: 0});
                     gsap.set('.modal-contact-right .contact-form button', {opacity: 0});
-                    
+
                 }
             }
 
@@ -967,8 +963,8 @@ var modalPopup = {
 
                         }
                     });
-                    
-                    if(obj.data('modal') == "popup-menubar"){
+
+                    if (obj.data('modal') == "popup-menubar") {
                         gsap.fromTo('.modal-contact-right .footer-menu ul > li',
                                 {y: 20, opacity: 0},
                                 {
@@ -982,26 +978,26 @@ var modalPopup = {
                                     }
                                 }
                         );
-                
-                        $('.modal-contact-right .footer-menu ul > li').on('mouseenter',function(){
+
+                        $('.modal-contact-right .footer-menu ul > li').on('mouseenter', function () {
                             $(this).parent().find('.-word').addClass('grayed');
                             $(this).find('.-word').removeClass('grayed');
 //                            '.modal-contact-right .footer-menu ul > li .numbering'
-                            gsap.fromTo($(this).find('.numbering'),{
-                                x:20, opacity: 0
-                            },{
-                                x:0, opacity: 1
+                            gsap.fromTo($(this).find('.numbering'), {
+                                x: 20, opacity: 0
+                            }, {
+                                x: 0, opacity: 1
                             });
-                        }).on('mouseleave',function(){
+                        }).on('mouseleave', function () {
                             $(this).find('.-word').removeClass('grayed');
-                            gsap.fromTo($(this).find('.numbering'),{
-                                x:0, opacity: 1
-                            },{
-                                x:20, opacity: 0
-                            });                            
+                            gsap.fromTo($(this).find('.numbering'), {
+                                x: 0, opacity: 1
+                            }, {
+                                x: 20, opacity: 0
+                            });
                         });
-                    }else{
-                       gsap.fromTo('.modal-contact-right .contact-form input, .modal-contact-right .contact-form .input-group',
+                    } else {
+                        gsap.fromTo('.modal-contact-right .contact-form .input-form',
                                 {y: 20, opacity: 0},
                                 {
                                     y: 0,
@@ -1009,26 +1005,23 @@ var modalPopup = {
                                     stagger: 0.2,
                                     duration: 2.5,
                                     onComplete: function () {
-//                                        $('html').css('overflow', 'hidden');
-//                                        const cursorCustomize = new Cursor();
+                                        gsap.fromTo('.modal-contact-right .contact-form button',
+                                                {y: 20, opacity: 0},
+                                                {
+                                                    y: 0,
+                                                    opacity: 1,
+                                                    stagger: 0.2,
+                                                    duration: 1,
+                                                    onComplete: function () {
+                                                        //                                        $('html').css('overflow', 'hidden');
+                                                        //                                        const cursorCustomize = new Cursor();
+                                                    }
+                                                }
+                                        );
                                     }
                                 }
                         );
-                
-                       gsap.fromTo('.modal-contact-right .contact-form button',
-                                {y: 20, opacity: 0},
-                                {
-                                    y: 0,
-                                    opacity: 1,
-                                    stagger: 0.2,
-                                    duration: 2.5,
-                                    onComplete: function () {
-//                                        $('html').css('overflow', 'hidden');
-//                                        const cursorCustomize = new Cursor();
-                                    }
-                                }
-                        );                
-                        
+
                         gsap.fromTo('.getintouch-contact h3',
                                 {y: 20, opacity: 0},
                                 {
@@ -1042,7 +1035,7 @@ var modalPopup = {
                                     }
                                 }
                         );
-                
+
                         gsap.fromTo('.getintouch-contact .getintouch-item',
                                 {y: 20, opacity: 0},
                                 {
@@ -1055,20 +1048,10 @@ var modalPopup = {
                                         const cursorCustomize = new Cursor();
                                     }
                                 }
-                        );      
-                
+                        );
+
                         $('html').css('overflow', 'hidden');
-                        
-                        $('.input-group .input-group-default .arrow').on('click',function(){
-                            $(this).parent().next().toggle();
-                        });
-                        $('.input-group .input-left li').on('click',function(){
-                            var src = $(this).find('img').attr('src');
-                            var text = $(this).find('span:eq(1)').text();
-                            $('.input-group .input-group-default .check-flag').attr('src',src);
-                            $('.input-group .input-group-default i').text(text);
-                            $('.input-group .input-left').toggle();
-                        })
+
                     }
 
 //                    gsap.fromTo('.modal-contact-left',5,
@@ -1360,16 +1343,16 @@ var tabBlocks = {
 //                $(this).parent().find(' > ul').slideToggle();
 //            }
 //        });
-            $(this.element_selector + ' > a').on('mouseenter', function () {
-                if ($(this).parent().find(' > ul').length > 0) {
-                    $(this).parent().find(' > ul').slideToggle();
-                }
-            });
-            $(this.element_selector).on('mouseleave', function () {
-                if ($(this).parent().find(' > ul').length > 0) {
-                    $(this).parent().find(' > ul').slideToggle();
-                }
-            });
+        $(this.element_selector + ' > a').on('mouseenter', function () {
+            if ($(this).parent().find(' > ul').length > 0) {
+                $(this).parent().find(' > ul').slideToggle();
+            }
+        });
+        $(this.element_selector).on('mouseleave', function () {
+            if ($(this).parent().find(' > ul').length > 0) {
+                $(this).parent().find(' > ul').slideToggle();
+            }
+        });
         return;
     },
     prev: function () {
@@ -1421,6 +1404,62 @@ $(window).resize(function () {
 
 jQuery(window).load(function () {
     tabBlocks.init();
-    modalPopup.init();  
+    modalPopup.init();
     const cursorCustomize = new Cursor();
+
+    if (jQuery('#main .tab-page ul li.active a').length > 0) {
+        if (jQuery('#main .page-content .tab-content').length > 0) {
+            var link = jQuery('#main .tab-page ul li.active a').attr('href');
+            if (link != '#') {
+                jQuery('#main .page-content .tab-content').fadeOut('medium', function () {
+                    $(this).load(link, function () {
+                        $(this).fadeIn('medium', function () {
+                            modalPopup.init();
+                            cursorCustomize.initHovers();
+                        })
+                    });
+                })
+            }
+        }
+    }
+
+    jQuery('#main .tab-page ul li a').on('click', function (e) {
+        e.preventDefault();
+        $(this).parents('ul').find('li.active').removeClass('active');
+        $(this).parent().addClass('active');
+
+        var url = $(this).attr('href');
+        if (url != '#') {
+            jQuery('#main .page-content .tab-content').fadeOut('medium', function () {
+                $(this).load(url, function () {
+                    $(this).fadeIn('medium', function () {
+                        modalPopup.init();
+                        cursorCustomize.initHovers();
+                    })
+                });
+            })
+        }
+    })
+    
+    jQuery('#main .tab-page ul').on("swipe move",function(){
+      console.log('sdjsgdfjhgsh');
+    });
+    
+    jQuery('.modal-popup').on('click', '.input-group .input-group-default .arrow', function (e) {                                           
+        e.preventDefault();
+        var obj_flag = jQuery(this).parent().next();
+        if(obj_flag.css('display') == 'none'){
+            obj_flag.slideDown();
+        }else{
+            obj_flag.slideUp();
+        }                                            
+        console.log(jQuery(this).parent().next());
+        return false;
+    }).on('click', '.input-group .input-left li', function () {
+        var src = jQuery(this).find('img').attr('src');
+        var text = jQuery(this).find('span:eq(1)').text();
+        jQuery('.input-group .input-group-default .check-flag').attr('src', src);
+//        jQuery('.input-group .input-group-default i').text(text);
+        jQuery('.input-group .input-left').toggle();
+    });    
 })
