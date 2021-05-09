@@ -849,7 +849,7 @@ class Cursor {
             });
         };
 
-        const linkItems = document.querySelectorAll(".home-stories-icon");
+        const linkItems = document.querySelectorAll(".home-stories-icon-none");
         linkItems.forEach(item => {
             item.addEventListener("mouseenter", handleMouseEnter);
             item.addEventListener("mouseleave", handleMouseLeave);
