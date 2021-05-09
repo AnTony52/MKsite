@@ -279,7 +279,9 @@
                 width: 7vw;
                 @include d-flex;
                 @include justify-content(space-between);
-
+                @include mobile {
+                    display: none;
+                }
                 .arrow {
                     position: relative;
 
@@ -487,6 +489,7 @@
             margin-bottom: 160px;
             @include d-flex();
             flex-direction: column;
+            padding: 0;
         }
 
         .text-right {
@@ -568,7 +571,9 @@
             max-width: 1224px;
             margin: 0 auto;
             margin-top: 32px;
-
+            @include mobile {
+                padding-left: 15px;
+            }
             .slider-item {
                 width: 32%;
                 height: 50%;

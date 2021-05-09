@@ -33,7 +33,7 @@ body {
     @include custom-scrollbar();
     .container {
         width: 100%;
-        max-width: $container-max-width;
+        max-width: $container-width;
     }
 
     h3 {

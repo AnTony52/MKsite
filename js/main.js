@@ -4,7 +4,7 @@
 
 var reportSlide = (selector) => {
     var elem = document.querySelector(selector);
-    var flkty = new Flickity(elem, {
+    var options = {
         // options
         cellAlign: 'left',
         contain: true,
@@ -12,12 +12,27 @@ var reportSlide = (selector) => {
         prevNextButtons: false,
         pageDots: false,
         setGallerySize: false,
-        draggable: true,
+        draggable: 0,
         friction: 0.35,
         imagesLoaded: true,
         percentPosition: true,
         wrapAround: true,
         initialIndex: 0,
+    }
+    if (window.matchMedia("(max-width: 576px)").matches) {
+        /* The viewport is less than, or equal to, 576 pixels wide */
+        options.draggable = 1
+      } else {
+        /* The viewport is greater than 700 pixels wide */
+        options.draggable = 0
+      }
+    var flkty = new Flickity(elem, options);
+
+    jQuery('.home-report .report-slider-button').on('click', '.prev', function () {
+        flkty.previous();
+    });
+    jQuery('.home-report .report-slider-button').on('click', '.next', function () {
+        flkty.next();
     });
 }
 var parallaxSlider = (selector, child, initialIndex = 0) => {
