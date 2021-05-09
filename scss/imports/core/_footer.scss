@@ -224,7 +224,7 @@ footer {
                 margin-bottom: 20px;
             }
         }
-
+        p {text-transform: capitalize;}
         .socials {
             @include d-flex;
             @include justify-content(space-between);

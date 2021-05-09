@@ -237,7 +237,10 @@
             margin: 0 auto;
             margin-bottom: 80px;
             max-width: 930px;
-
+            @include mobile {
+                padding: 0 15px;
+                margin-bottom: 40px;
+            }
             * {
                 text-align: center;
             }
@@ -486,6 +489,7 @@
         color: $text-black-cl;
 
         @include mobile {
+            margin-top: 160px;
             margin-bottom: 160px;
             @include d-flex();
             flex-direction: column;
@@ -496,7 +500,7 @@
             @include mobile {
                 text-align: center;
                 order: 999;
-                margin-top: 32px;
+                margin-top: 0;
             }
 
             .showall {
@@ -1043,7 +1047,7 @@
         margin-top: -200px;
 
         @include mobile {
-            height: 100vh;
+            // height: 100vh;
             // bottom: -3px;
         }
 
