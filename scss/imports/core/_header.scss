@@ -1,13 +1,15 @@
-html.page{
+html.page {
     header {
-        .logo-white{
+        .logo-white {
             display: inline-block;
         }
-        .logo-black{
-            display:none;
+
+        .logo-black {
+            display: none;
         }
+
         &.bloody-hat--On {
-            &.scrolled-up{
+            &.scrolled-up {
                 .container {
                     .right-side {
                         #lang {
@@ -17,21 +19,26 @@ html.page{
                         }
                     }
                 }
-                .hamburger{
-                    .hamburger-inner{
-                        background: $white-cl; 
-                        &:before, &:after{
-                            background: $white-cl; 
+
+                .hamburger {
+                    .hamburger-inner {
+                        background: $white-cl;
+
+                        &:before,
+                        &:after {
+                            background: $white-cl;
                         }
                     }
-                }              
-                .logo-black{
+                }
+
+                .logo-black {
                     display: none;
 
-                } 
-                .logo-white{
+                }
+
+                .logo-white {
                     display: inline-block;
-/*                    position: absolute;
+                    /*                    position: absolute;
                     width: 121px;
                     height: 38px;
                     top: 20px;*/
@@ -39,6 +46,7 @@ html.page{
 
             }
         }
+
         .container {
             @include d-flex;
             @include justify-content(space-between);
@@ -75,6 +83,7 @@ html.page{
                 }
             }
         }
+
         .hamburger {
             padding: 0;
 
@@ -85,7 +94,7 @@ html.page{
 
                 .hamburger-inner,
                 .hamburger-inner:after,
-                    .hamburger-inner:before {
+                .hamburger-inner:before {
                     background-color: $white-cl;
                     height: 2px;
                 }
@@ -146,6 +155,7 @@ header {
         @include align-items(center);
         height: 100%;
         width: 100%;
+
         /*background:  #B70004;*/
         [title="MEKONG"] {
             margin-right: auto;
@@ -208,7 +218,7 @@ header {
 
             .hamburger-inner,
             .hamburger-inner:after,
-                .hamburger-inner:before {
+            .hamburger-inner:before {
                 background-color: #fff;
                 height: 2px;
             }
@@ -318,3 +328,4 @@ header {
     //     @include transform(translate(-50%, -50%));
     // }
 }
+
