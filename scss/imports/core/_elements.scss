@@ -129,6 +129,48 @@ strong {
     }
 }
 
+@include keyframes(beforeAnim) {
+    0% {
+        width: 0;
+        opacity: 1;
+        @include transition(width .3s);
+    }
+
+    50% {
+        width: 100%;
+        opacity: 1;
+    }
+
+    51% {
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 0;
+    }
+}
+
+@include keyframes(afterAnim) {
+    0% {
+        width: 100%;
+        opacity: 0;
+    }
+    50% {
+        width: 100%;
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        opacity: 1;
+        @include transition(width .3s);
+    }
+}
 
 /* ------------ Triangles ----------- */
 $triangle-size: 8px;

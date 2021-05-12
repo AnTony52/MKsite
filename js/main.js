@@ -115,7 +115,6 @@ var bannerSlider = () => {
                 change: (index) => {
                     jQuery('.banner-button').eq(index).addClass("active").siblings().removeClass("active");
                 },
-
             }
         });
         window.onresize = function (event) {
@@ -254,6 +253,30 @@ jQuery(document).ready(function ($) {
     // on Load Home Page
     // --------------------------------------------
     if (document.querySelector("#loading.home-page")) {
+        gsap.set(".main-subjects h3, #panel", {
+            autoAlpha: 0,
+        });
+        document.querySelector(".m-c-center").addEventListener('click', function() {
+            console.log("ok");
+            let choosen = gsap.timeline({
+                    paused: true,
+                })
+                .to(".m-c-center", 1, {
+                    autoAlpha: 0,
+                    delay: 1,
+                })
+                .to(".main-copy", 1, {
+                    autoAlpha: 0,
+                })
+                .to(".main-bg", 2, {
+                    scale: 1.5,
+                }, '-=1')
+                .to('.main-subjects h3, #panel', 1, {
+                    autoAlpha: 1,
+                    stagger: 0.1,
+                });
+            choosen.play();
+        });
         jQuery('img').imagesLoaded(function () {
             // images have loaded
             var count = 0;
@@ -281,20 +304,20 @@ jQuery(document).ready(function ($) {
                         .from(".m-c-center", 1, {
                             autoAlpha: 0,
                         })
-                        .to(".m-c-center", 1, {
-                            autoAlpha: 0,
-                            delay: 1,
-                        })
-                        .to(".main-copy", 1, {
-                            autoAlpha: 0,
-                        })
-                        .to(".main-bg", 2, {
-                            scale: 1.5,
-                        }, '-=1')
-                        .from('.main-subjects h3, #panel', 1, {
-                            autoAlpha: 0,
-                            stagger: 0.1,
-                        })
+                    // .to(".m-c-center", 1, {
+                    //     autoAlpha: 0,
+                    //     delay: 1,
+                    // })
+                    // .to(".main-copy", 1, {
+                    //     autoAlpha: 0,
+                    // })
+                    // .to(".main-bg", 2, {
+                    //     scale: 1.5,
+                    // }, '-=1')
+                    // .from('.main-subjects h3, #panel', 1, {
+                    //     autoAlpha: 0,
+                    //     stagger: 0.1,
+                    // })
                 }
             }, 50);
         });
@@ -769,7 +792,9 @@ jQuery(document).ready(function ($) {
     //     });
     // });
 
-    jQuery("a[href*='our-funds.html'], a[href*='our-team.html'], a[href*='our-story.html'], a[href*='gallery.html']").click(function (e) {e.preventDefault();});
+    jQuery("a[href*='our-funds.html'], a[href*='our-team.html'], a[href*='our-story.html'], a[href*='gallery.html']").click(function (e) {
+        e.preventDefault();
+    });
 
 })
 
