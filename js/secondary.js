@@ -2,13 +2,13 @@ $(function () {
     /**
      * load html into sections, for investor.html
      */
-    // $("section.our-funds").load("/partials/our-funds.html");
-    // $("section.pioneers").load("/partials/pioneers.html");
-    // $(".full-screen-video").load("/partials/full-screen-video.html");
-    // $(".our-team").load("/partials/our-team.html");
+        // $("section.our-funds").load("/partials/our-funds.html");
+        // $("section.pioneers").load("/partials/pioneers.html");
+        // $(".full-screen-video").load("/partials/full-screen-video.html");
+        // $(".our-team").load("/partials/our-team.html");
 
 
-    // save all GSAP animations into one object
+        // save all GSAP animations into one object
     let GSAP = {};
 
     /**
@@ -128,8 +128,10 @@ $(function () {
                 settings = $.extend({
                     activeClass: 'magnetizing',
                     scale: 1,
-                    onEnter: function (data) {},
-                    onExit: function (data) {},
+                    onEnter: function (data) {
+                    },
+                    onExit: function (data) {
+                    },
                 }, options),
                 isEnter = false,
                 calculateDistance = function ($el, mouseX, mouseY) {
@@ -215,44 +217,49 @@ $(function () {
 
         if (!settings.target.length) return;
 
-        let childLines = new SplitText(settings.target, {
-                type: "lines",
-                linesClass: settings.lineChildClass
-            }),
-            parentLines = new SplitText(settings.target, {
-                type: "lines",
-                linesClass: settings.lineParentClass
-            }),
-            tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: settings.trigger.length ? settings.trigger : settings.target,
-                    start: settings.triggerStart,
-                    end: settings.triggerEnd,
-                    markers: settings.triggerMarkers,
-                },
-                onComplete: ()=>{childLines.revert()}
+        // wait until page finish loading to run animation
+        $(window).on('load', function () {
+            let childLines = new SplitText(settings.target, {
+                    type: "lines",
+                    linesClass: settings.lineChildClass
+                }),
+                parentLines = new SplitText(settings.target, {
+                    type: "lines",
+                    linesClass: settings.lineParentClass
+                }),
+                tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: settings.trigger.length ? settings.trigger : settings.target,
+                        start: settings.triggerStart,
+                        end: settings.triggerEnd,
+                        markers: settings.triggerMarkers,
+                    },
+                    onComplete: () => {
+                        childLines.revert()
+                    }
+                });
+
+            gsap.set(parentLines.lines, {
+                overflow: 'hidden'
+            });
+            gsap.set(childLines.lines, {
+                transformOrigin: 'left top'
             });
 
-        gsap.set(parentLines.lines, {
-            overflow: 'hidden'
-        });
-        gsap.set(childLines.lines, {
-            transformOrigin: 'left top'
-        });
+            tl.staggerFromTo(childLines.lines, settings.duration, {
+                autoAlpha: 0,
+                y: '100%',
+                rotation: settings.rotation,
+                ease: "power4.out"
+            }, {
+                autoAlpha: 1,
+                y: 0,
+                rotation: 0,
+                ease: "power4.out"
+            }, settings.stagger, 0);
 
-        tl.staggerFromTo(childLines.lines, settings.duration, {
-            autoAlpha: 0,
-            y: '100%',
-            rotation: settings.rotation,
-            ease: "power4.out"
-        }, {
-            autoAlpha: 1,
-            y: 0,
-            rotation: 0,
-            ease: "power4.out"
-        }, settings.stagger, 0);
-
-        return tl;
+            return tl;
+        });
     };
 
 
@@ -268,14 +275,14 @@ $(function () {
         });*/
 
         // home stories
-        $('section.home-stories').each(function (){
+        $('section.home-stories').each(function () {
             GSAP.linesEffect({
                 target: $(this).find('.h-s-title h2, .h-s-title p'),
             });
         });
 
         // home report
-        $('section.home-report').each(function (){
+        $('section.home-report').each(function () {
             GSAP.linesEffect({
                 target: $(this).find('.home-report-title h3, .home-report-title h2'),
             });
@@ -389,11 +396,11 @@ $(function () {
             //autoplay: true,
             //autoplaySpeed: 3000,
             responsive: [{
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
                 {
                     breakpoint: 769,
                     settings: {
