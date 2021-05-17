@@ -31,6 +31,7 @@
                 font-size: 14px;
                 text-transform: lowercase;
                 display: inline-block;
+                padding-bottom: 8px;
                 position: relative;
                 @include transition(.5s ease-in-out);
 
@@ -51,19 +52,8 @@
 
                 &::after {
                     right: 0;
-                    // @include transition(width .3s);
                     @include animation(afterAnim 3s infinite);
                 }
-
-                // &:hover::before {
-                //     width: 100%;
-                //     @include transition(width .3s);
-                // }
-
-                // &:hover::after {
-                //     width: 100%;
-                //     background: transparent;
-                // }
 
             }
         }
@@ -125,7 +115,6 @@
         @include align-items(center);
         flex-direction: column;
         left: 80%;
-
         @include desktop-large {
             left: 75%;
         }

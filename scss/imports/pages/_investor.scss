@@ -285,30 +285,6 @@
                 .arrow {
                     position: relative;
 
-
-
-                    // &::before {
-                    //     content: "";
-                    //     width: 20px;
-                    //     width: 0;
-                    //     height: 2px;
-                    //     background-color: #000;
-                    //     position: absolute;
-                    //     @include transition(0.5s ease);
-                    //     @include transform(translate(-50%, -50%) rotate(45deg));
-                    // }
-
-                    // &.left {
-                    //     &::before {
-                    //         border-radius: 50px;
-                    //     }
-                    // }
-
-                    // &.right {
-                    //     &::before {
-                    //         border-radius: 50px;
-                    //     }
-                    // }
                 }
             }
 
@@ -678,7 +654,6 @@
         overflow: hidden;
 
         h3 {
-            // font-family: 'happy-time-Regular';
             text-transform: lowercase;
             font-size: 80px;
             line-height: 72px;
@@ -784,8 +759,6 @@
             margin-bottom: 32px;
         }
 
-        .home-news-thumbnail {}
-
         .home-news-icon {
             position: absolute;
             top: 104px;
@@ -813,7 +786,6 @@
                 line-height: 56px;
                 max-width: 993px;
             }
-
         }
     }
 
@@ -894,16 +866,16 @@
             position: relative;
 
             ul {
-                .focused {
-                    z-index: 99;
+                // .focused {
+                    // z-index: 99;
                     // z-index: 13000;
                     // a {
                     //     -webkit-clip-path: inset(0 0 0 0) !important;
                     //     clip-path: inset(0 0 0 0) !important;
                     // }
-                }
+                // }
 
-                .focused-out {
+                // .focused-out {
                     // >a {
                     //     -webkit-clip-path: inset(0 100% 0 0);
                     //     clip-path: inset(0 100% 0 0);
@@ -913,7 +885,7 @@
                     //     -webkit-clip-path: inset(0 0 0 0) !important;
                     //     clip-path: inset(0 0 0 0) !important;
                     // }
-                }
+                // }
 
                 li {
                     position: relative;
@@ -925,7 +897,6 @@
                         // -webkit-clip-path: inset(0 0 0 100%);
                         // clip-path: inset(0 0 0 100%);
 
-                        // color: $text-red-cl;
                         // color: $darkblue;
                         // opacity: 30%;
                         // position: absolute;
@@ -963,8 +934,6 @@
 
                     &:hover {
                         // .word-grey {
-                        //     // color: $text-red-cl;
-                        //     // opacity: 1;
                         //     -webkit-clip-path: inset(0 0 0 0) !important;
                         //     clip-path: inset(0 0 0 0) !important;
                         // }
@@ -1148,8 +1117,6 @@
 
             li {
                 counter-increment: line-number;
-
-                a {}
             }
         }
 

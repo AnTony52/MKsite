@@ -93,8 +93,6 @@ var parallaxSlider = (selector, child, initialIndex = 0) => {
 // Banner
 // ----------------------
 var bannerSlider = () => {
-
-
     let banner = document.querySelector(".banner-slider");
     if (banner) {
         var flkty = new Flickity(banner, {
@@ -215,13 +213,6 @@ jQuery(document).ready(function ($) {
     // ----------------------
     // on Load
     // ----------------------
-    // const target = document.querySelectorAll('.target, .report-content h3 a, .our-fund-tabs .tab-content ul li a');
-    // if (target) {
-    //     const bannerText = Splitting({
-    //         target: target,
-    //         by: 'lines',
-    //     });
-    // }
 
     if (document.querySelector("#banner")) {
         // .mainwrapper
@@ -232,19 +223,7 @@ jQuery(document).ready(function ($) {
                 xPercent: -100,
                 delay: 0.5,
                 ease: Power4.easeInOut,
-            })
-        // .from("h1 .word", 1, {
-        //     yPercent: 100,
-        //     // transformOrigin: "left",
-        //     opacity: 0.5,
-        //     stagger: 0.1,
-        //     // skewX: 30,
-        //     ease: Power1.easeInOut,
-        //     delay: 0.1,
-        // })
-        // .from("#banner .subject", 3, {
-        //     opacity: 0,
-        // }, 3);
+            });
         jQuery("img").imagesLoaded(() => {
             onLoad.play();
         });
@@ -271,10 +250,13 @@ jQuery(document).ready(function ($) {
                 .to(".main-bg", 2, {
                     scale: 1.5,
                 }, '-=1')
-                .to('.main-subjects h3, #panel', 1, {
+                .to('.main-subjects h3', 1, {
                     autoAlpha: 1,
                     stagger: 0.1,
-                });
+                })
+                .to('#panel', 1, {
+                    autoAlpha: 0.7,
+                }, '-=.5');
             choosen.play();
         });
         jQuery('img').imagesLoaded(function () {
@@ -287,7 +269,6 @@ jQuery(document).ready(function ($) {
                 } else if (count >= 21 && count < 25) {
                     console.info("else if");
                     setTimeout(() => {
-                        // jQuery('#count').text("25");
                         jQuery('#count').text(count);
                     }, 1000);
                     count++;
@@ -439,7 +420,6 @@ jQuery(document).ready(function ($) {
         ease: Power4.easeInOut,
     });
     gsap.set('.page-content .content-text h3, .page-content .content-text .date', {
-        // yPercent: 100,
         y: 30,
         opacity: 0,
         ease: Power4.easeInOut,
